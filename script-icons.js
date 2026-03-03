@@ -56,7 +56,7 @@ function cleanupDuplicates() {
   }
 }
 
-function init() {
+export function init() {
   const iconsSection = document.querySelector(".icons-section");
   if (!iconsSection) return;
 
@@ -328,4 +328,3 @@ function init() {
   });
 }
 
-window.addEventListener("load", init);

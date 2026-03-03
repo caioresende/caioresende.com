@@ -4,13 +4,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const lenis = new Lenis();
+export function init() {
+  const lenis = new Lenis();
 
-lenis.on("scroll", ScrollTrigger.update);
+  lenis.on("scroll", ScrollTrigger.update);
 
-function update(time) {
-  lenis.raf(time * 1000);
+  function update(time) {
+    lenis.raf(time * 1000);
+  }
+
+  gsap.ticker.add(update);
+  gsap.ticker.lagSmoothing(0);
 }
-
-gsap.ticker.add(update);
-gsap.ticker.lagSmoothing(0);

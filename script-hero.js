@@ -1,9 +1,7 @@
 import * as THREE from 'three';
 import { vertexShader, fluidFragmentShader, displayFragmentShader } from './shaders.js';
 
-window.addEventListener("load", init);
-
-function init() {
+export function init() {
     const canvas = document.querySelector("canvas");
     const renderer = new THREE.WebGLRenderer({
         canvas,

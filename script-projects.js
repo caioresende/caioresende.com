@@ -15,7 +15,7 @@ const BASE_STROKE = "#ffffff";
 let rowStartWidth = 125;
 let rowEndWidth = 500;
 
-function init() {
+export function init() {
   const section = document.querySelector(".projects");
   if (!section) return;
 
@@ -215,4 +215,3 @@ function calculateSectionHeight(section, rows) {
   section.style.height = `${expandedSectionHeight}px`;
 }
 
-window.addEventListener("load", init);

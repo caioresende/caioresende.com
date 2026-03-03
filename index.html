@@ -5,6 +5,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caio Resende | Portfolio 2026</title>
+  <style>
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease;
+    }
+    .loader.loaded { opacity: 0; pointer-events: none; }
+    .loader-progress {
+      font-family: "Gabarito", sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      color: #fff;
+    }
+  </style>
   <link rel="stylesheet" href="/styles-hero.css" />
   <link rel="stylesheet" href="/styles-icons.css" />
   <link rel="stylesheet" href="/styles-logos.css" />
@@ -13,6 +32,10 @@
 </head>
 
 <body>
+  <div class="loader">
+    <span class="loader-progress">0%</span>
+  </div>
+
   <nav>
     <div class="site-name">
       <a href="#">Caio Resende</a>
@@ -39,11 +62,7 @@
     </div>
   </section>
 
-  <script type="module" src="script-smooth-scroll.js"></script>
-  <script type="module" src="script-hero.js"></script>
-  <script type="module" src="script-icons.js"></script>
-  <script type="module" src="script-projects.js"></script>
-  <script type="module" src="script-photos.js"></script>
+  <script type="module" src="script-loader.js"></script>
 </body>
 
 </html>

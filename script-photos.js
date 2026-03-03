@@ -4,7 +4,7 @@ import { PHOTOS_CONFIG } from "./photos-config.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function init() {
+export function init() {
   const section = document.querySelector(".photos-section");
   if (!section) return;
 
@@ -157,6 +157,3 @@ function init() {
   });
 }
 
-window.addEventListener("load", () => {
-  init();
-});
