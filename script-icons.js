@@ -102,7 +102,7 @@ function init() {
 
   // Slot-machine pool: all available logos
   const slotPool = [];
-  for (let i = 1; i <= 21; i++) slotPool.push(`/images/icons/logo_${i}.png`);
+  for (let i = 1; i <= 14; i++) slotPool.push(`/images/icons/slot_${i}.png`);
   for (let i = 1; i <= 7; i++) slotPool.push(`/images/icons/final_${i}.png`);
 
   // Save original (final) src for each icon
@@ -111,15 +111,15 @@ function init() {
     originalSrcs.push(icon.querySelector("img").src);
   });
 
-  // Pre-generate random swap sequences per icon (deterministic on scroll)
-  const slotSteps = 20; // number of swaps during Phase 1
-  const slotSequences = [];
-  for (let i = 0; i < iconElements.length; i++) {
-    const seq = [];
-    for (let s = 0; s < slotSteps; s++) {
-      seq.push(slotPool[Math.floor(Math.random() * slotPool.length)]);
+  // Pre-generate random swap sequences per icon (no duplicates per step)
+  const slotSteps = 20;
+  const iconCount = iconElements.length;
+  const slotSequences = Array.from({ length: iconCount }, () => []);
+  for (let s = 0; s < slotSteps; s++) {
+    const shuffled = [...slotPool].sort(() => Math.random() - 0.5);
+    for (let i = 0; i < iconCount; i++) {
+      slotSequences[i].push(shuffled[i]);
     }
-    slotSequences.push(seq);
   }
   let lastSlotStep = -1;
 

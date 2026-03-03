@@ -11,7 +11,7 @@
     margin: 0 auto 1.5rem;
     text-align: center;
     color: #141414;
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 2rem);
     font-weight: 800;
     line-height: 1;
 }
@@ -31,15 +31,16 @@
     gap: 0.4rem;
     opacity: 0;
     transform: translateY(20px);
+    background-color: #e3e3db;
 }
 
 .logo-item img {
-    width: 85%;
-    aspect-ratio: 1;
+    width: 100%;
+    height: 64px;
     object-fit: contain;
-    border-radius: 12px;
-    padding: 0.5rem;
+    padding: 0.25rem;
     filter: grayscale(1);
+    mix-blend-mode: multiply;
 }
 
 @media (max-width: 1000px) {
