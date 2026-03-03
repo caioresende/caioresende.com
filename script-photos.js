@@ -8,12 +8,12 @@ function init() {
   const section = document.querySelector(".photos-section");
   if (!section) return;
 
-  const isMobile = window.innerWidth <= 1000;
-  const BASE_W = isMobile ? 160 : 250;
-  const STICKER_BASE_W = isMobile ? 80 : 120;
-
   const vw = window.innerWidth;
   const vh = window.innerHeight;
+
+  // Viewport-relative base widths — pure ratio keeps positions proportional
+  const BASE_W = vw * 0.15;
+  const STICKER_BASE_W = vw * 0.07;
 
   // ---- Photo cards ----
   const cards = PHOTOS_CONFIG.cards.map((cfg) => {
@@ -159,13 +159,4 @@ function init() {
 
 window.addEventListener("load", () => {
   init();
-
-  // TEMP: auto-scroll to photos section resting state (50% progress)
-  setTimeout(() => {
-    const st = ScrollTrigger.getAll().find(
-      (t) => t.vars.trigger === ".photos-section"
-    );
-    if (!st) return;
-    window.scrollTo(0, st.start + (st.end - st.start) * 0.5);
-  }, 500);
 });

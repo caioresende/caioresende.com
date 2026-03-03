@@ -33,7 +33,6 @@
 
 .photo-card {
     position: absolute;
-    width: 250px;
     will-change: transform;
     filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.22));
 }
@@ -44,20 +43,10 @@
 
 .sticker-card {
     position: absolute;
-    width: 120px;
     will-change: transform;
     filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.22));
 }
 
 .sticker-card img {
     width: 100%;
-}
-
-@media (max-width: 1000px) {
-    .photo-card {
-        width: 160px;
-    }
-    .sticker-card {
-        width: 80px;
-    }
 }
