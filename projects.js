@@ -1,0 +1,18 @@
+export const PROJECTS = [
+  { name: "Fieldnotes", year: 2020, img: "/images/projects/img1.jpg" },
+  { name: "Redline", year: 2021, img: "/images/projects/img2.jpg" },
+  { name: "Gallery Walk", year: 2019, img: "/images/projects/img3.jpg" },
+  { name: "Side Profile", year: 2022, img: "/images/projects/img4.jpg" },
+  { name: "Open Mic", year: 2023, img: "/images/projects/img5.jpg" },
+  { name: "Backboard", year: 2024, img: "/images/projects/img6.jpg" },
+  { name: "Afterglow", year: 2021, img: "/images/projects/img7.jpg" },
+  { name: "Hill House", year: 2020, img: "/images/projects/img8.jpg" },
+  { name: "Low Tide", year: 2018, img: "/images/projects/img9.jpg" },
+  { name: "Timepiece", year: 2019, img: "/images/projects/img10.jpg" },
+  { name: "Close Focus", year: 2022, img: "/images/projects/img11.jpg" },
+  { name: "Airframe", year: 2023, img: "/images/projects/img12.jpg" },
+  { name: "Hardcase", year: 2024, img: "/images/projects/img13.jpg" },
+  { name: "Deep Red", year: 2021, img: "/images/projects/img14.jpg" },
+  { name: "Fast Track", year: 2022, img: "/images/projects/img15.jpg" },
+  { name: "Night Shift", year: 2025, img: "/images/projects/img16.jpg" },
+];
