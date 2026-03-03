@@ -1,0 +1,115 @@
+.icons-section {
+    position: relative;
+    width: 100vw;
+    height: 100svh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e3e3db;
+    color: #141414;
+    overflow: hidden;
+}
+
+.animated-icons {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    will-change: transform;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.animated-icons-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.animated-icon {
+    flex: 1;
+    aspect-ratio: 1;
+    will-change: transform;
+}
+
+.animated-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.icons-content {
+    will-change: transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animated-text {
+    position: relative;
+    max-width: 1000px;
+    text-align: center;
+    color: #141414;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.text-segment {
+    opacity: 0;
+}
+
+.placeholder-icon {
+    margin: -10px 4px 0;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    will-change: transform;
+    visibility: hidden;
+}
+
+.duplicate-icon {
+    pointer-events: none;
+    z-index: 3;
+}
+
+.duplicate-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* Logos reveal (inside pinned section) */
+.logos-reveal {
+    position: absolute;
+    top: 48%;
+    left: 0;
+    right: 0;
+    padding: 0 2rem 2rem;
+    will-change: transform, opacity;
+}
+
+@media (max-width: 1000px) {
+    .animated-text {
+        font-size: clamp(1.5rem, 8vw, 3rem);
+    }
+
+    .placeholder-icon {
+        margin-top: -4px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .logos-reveal {
+        top: 40%;
+        padding: 0 1.5rem 1.5rem;
+    }
+}
