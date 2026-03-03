@@ -12,24 +12,33 @@
 .projects-row {
     width: 125%;
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .project {
     position: relative;
     flex: 1;
-    aspect-ratio: 7/5;
+    min-width: 0;
     overflow: hidden;
+    cursor: pointer;
+    border-radius: 32px;
+}
+
+.project::before {
+    content: '';
+    display: block;
+    padding-bottom: 71.43%;
 }
 
 .project-img {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
 }
 
 .project-img img {
     width: 100%;
     height: 100%;
+    border-radius: 32px;
     object-fit: cover;
 }
 
@@ -41,37 +50,61 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+    filter: blur(2px);
 }
 
 .project .svg-stroke svg {
     width: 100%;
     height: 100%;
+    border-radius: 32px;
 }
 
 .project .svg-stroke-2 svg path {
     stroke: #e0e0e0;
 }
 
-.project-title {
+.project-info {
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    color: #000;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     pointer-events: none;
+    gap: 0.25rem;
+    padding: 1rem;
+    border-radius: 32px;
 }
 
-.project-title h3 {
+.project-info-line {
+    overflow: hidden;
+}
+
+.project-info h3 {
     font-size: clamp(0.75rem, 1.5vw, 1.5rem);
     font-weight: 500;
     line-height: 1.25;
     letter-spacing: -0.025rem;
+    color: #000;
 }
 
-.project-title p {
-    font-size: 0.65rem;
-    margin-top: 0.15rem;
+.project-description {
+    font-size: clamp(0.5rem, 0.8vw, 0.75rem);
+    line-height: 1.4;
+    color: #333;
+    max-width: 85%;
+    margin: 0 auto;
 }
 
-.project-title .word {
+.project-meta {
+    font-size: clamp(0.45rem, 0.65vw, 0.65rem);
+    color: #555;
+    margin-top: 0.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.project-info .word {
     will-change: transform;
 }

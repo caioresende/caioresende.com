@@ -29,13 +29,14 @@ nav {
     justify-content: space-between;
     align-items: flex-start;
     z-index: 2;
+    mix-blend-mode: difference;
 }
 
 .site-name a {
     width: 4rem;
     font-family: "Gabarito";
     font-size: 2rem;
-    color: #000;
+    color: #fff;
 }
 
 .menu p {
