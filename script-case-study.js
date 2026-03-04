@@ -1,3 +1,6 @@
+import { inject } from "@vercel/analytics";
+inject();
+
 // ========================================
 // Highlight animation on scroll (once per load)
 // ========================================

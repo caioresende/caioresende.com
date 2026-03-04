@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comentto — UX Case Study | Caio Resende</title>
+  <link rel="stylesheet" href="/styles-case-study.css" />
+</head>
+
+<body>
+
+  <!-- Back nav -->
+  <nav class="cs-nav">
+    <a href="/" class="cs-back">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Caio Resende
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="cs-hero">
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">UX Case Study</p>
+      <h1 class="cs-title">Comentto</h1>
+      <p class="cs-subtitle">A research management platform outgrew its Bootstrap roots. I spent a year as an external UX consultant rebuilding the experience from the ground up — design system, survey engine, dashboards, and mobile apps across multiple industries.</p>
+      <div class="cs-meta">
+        <span>November 2017 – October 2018</span>
+        <span>External UX Consultant</span>
+        <span>Multiple Industries</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero carousel -->
+  <section class="cs-carousel-full">
+    <div class="cs-carousel" data-carousel>
+      <div class="cs-carousel-track">
+        <img src="/images/case-studies/comentto/img-82.png" alt="Final — Tablet survey experience on a physical totem" loading="lazy" />
+        <img src="/images/case-studies/comentto/img-36.png" alt="Final — Web dashboard with survey monitoring" loading="lazy" />
+        <img src="/images/case-studies/comentto/img-70.png" alt="Final — Mobile star rating question" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <main class="cs-content">
+
+    <!-- ============================================
+         01. The Platform
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">01</p>
+      <h2>The Platform</h2>
+
+      <div class="cs-body">
+        <h3>What Comentto Does</h3>
+        <p>Comentto is a research management platform that collects feedback in real time. The core idea is simple: place physical totems — tablets mounted on kiosks — in locations where customers, patients, employees, or visitors can answer surveys on the spot. The responses flow instantly to a web dashboard where managers see results as they come in.</p>
+        <p>What makes it interesting is the range. <mark class="cs-hl">Comentto operates across aerospace, logistics, food production, insurance, and education.</mark> A factory floor, an airport lounge, a university cafeteria, and a hospital waiting room all use the same platform but need fundamentally different survey experiences. The challenge isn't building one good survey tool — it's building one that works everywhere.</p>
+
+        <h3>The Ecosystem</h3>
+        <p>The platform has four distinct surfaces:</p>
+        <p><strong>The web admin panel</strong> is where managers create surveys, configure question logic, assign surveys to devices, manage physical units, and view dashboards and reports. It's the command center.</p>
+        <p><strong>The mobile survey experience</strong> runs on tablets mounted on totems. This is what end users interact with — clean, focused screens optimized for touch, one question at a time. Star ratings, emoji scales, NPS sliders, radio buttons, checkboxes, and open text.</p>
+        <p><strong>The mobile analytics app</strong> gives managers a companion view on their phones: quick access to results, trends, and alerts without opening a laptop.</p>
+        <p><strong>The design system</strong> ties it all together. Color, typography, spacing, and component patterns shared across every surface.</p>
+      </div>
+
+      <!-- Platform overview carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-83.png" alt="Tablet totem — survey welcome screen on a physical device" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-84.png" alt="Tablet totem — survey question displayed on mounted kiosk" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-02.png" alt="Web admin — login screen with Comentto branding" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-66.png" alt="Mobile — welcome connection screen" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The four surfaces: physical totem tablet, web admin login, and mobile analytics companion app.</p>
+
+      <div class="cs-body">
+        <h3>My Role</h3>
+        <p>I joined Comentto in November 2017 as an external UX consultant. The team was small: myself as UX/UI designer, an engineering lead, a business requirements analyst, and the business director. I was responsible for the entire design surface — audit, design system, interaction patterns, and visual design across web and mobile.</p>
+        <p>The engagement ran in three phases. <strong>Phase 1</strong> (two months): a full UX audit, design system outline, and core interface designs. <strong>Phase 2</strong> (one month): redesigning the survey creation and experience. <strong>Phase 3</strong> (one month, running concurrently with Phase 2): dashboards and the mobile analytics app.</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         02. The Audit
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">02</p>
+      <h2>The Audit</h2>
+
+      <div class="cs-body">
+        <h3>Outgrowing Bootstrap</h3>
+        <p>When I first opened the existing Comentto platform, the problem was immediately visible. The product had been built on Bootstrap — which made sense for shipping fast in the early days. But Bootstrap's generic components were now actively working against the product. <mark class="cs-hl">Every page looked like every other Bootstrap app on the internet.</mark> There was no visual identity, no design language, no consistency between the web panel and the mobile experience.</p>
+        <p>The deeper issue was structural. As the engineering team added features, each new page introduced its own layout patterns. Buttons changed size and color depending on who built the screen. Forms used different spacing. Navigation was inconsistent between sections. The platform was functional, but it had no design foundation to scale on.</p>
+
+        <h3>The Heuristic Analysis</h3>
+        <p>I ran a full heuristic evaluation against Nielsen's usability principles. The findings fell into clear categories: visibility of system status was weak (users couldn't tell if surveys were active or paused), there was no match between system language and user expectations (technical labels everywhere), consistency was poor across screens, and <mark class="cs-hl">error prevention was nearly absent — users could break survey logic without any warnings</mark>.</p>
+        <p>The audit gave us a prioritized backlog. Instead of redesigning everything at once, we could sequence the work: start with the design system foundation, then rebuild individual surfaces on top of it.</p>
+      </div>
+
+      <!-- UX Audit carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-97.png" alt="UX heuristic analysis — annotated evaluation of the existing platform" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The full heuristic analysis: annotated screenshots evaluating the existing platform against Nielsen's usability principles.</p>
+    </section>
+
+    <!-- ============================================
+         03. Building the Design System
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">03</p>
+      <h2>Building the Design System</h2>
+
+      <div class="cs-body">
+        <h3>Atomic Design</h3>
+        <p>The solution to Bootstrap's limitations was a custom design system built on atomic design principles. Atoms (colors, typography, icons, spacing tokens), molecules (form fields, buttons, badges), organisms (navigation bars, data tables, card layouts), and templates that compose them into full page patterns.</p>
+        <p>This wasn't just a component library. It was a shared language between design and engineering. Every component had documented states, spacing rules, and responsive behavior. <mark class="cs-hl">When the engineering team built a new page, they assembled it from existing parts instead of inventing new ones.</mark> That consistency is what Bootstrap was supposed to provide but couldn't, because Bootstrap's components aren't designed for your product — they're designed for everyone's.</p>
+
+        <h3>The Color System</h3>
+        <p>Comentto's brand centers on teal and mint, which I carried through as the primary action color. But the most important color decision was the sentiment system: <mark class="cs-hl">green for positive, yellow for neutral, red for negative</mark>. This traffic-light pattern runs through every survey result, every dashboard widget, every report chart. It's intuitive because it maps to a mental model everyone already has.</p>
+        <p>I defined a full palette with primary, secondary, accent, semantic, and neutral scales. Each color has documented contrast ratios and usage rules. The neutral scale handles backgrounds, borders, and body text across both light surfaces (web admin) and dark surfaces (mobile survey screens on totems).</p>
+
+        <h3>Typography & Components</h3>
+        <p>I moved from Bootstrap's default stack to a clean sans-serif that felt professional without being cold. Type scales, weight rules, and line-height tokens ensure consistency across web and mobile. Every heading level, body size, caption, and label has a defined purpose.</p>
+        <p>The component library covers form elements (inputs, selects, toggles, radio buttons, checkboxes), feedback elements (toasts, alerts, progress bars), navigation (sidebar, top bar, tabs, breadcrumbs), and data display (tables, charts, stat cards, status badges). Each component is documented with its variants, states, and responsive behavior.</p>
+      </div>
+
+      <!-- Design system carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-47.png" alt="Design system — sentiment distribution with traffic-light color system" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-48.png" alt="Design system — color palette and usage guidelines" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-49.png" alt="Design system — typography scale and weight rules" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-50.png" alt="Design system — form element components and states" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-51.png" alt="Design system — button variants and sizing" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-52.png" alt="Design system — icon set and usage patterns" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The design system: sentiment color system, palette guidelines, typography scale, form components, button variants, and icon library.</p>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-53.png" alt="Design system — navigation components and layout patterns" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-54.png" alt="Design system — data display components: tables and stat cards" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-55.png" alt="Design system — feedback elements: alerts, toasts, progress indicators" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-56.png" alt="Design system — card layouts and container patterns" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-57.png" alt="Design system — toggle switches and selection controls" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-58.png" alt="Design system — status badges and tag components" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Navigation, data display, feedback elements, card layouts, selection controls, and status badges — all documented with states and responsive rules.</p>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-59.png" alt="Design system — spacing and grid tokens" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-60.png" alt="Design system — responsive breakpoint guidelines" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-61.png" alt="Design system — chart and data visualization patterns" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-62.png" alt="Design system — modal and overlay component patterns" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-63.png" alt="Design system — sidebar navigation and menu patterns" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-64.png" alt="Design system — complete component inventory overview" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-65.png" alt="Design system — page template compositions" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Spacing tokens, breakpoints, data visualization, modals, sidebar navigation, component inventory, and page template compositions.</p>
+    </section>
+
+    <!-- ============================================
+         04. Redesigning the Survey Builder
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">04</p>
+      <h2>Redesigning the Survey Builder</h2>
+
+      <div class="cs-body">
+        <h3>The Admin Panel</h3>
+        <p>Phase 2 focused on the survey creation experience. This is where managers spend most of their time: building questions, configuring answer types, setting up logic jumps, and previewing how surveys will look on the totem devices.</p>
+        <p>The old survey builder was a single long form. No visual preview, no drag-and-drop, no way to see the flow of your survey before publishing it. Creating a survey felt like filling out a spreadsheet. I redesigned it as a <mark class="cs-hl">two-panel layout: the question list on the left, the question editor on the right</mark>. You always see the structure of your survey while editing any individual question.</p>
+
+        <h3>Question Types</h3>
+        <p>Comentto supports a wide range of question types: multiple choice, single choice, open text, star ratings, emoji scales, NPS scores, numeric sliders, date pickers, and image-based options. Each type has its own configuration panel with type-specific settings. Star ratings let you customize the scale (1–5 or 1–10). NPS includes the standard promoter/passive/detractor labeling. Emoji scales map expressions to numeric values for analysis.</p>
+        <p>I designed each question type to have a consistent configuration pattern: the question text at the top, the answer options in the middle, and type-specific settings at the bottom. This consistency means managers learn the builder once and apply it to any question type without relearning the interface.</p>
+      </div>
+
+      <!-- Survey builder carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-03.png" alt="Survey list — overview of all surveys with status indicators" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-04.png" alt="Survey list — alternative view with filtering options" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-05.png" alt="Survey builder — question creation with type selector" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-06.png" alt="Survey builder — multiple choice question configuration" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-07.png" alt="Survey builder — rating scale question setup" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The redesigned survey builder: survey list overview, question creation panel, and type-specific configurations for multiple choice and rating scales.</p>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-08.png" alt="Survey builder — open text question type" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-09.png" alt="Survey builder — emoji scale question configuration" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-10.png" alt="Survey builder — NPS question setup" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-11.png" alt="Survey builder — numeric slider question type" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-12.png" alt="Survey builder — date picker question configuration" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-13.png" alt="Survey builder — image-based options question type" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The full range of question types: open text, emoji scale, NPS, numeric slider, date picker, and image-based options.</p>
+
+      <div class="cs-body">
+        <h3>Logic Jumps</h3>
+        <p>This was one of the most requested features. Managers needed surveys that adapt based on answers — if someone rates their experience below 3 stars, skip to a follow-up question asking what went wrong. If they rate 5 stars, jump to a referral question instead.</p>
+        <p>I designed the logic builder as a visual flow. <mark class="cs-hl">Each condition reads like a sentence: "If answer to Question 3 is less than 3, go to Question 7."</mark> No programming required. The builder validates logic chains in real time and warns about orphaned questions or circular references that would break the survey flow.</p>
+      </div>
+
+      <!-- Logic jumps carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-14.png" alt="Logic builder — conditional jump configuration interface" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-15.png" alt="Logic builder — visual flow showing branching paths" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-16.png" alt="Logic builder — condition editor with sentence-style rules" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-17.png" alt="Logic builder — validation warnings for orphaned questions" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The logic builder: conditional jump configuration, visual branching, sentence-style rules, and real-time validation.</p>
+
+      <div class="cs-body">
+        <h3>Survey Settings</h3>
+        <p>Beyond questions, each survey needs configuration: a start screen with branding, a thank-you screen, sharing settings, and device assignment. I designed these as dedicated settings panels accessible from the survey editor sidebar. The start screen preview shows exactly what respondents will see on the totem before beginning their survey.</p>
+      </div>
+
+      <!-- Survey settings carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-18.png" alt="Survey settings — sharing and distribution configuration" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-19.png" alt="Survey settings — thank you screen customization" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-20.png" alt="Survey settings — start screen preview with branding" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-21.png" alt="Survey settings — device assignment and scheduling" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Survey configuration: sharing settings, thank you screen, branded start screen, and device assignment.</p>
+    </section>
+
+    <!-- ============================================
+         05. The Survey Experience
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">05</p>
+      <h2>The Survey Experience</h2>
+
+      <div class="cs-body">
+        <h3>Designing for Totems</h3>
+        <p>The survey experience is what end users actually see. It runs on tablets mounted on physical totems in lobbies, factory floors, classrooms, and waiting rooms. The design constraints are unique: <mark class="cs-hl">users are standing, often in a hurry, interacting with a touch screen that's not their own device</mark>. Every interaction needs to be obvious. No learning curve. One question at a time, large touch targets, immediate visual feedback.</p>
+        <p>I designed the tablet survey with generous whitespace and oversized interactive elements. The progress bar at the top shows how many questions remain. Each question type fills the screen with its answer options, so there's never any scrolling or hidden content. The design adapts between portrait and landscape orientations depending on how the totem is mounted.</p>
+      </div>
+
+      <!-- Tablet survey carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-82.png" alt="Tablet survey — welcome screen on mounted totem" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-83.png" alt="Tablet survey — question displayed with large touch targets" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-84.png" alt="Tablet survey — multiple choice answer selection" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-85.png" alt="Tablet survey — rating scale interaction" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-86.png" alt="Tablet survey — emoji scale selection" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-87.png" alt="Tablet survey — progress indicator and navigation" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-88.png" alt="Tablet survey — thank you confirmation screen" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The tablet survey experience: welcome screen, question types with oversized touch targets, progress indicators, and the thank you screen.</p>
+
+      <div class="cs-body">
+        <h3>Mobile Survey Screens</h3>
+        <p>The mobile version serves two purposes: a fallback when totems aren't available (QR code surveys), and a testing mode for managers previewing their surveys on their phones. The mobile screens needed to feel like the same product as the tablet version while adapting to a much smaller viewport.</p>
+      </div>
+
+      <!-- Mobile connection + welcome -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-66.png" alt="Mobile — welcome screen with Comentto branding" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-67.png" alt="Mobile — device connection setup screen" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-68.png" alt="Mobile — survey selection and configuration" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-69.png" alt="Mobile — ready to begin survey confirmation" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Mobile survey setup: welcome screen, device connection, survey selection, and ready confirmation.</p>
+
+      <div class="cs-body">
+        <h3>Rating Types</h3>
+        <p>I designed six distinct rating input types, each optimized for different feedback contexts. Star ratings for general satisfaction. Emoji scales for emotional responses — they work especially well in multilingual environments where <mark class="cs-hl">a smiling face communicates across every language barrier</mark>. NPS (Net Promoter Score) for the standard 0–10 loyalty metric. Sliders for continuous scales. Thumbs up/down for binary sentiment. And numeric ratings for precise feedback.</p>
+        <p>Each rating type was designed with accessibility in mind: high contrast between selected and unselected states, large hit areas, and clear visual feedback on selection. The emoji scale was particularly challenging — the expressions needed to be universally readable at small sizes without cultural ambiguity.</p>
+      </div>
+
+      <!-- Rating types carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-70.png" alt="Mobile rating — 5-star rating scale" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-71.png" alt="Mobile rating — emoji scale with expressions" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-72.png" alt="Mobile rating — NPS 0-10 scale" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-73.png" alt="Mobile rating — continuous slider" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-74.png" alt="Mobile rating — thumbs up/down binary" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-75.png" alt="Mobile rating — numeric rating input" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Six rating types: star ratings, emoji scale, NPS, slider, thumbs up/down, and numeric — each optimized for different feedback contexts.</p>
+
+      <div class="cs-body">
+        <h3>Selection Inputs</h3>
+        <p>Beyond ratings, surveys need standard selection inputs. Radio buttons for single-choice questions. Checkboxes for multi-select. I designed both with generous spacing between options and clear visual distinction between selected and unselected states. On a totem where people are tapping quickly, the difference between "selected" and "not selected" needs to be unmistakable at arm's length.</p>
+      </div>
+
+      <!-- Selection inputs carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-76.png" alt="Mobile input — radio button single selection" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-77.png" alt="Mobile input — radio button with selected state" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-78.png" alt="Mobile input — checkbox multi-select" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-79.png" alt="Mobile input — checkbox with multiple selections" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-80.png" alt="Mobile input — open text response field" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-81.png" alt="Mobile input — confirmation and submission" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Selection inputs: radio buttons, checkboxes, open text fields, and submission confirmation — all designed for quick totem interaction.</p>
+    </section>
+
+    <!-- ============================================
+         06. Managing the Fleet
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">06</p>
+      <h2>Managing the Fleet</h2>
+
+      <div class="cs-body">
+        <h3>Device Management</h3>
+        <p>Comentto's physical totems are deployed across multiple locations simultaneously. A single organization might have twenty tablets running different surveys in different buildings. The device management panel gives administrators a fleet view: <mark class="cs-hl">every device, its assigned survey, its location, and whether it's online or offline</mark>. If a totem goes dark in a factory hallway, the admin knows immediately.</p>
+        <p>I designed the device list as a data table with inline status indicators. Green for active, gray for offline, amber for errors. Each row expands to show the device's full configuration: its name, assigned survey, unit (physical location), and connection history. Bulk actions let administrators reassign surveys across multiple devices at once — critical when rolling out a new survey across an entire campus.</p>
+      </div>
+
+      <!-- Device management carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-22.png" alt="Device management — fleet overview with status indicators" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-23.png" alt="Device management — device detail with assigned survey" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-24.png" alt="Device management — device configuration and connection history" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-25.png" alt="Device management — bulk action interface for fleet-wide changes" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Device fleet management: overview table with status indicators, device details, configuration, and bulk actions.</p>
+
+      <div class="cs-body">
+        <h3>Unit Management</h3>
+        <p>Units represent physical locations — a specific floor, building, or department. Each unit can have multiple devices assigned to it. The unit management panel lets administrators organize their physical infrastructure into a logical hierarchy: company → location → unit → device.</p>
+        <p>I designed the unit view to show device density per location, helping administrators spot gaps in coverage. If a location has high foot traffic but only one totem, the data makes the case for adding more devices. Each unit card shows its active surveys, response count, and device health at a glance.</p>
+      </div>
+
+      <!-- Unit management carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-30.png" alt="Unit management — location hierarchy overview" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-31.png" alt="Unit management — unit detail with device assignments" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-32.png" alt="Unit management — creating a new unit with location settings" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-33.png" alt="Unit management — device density and coverage view" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-34.png" alt="Unit management — unit configuration options" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-35.png" alt="Unit management — unit activity and response metrics" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Unit management: location hierarchy, device assignments, coverage view, and unit-level response metrics.</p>
+    </section>
+
+    <!-- ============================================
+         07. Dashboards & Reports
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">07</p>
+      <h2>Dashboards & Reports</h2>
+
+      <div class="cs-body">
+        <h3>Real-Time Monitoring</h3>
+        <p>Phase 3 focused on how managers consume the data their surveys collect. The dashboard is the first thing administrators see when they log in. It needed to answer three questions instantly: How are things going right now? What's trending over time? Where should I pay attention?</p>
+        <p>I designed the dashboard around the traffic-light sentiment system. <mark class="cs-hl">The top-level view shows overall sentiment distribution — green, yellow, red — before any individual numbers.</mark> Pattern recognition is faster than reading. A manager glancing at a dashboard that's mostly green knows things are fine. A flash of red in one location demands immediate attention.</p>
+        <p>Below the sentiment overview, survey-specific cards show response counts, completion rates, average ratings, and trend arrows. Each card links to a detailed report view. The layout uses a masonry grid that adapts to the number of active surveys — one survey gets the full width, four surveys tile into a 2×2 grid.</p>
+      </div>
+
+      <!-- Dashboard carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-36.png" alt="Dashboard — survey monitoring overview with sentiment indicators" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-37.png" alt="Dashboard — survey detail card with response metrics" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-38.png" alt="Dashboard — trend visualization over time" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-39.png" alt="Dashboard — multi-survey grid comparison view" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The monitoring dashboard: sentiment overview, survey detail cards, trend visualization, and multi-survey comparison grid.</p>
+
+      <div class="cs-body">
+        <h3>Detailed Reports</h3>
+        <p>Reports go deeper than dashboards. Each survey generates a detailed breakdown: per-question results, sentiment distribution over custom date ranges, response time patterns (when do people answer — morning, lunch, evening?), and cross-tabulation between questions.</p>
+        <p>I designed the report view as a scrollable single page with collapsible sections. The full report is always available, but managers can focus on specific sections by collapsing the rest. <mark class="cs-hl">Charts use the same sentiment colors from the design system</mark>, so the visual language stays consistent from dashboard to detail. Bar charts show distribution, line charts show trends, and donut charts show proportions — each chosen for the type of data it represents.</p>
+      </div>
+
+      <!-- Reports carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-40.png" alt="Reports — per-question result breakdown with charts" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-41.png" alt="Reports — sentiment distribution over date range" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-42.png" alt="Reports — response time pattern analysis" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-43.png" alt="Reports — cross-tabulation between questions" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-44.png" alt="Reports — detailed chart breakdowns by category" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-45.png" alt="Reports — export and date range filtering" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-46.png" alt="Reports — full report page with collapsible sections" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Report views: per-question breakdowns, sentiment over time, response patterns, cross-tabulation, category charts, and the full scrollable report.</p>
+    </section>
+
+    <!-- ============================================
+         08. Analytics on the Go
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">08</p>
+      <h2>Analytics on the Go</h2>
+
+      <div class="cs-body">
+        <h3>The Mobile Companion</h3>
+        <p>Not every manager sits at a desk. Factory supervisors walk the floor. Hotel managers move between lobbies. They need to check survey results from their phones. The mobile analytics app is the dashboard in your pocket — same data, same sentiment colors, optimized for a smaller screen and one-handed use.</p>
+        <p>I wireframed the mobile analytics app to prioritize the most common actions: checking today's results, comparing locations, and spotting negative trends. <mark class="cs-hl">The home screen is a single scrollable feed of active surveys sorted by urgency</mark> — surveys with declining sentiment float to the top. Each card shows the survey name, location, response count, and a mini sentiment bar.</p>
+        <p>Tapping a survey card opens the detail view with the same per-question breakdowns available in the web reports, adapted for mobile. Charts are simplified: fewer axis labels, larger touch targets on interactive elements, and swipe gestures to move between time periods instead of dropdown selectors.</p>
+      </div>
+
+      <!-- Mobile analytics wireframes carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/comentto/img-89.png" alt="Mobile analytics wireframe — login screen" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-90.png" alt="Mobile analytics wireframe — survey feed sorted by urgency" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-91.png" alt="Mobile analytics wireframe — survey detail with sentiment overview" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-92.png" alt="Mobile analytics wireframe — per-question result breakdown" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-93.png" alt="Mobile analytics wireframe — trend chart with swipe navigation" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-94.png" alt="Mobile analytics wireframe — location comparison view" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-95.png" alt="Mobile analytics wireframe — notification and alert settings" loading="lazy" />
+          <img src="/images/case-studies/comentto/img-96.png" alt="Mobile analytics wireframe — settings and account management" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Mobile analytics wireframes: login, survey feed, detail view, per-question breakdown, trend charts, location comparison, alerts, and settings.</p>
+    </section>
+
+    <!-- ============================================
+         09. What I'd Do Differently
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">09</p>
+      <h2>What I'd Do Differently</h2>
+
+      <div class="cs-body">
+        <p>A year of work across four surfaces, one design system, and multiple industries. Here's what I learned and what I'd change.</p>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--high">P0 · Critical</span>
+          <h4>User Testing with Real Totem Users</h4>
+          <p>I designed the mobile survey experience based on heuristics and best practices, but I never observed real people interacting with the totems in their actual environments. <mark class="cs-hl">A factory worker in gloves tapping a screen has different needs than an office visitor browsing a lobby kiosk.</mark> In-context user testing at deployment sites would have caught friction I couldn't predict from a desk.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--high">P1 · High</span>
+          <h4>Design System Adoption Metrics</h4>
+          <p>I built the design system and documented it thoroughly, but I didn't set up tracking for adoption. Which components were the engineering team actually using? Which ones were they building custom alternatives to? Without that data, I couldn't iterate on the system based on real usage.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
+          <h4>Accessibility Beyond Contrast</h4>
+          <p>The sentiment system relies heavily on green/yellow/red, which is problematic for color-blind users. I specified contrast ratios but didn't add pattern or shape alternatives for the traffic-light system. The design system should include iconographic fallbacks alongside color.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
+          <h4>Offline Resilience for Totems</h4>
+          <p>Totems in factories and remote locations can lose connectivity. The survey experience should queue responses locally and sync when connection returns. I designed the happy path but didn't fully specify the offline degradation experience — what does the totem show when it can't reach the server?</p>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <p>Looking back, the biggest win was the design system. Before it existed, every new feature introduced visual debt. After it shipped, the engineering team could build new pages that looked and felt consistent without design review on every screen. <mark class="cs-hl">The system became the designer when I wasn't in the room.</mark></p>
+        <p>Comentto went from a Bootstrap app that looked like everything else to a platform with its own visual identity, a scalable component library, and a survey experience designed for the unique constraints of physical totem deployment. The atomic design foundation means the product can grow without growing messy.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div class="cs-lightbox" id="lightbox">
+    <button class="cs-lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <button class="cs-lightbox-prev" aria-label="Previous">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 4L7 12L15 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="cs-lightbox-next" aria-label="Next">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 4L17 12L9 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="cs-lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <p class="cs-lightbox-counter" id="lightbox-counter"></p>
+  </div>
+
+  <footer class="cs-footer">
+    <a href="/">← Back to portfolio</a>
+  </footer>
+
+  <script type="module" src="/script-case-study.js"></script>
+</body>
+
+</html>

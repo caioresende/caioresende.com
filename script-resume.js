@@ -1,3 +1,6 @@
+import { inject } from "@vercel/analytics";
+inject();
+
 // Highlight animation on scroll
 const hlObserver = new IntersectionObserver(
   (entries) => {

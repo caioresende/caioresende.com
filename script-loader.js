@@ -1,3 +1,6 @@
+import { inject } from "@vercel/analytics";
+inject();
+
 import { PROJECTS } from "./projects.js";
 import { PHOTOS_CONFIG } from "./photos-config.js";
 import { ICONS_CONFIG } from "./icons-config.js";
