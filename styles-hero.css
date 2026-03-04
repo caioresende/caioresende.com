@@ -39,6 +39,26 @@ nav {
     color: #fff;
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-resume {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.75rem 1.25rem;
+    transition: opacity 0.2s;
+}
+
+.nav-resume:hover {
+    opacity: 0.7;
+}
+
 .menu p {
     padding: 0.75rem 1.25rem;
     border-radius: 0.25rem;

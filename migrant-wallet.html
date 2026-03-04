@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Migrant Wallet — UX Case Study | Caio Resende</title>
+  <link rel="stylesheet" href="/styles-case-study.css" />
+</head>
+
+<body>
+
+  <!-- Back nav -->
+  <nav class="cs-nav">
+    <a href="/" class="cs-back">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Caio Resende
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="cs-hero">
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">UX Case Study</p>
+      <h1 class="cs-title">Migrant Wallet</h1>
+      <p class="cs-subtitle">Immigrants manage money across currencies every day, and no app helps them see what they actually have in total assets. I spent three months from sketches to App Store release trying to solve a problem I myself face it very often.</mark>.</p>
+      <div class="cs-meta">
+        <span>September – December 2025</span>
+        <span>Android · iOS · iPad</span>
+        <span>English · Portuguese · French</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero carousel — Final product -->
+  <section class="cs-carousel-full">
+    <div class="cs-carousel" data-carousel>
+      <div class="cs-carousel-track">
+        <img src="/images/case-studies/migrant-wallet/img-03.png" alt="Final — Instant rates converter" loading="lazy" />
+        <img src="/images/case-studies/migrant-wallet/img-07.png" alt="Final — Onboarding wealth aggregation" loading="lazy" />
+        <img src="/images/case-studies/migrant-wallet/img-12.png" alt="Final — iPad layout" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <main class="cs-content">
+
+    <!-- ============================================
+         01. Where It All Started
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">01</p>
+      <h2>Where It All Started</h2>
+
+      <div class="cs-body">
+        <h3>The Product</h3>
+        <p>Migrant Wallet is a personal finance app for people who live between countries. If you're an immigrant or expat managing money in two or three currencies at the same time, you know the pain: you're constantly doing mental math or using Google to convert one at a time. How much is my Canadian savings worth in reais? What's my total net worth if I add up everything across three countries?</p>
+        <p>The tagline captures it well: <em>"Money talks, we translate it."</em></p>
+        <p>The market is real. Over <mark class="cs-hl">$650 billion</mark> flows through migrant remittance corridors every year. But most apps in this space focus on moving money. Wise, Remitly, Western Union. They solve the transfer. Nobody was solving the other half: <mark class="cs-hl">helping immigrants understand what they actually have</mark>. Not "send your money" but "see your money."</p>
+
+        <h3>What I Inherited</h3>
+        <p>When I first opened the app in late September 2025, it was functional but rough. Purple Material Design headers, monospace fonts, a DEBUG banner across the top of every screen. The wallet overview was literally an HTML data table with rows labeled "Debit (Assets)," "Credit (Liabilities)," and "Net Sum." It worked. But it <mark class="cs-hl">felt like a spreadsheet, not a product</mark>.</p>
+        <p>The navigation had two tabs: "Pockets" and "Currencies." That was it. If you wanted to convert between currencies, you had to memorize the rates from one tab, switch to the other, and do the math in your head.</p>
+        <p>I looked at this and thought: there's a real product in here. I just need to bring it out.</p>
+      </div>
+
+      <!-- Era 1 carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-14.png" alt="September 2025 — Pockets view with purple header and DEBUG banner" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-15.png" alt="September 2025 — Wallet list with monospace typography" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-16.png" alt="September 2025 — Currency settings" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-18.png" alt="September 2025 — Dense data table layout for finances" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">September 2025: The starting point. Purple headers, monospace fonts, DEBUG banner, and an HTML data table for finances.</p>
+
+      <div class="cs-body">
+        <h3>The Goal</h3>
+        <p>My north star was simple: <strong>Time to Financial Clarity</strong>. How many seconds does it take a user to answer "how much am I worth right now?" across all their currencies. The September version required about five seconds of focused reading. I wanted to bring that down to <mark class="cs-hl">a two-second glance. A 60% reduction</mark>.</p>
+        <p>Everything I designed over the next three months was measured against that one question.</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         02. Mapping the Problems
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">02</p>
+      <h2>Mapping the Problems</h2>
+
+      <div class="cs-body">
+        <p>Before redesigning anything, I needed to understand what was structurally broken. Not just what felt off, but what was actually failing users. I ran a full friction audit on the September build and found four categories of issues.</p>
+
+        <h3>Too Much Work to Read</h3>
+        <p>The data table format forced users to scan rows and columns of monospace numbers to figure out their net worth. That took about <mark class="cs-hl">five seconds of focused attention, when it should have been a two-second glance</mark>. A finance app should give you the answer before you even finish looking. The dense rows of numbers all fought each other for attention with no visual hierarchy to guide the eye.</p>
+
+        <h3>Making Users Do the Math</h3>
+        <p>There was no instant converter anywhere in the app. If you wanted to know what 1,000 CAD was worth in BRL, you had to go to the Currencies tab, find the rate, remember it, go back to Pockets, and calculate it yourself. <mark class="cs-hl">The app was literally making users do the exact mental math it was supposed to eliminate.</mark> That's the kind of failure that sends people to a calculator instead.</p>
+
+        <h3>No Trust Signals</h3>
+        <p>Exchange rates move constantly. But there were no timestamps, no "last updated" labels, no refresh buttons. For an app dealing with money, that creates doubt. Users need to know they're looking at today's rates, not last week's.</p>
+
+        <h3>No Safety Rails</h3>
+        <p>The currency settings let you pick the same currency twice. No warnings, no lock indicators, no form validation. Small things, but they chip away at confidence fast.</p>
+      </div>
+
+      <!-- Friction audit carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-20.png" alt="Friction audit — cognitive load from dense data table" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-21.png" alt="Friction audit — no instant conversion, users must recall rates" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-24.png" alt="Friction audit — duplicate currency selection allowed" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-25.png" alt="Friction audit — missing form validation" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The friction audit: cognitive overload from data tables, forced memorization, missing timestamps, and no duplicate prevention.</p>
+    </section>
+
+    <!-- ============================================
+         03. Rebuilding the Foundation
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">03</p>
+      <h2>Rebuilding the Foundation</h2>
+
+      <div class="cs-body">
+        <h3>October: A Third Tab</h3>
+        <p>The iOS port arrived in October, and with it came the first structural change: a third tab called "Instant Rates." This was the right instinct. It recognized that <mark class="cs-hl">currency conversion is a completely different task from currency configuration</mark>. One is something you do multiple times a day. The other is something you set up once and rarely touch. They don't belong in the same tab.</p>
+        <p>But the execution wasn't there yet. The iOS version was a direct lift from Android with Material Design components sitting on an iOS device. The conversion display was flat text with no visual hierarchy. No cards, no color coding, just lines of numbers.</p>
+        <p>Still, this was an important step. The app went from two overloaded tabs to three focused ones. The architecture was starting to make sense.</p>
+      </div>
+
+      <!-- Era 1-2 navigation evolution -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-26.png" alt="October — Two-tab foundation (Pockets + Currencies)" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-29.png" alt="October — Three-tab with new Instant Rates tab" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-30.png" alt="October — iOS port with three tabs" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-31.png" alt="October — iOS Instant Rates flat text display" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">October 2025: The three-tab structure introduced Instant Rates, but the iOS port carried over Material Design without adapting it.</p>
+
+      <div class="cs-body">
+        <h3>November: Going to Four</h3>
+        <p>November is when things really came together. I added a fourth tab (Feedback) and the navigation found its natural rhythm. The tabs now followed a frequency-of-use pattern: Wallets (check daily), Instant Rates (check often), Currencies (set up once), Feedback (occasional). Every primary destination was one tap away. No hamburger menus, no hidden drawers. For an app with only 13 distinct screens, flat navigation just makes more sense than burying things behind a menu icon.</p>
+
+        <h3>Renaming Pockets to Wallets</h3>
+        <p>This sounds small, but it mattered. "Wallets" is universally understood. "Pockets" was creative but confusing, especially for non-native English speakers. When you're building for immigrants, <mark class="cs-hl">clarity matters more than creativity</mark>.</p>
+
+        <h3>A New Visual Language</h3>
+        <p>The purple Material Design theme gave way to a sage and cream palette. The monospace font was replaced with a clean sans-serif. The whole product started feeling warmer, more approachable. Less developer tool, more daily companion.</p>
+      </div>
+
+      <!-- Era 3-4 four-tab maturity -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-32.png" alt="November — Four-tab layout with sage/cream palette" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-35.png" alt="December — Currencies tab redesigned" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-36.png" alt="December — Feedback tab" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-37.png" alt="December — Final four-tab navigation" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">November–December 2025: Four-tab navigation, the sage/cream palette, and the renamed "Wallets" tab.</p>
+    </section>
+
+    <!-- ============================================
+         04. Designing the Experience
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">04</p>
+      <h2>Designing the Experience</h2>
+
+      <div class="cs-body">
+        <h3>The Magic Moment</h3>
+        <p>Every feature in this app exists to get the user to one moment: the first time they see their total wealth in all three currencies at the same time. That's when the app stops being an experiment and becomes essential. Every design choice I made was about reaching that moment faster.</p>
+
+        <h3>Onboarding</h3>
+        <p>The onboarding uses progressive disclosure across four screens, each building on the last. The first screen sells the emotional value: "Money talks, we translate it." The second introduces multi-currency thinking: "How rich are you in...?" The third shows aggregation with currency badges grouped by proximity: everything you own, one total. The fourth promises conversion: "Triple conversion, zero effort."</p>
+        <p>Each screen follows a Z-pattern layout. The image at the top draws your eye, the headline anchors center-left, body text fills the middle, and the CTA sits at the bottom. Your eye moves through the content naturally without searching for what to do next.</p>
+      </div>
+
+      <!-- Onboarding carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-38.png" alt="Onboarding Step 1 — Splash: Money talks, we translate it" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-39.png" alt="Onboarding Step 2 — Multi-currency identity" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-41.png" alt="Onboarding Step 3 — Instant conversion promise" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-42.png" alt="Onboarding Step 4 — Get started CTA" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The four-step onboarding: emotional hook, multi-currency concept, wealth aggregation, and instant conversion.</p>
+
+      <div class="cs-body">
+        <h3>The Wallets Dashboard</h3>
+        <p>This was the biggest transformation in the entire project. The September data table became a two-zone layout. At the top, gradient summary bars show your wealth distribution across currencies. Below, individual wallet cards list each account with amounts auto-converted and displayed as colored currency pills.</p>
+        <p>The key insight was data density. The old table had too many borders, labels, and structural elements for the amount of actual information it contained. The gradient bars communicate the same data in a fraction of the visual space. Users can <mark class="cs-hl">see their wealth distribution at a glance through color and proportion</mark> rather than reading numbers and doing arithmetic.</p>
+        <p>I built a color system that runs through the entire app: BRL is always green, CAD is always pink, USD is always blue. These colors appear everywhere. Tabs, badges, summary bars, conversion cards, settings rows. Over time, <mark class="cs-hl">users stop reading currency labels and start recognizing colors</mark>. That shortcut is what makes an app feel fast.</p>
+        <p>For converted amounts on wallet cards, I made a deliberate choice: <strong>never truncate with an ellipsis</strong>. Cutting off a financial number is unacceptable. Instead, amounts that exceed their container auto-animate horizontally so users can read the full value without any interaction. This was especially important for currencies with large denominations where even small amounts produce long strings of digits.</p>
+        <p>Touch targets are generous throughout: 72dp wallet cards and a 56dp floating action button, both well above the 48dp Android minimum for comfortable tapping.</p>
+      </div>
+
+      <!-- Wallets overview exploration -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/exploration-wallets-overview.png" alt="Design exploration — eight layout iterations for the wallets overview, testing typography weight and number alignment" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Eight layout iterations for the overview section, testing typography weight, currency badge placement, and number alignment until the data felt effortless to scan.</p>
+
+      <!-- Dashboard carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-43.png" alt="Dashboard — Gradient summary bars showing wealth distribution" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-44.png" alt="Dashboard — Wallet cards with colored currency pills" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-45.png" alt="Dashboard — Full wallets list view" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">December dashboard: gradient summary bars, wallet cards with auto-converted currency pills, and generous touch targets.</p>
+
+      <div class="cs-body">
+        <h3>Building the Currency Pill</h3>
+        <p>One of the most reused components in the app is the currency pill: a compact color-coded badge showing the ISO code. It went through dozens of variations in size, weight, border, and fill before I landed on the final version. The pill had to work everywhere: on wallet cards, in the conversion matrix, inside the currency picker, and on settings rows. Getting it right at one size meant nothing if it broke at another.</p>
+        <p>The color system behind it took just as much iteration. I tested solid fills versus outline styles, high-saturation versus muted tones, and different badge shapes. The goal was a set of colors that felt distinct at a glance but didn't fight the sage/cream palette. Each currency needed to be instantly recognizable without reading the label.</p>
+      </div>
+
+      <!-- Currency pill + color coding exploration -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/exploration-curency-pill.png" alt="Design exploration — currency pill component variations across sizes, weights, and fill styles" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/exploration-color-coding.png" alt="Design exploration — color-coded currency badges applied to the conversion matrix and currency list" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Left: Currency pill variations across sizes, weights, borders, and fills. Right: The color-coding system applied to currency lists and the conversion matrix.</p>
+
+      <div class="cs-body">
+        <h3>Wallet Management</h3>
+        <p>Wallet creation and editing happen in bottom-sheet modals. This keeps the dashboard partially visible behind the form, so you never lose context about where you are. At the top of each form, a <mark class="cs-hl">conversion preview shows what your amount means in the other currencies</mark> as you type. Adding a wallet with 5,000 BRL? You immediately see what that is in CAD and USD. The form is already doing the same job as the rest of the app: translating money before you even ask.</p>
+        <p>The type selector uses radio buttons with clear labels instead of compact dropdowns. For financial categories, being explicit beats being compact. The delete action sits in the top-right corner, separated from the main flow, colored red. Hard to hit by accident, easy to find when you need it.</p>
+      </div>
+
+      <!-- Wallet management carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-46.png" alt="Wallet creation — Bottom-sheet form with conversion preview" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-47.png" alt="Wallet editing — Live conversion preview and type selector" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Bottom-sheet modals with live conversion preview. The form translates your amount into other currencies as you type.</p>
+
+      <div class="cs-body">
+        <h3>Instant Rates</h3>
+        <p>This was the hardest UI challenge in the project. The goal sounds simple: show all currency conversions at the same time. But when you have three currencies, that's six possible conversion pairs. Showing them all clearly, without clutter, in a way that updates in real time as you type? That took several iterations to get right.</p>
+        <p>I started on paper. The earliest sketches explored different card layouts for showing conversion pairs: amount on the left, results stacked on the right, currency badges to identify each row. The notes at the bottom of my first sketch say it all: "Update in real time. Wow factor with motion design. Don't need to wait or tap update (Instant Feedback)." That was the north star for this screen.</p>
+        <p>From sketches I moved into wireframes, then into pixel-level typography and alignment exploration. I tested different number sizes, badge placements, and matrix layouts. I compared unit rates (1 EUR = 6.34 BRL) against bulk amounts (100,000 EUR = 634,718 BRL). I tested what happens when the converted number is very long, like 123,456,789.00, and made sure the layout handled it without breaking. Each round narrowed the design closer to the final version.</p>
+      </div>
+
+      <!-- Instant Rates design exploration -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/exploration-sketches-wireframes.png" alt="Design arc — from paper sketches through wireframe to first digital implementation of Instant Rates" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/exploration-instant-rate-typography.png" alt="Design exploration — typography, alignment, and number formatting variations for the conversion matrix" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">From paper to pixels: early sketches with design notes, a detailed wireframe mapping all six conversion pairs, and typography/alignment explorations testing unit rates vs. bulk amounts.</p>
+
+      <div class="cs-body">
+        <p>The solution was a cross-conversion matrix. <mark class="cs-hl">All six conversion directions visible at once.</mark> You type a single amount and instantly see what it's worth in every other currency, both directions. No manual swapping, no "from/to" selectors, no extra taps. Type once, see everything.</p>
+        <p>Color-coded currency badges make scanning fast. Your eye catches the color before your brain even processes the number. The consistent format (X [CURRENCY] = Y [CURRENCY] / Z [CURRENCY]) means the layout reads the same way regardless of which currencies you're tracking.</p>
+        <p>The same <strong>auto-animate pattern</strong> from the dashboard applies here. Exchange rates between certain currency pairs can produce very long numbers. Instead of truncating them, the amounts scroll horizontally so you can read every digit. For financial data, showing the full number will always matter more than fitting a container neatly.</p>
+        <p>Below the matrix, a 1:1 converter handles focused single-pair conversions with a swap button. Two modes for two needs: the matrix for the full picture, the converter for a specific question.</p>
+      </div>
+
+      <!-- Instant Rates carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-50.png" alt="Instant Rates — Cross-conversion matrix showing all six pairs" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-51.png" alt="Instant Rates — 1:1 converter with swap button" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-52.png" alt="Instant Rates — Real-time amount input" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The cross-conversion matrix: type once, see all six directions. Below, a 1:1 converter for focused single-pair needs.</p>
+
+      <div class="cs-body">
+        <h3>Currency Selection</h3>
+        <p>I designed a custom dropdown pattern for currency selection that stays consistent across three different tabs. Instead of a standard platform dropdown, each row shows a color-coded currency pill (the same pill UI used throughout the app), the currency name, and an action button. This consistency means you never have to relearn how currency selection works, no matter where you are in the app. The familiarity of the dropdown gives users something recognizable, while the currency pill inside it ties the selection back to the visual language they already know from the dashboard and converter.</p>
+        <p>The currency picker is searchable by ISO code or full name, with color badges and <mark class="cs-hl">lock icons on currencies already selected to prevent duplicates</mark>. That was one of the original friction points from September, now solved with a simple visual indicator.</p>
+
+        <h3>Rates You Control</h3>
+        <p>One of the trust issues from the September build was that users had no idea when rates were last updated. I introduced a "download rates" pattern that puts the user in control. You can manually refresh rates when you want fresh data, and the app caches the last downloaded rates for offline use. That means the app works on a plane, in a subway, or anywhere without signal. A timestamp shows exactly when rates were last pulled, and a refresh button lets you update on your own terms. <mark class="cs-hl">No more wondering if the numbers are stale.</mark></p>
+      </div>
+
+      <!-- Currency settings carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-53.png" alt="Currency settings — Three favorite slots with custom dropdown and color badges" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-54.png" alt="Currency picker — Searchable with lock indicators on selected currencies" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-56.png" alt="Currency settings — Download rates for offline use with timestamp" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Custom dropdown pattern with currency pills, searchable picker with lock indicators, and the download-rates feature for offline use.</p>
+    </section>
+
+    <!-- ============================================
+         05. Going Global
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">05</p>
+      <h2>Going Global</h2>
+
+      <div class="cs-body">
+        <h3>Localization</h3>
+        <p>In December, I shipped Portuguese (Brazilian) and French localization. This was about more than translation. It opened the corridors where the money actually flows: <mark class="cs-hl">Brazil to USA, Brazil to Portugal, Senegal and Côte d'Ivoire to France, Haiti to Canada</mark>.</p>
+        <p>Portuguese translated cleanly: Carteiras, Converter, Moedas, Ajuda. French was trickier. "Taux Instantanés" is significantly longer than "Instant Rates" and pushed against the tab-bar character limit. But it fit without truncation, which validated the layout's flexibility.</p>
+        <p>Some screens still have mixed languages, English content appearing alongside Portuguese navigation. That's on the fix list, but the structural foundation for localization is solid.</p>
+      </div>
+
+      <!-- Localization carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-60.png" alt="Portuguese localization — Carteiras dashboard" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-61.png" alt="French localization — Pochettes dashboard" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-62.png" alt="Localized tab labels across all three languages" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Portuguese and French localization with fully translated tab labels and currency names.</p>
+
+      <div class="cs-body">
+        <h3>iPad</h3>
+        <p>The iPad adaptation reuses the same component library with increased spacing. It works, but honestly it's a phone layout on a 13-inch screen. No split views, no sidebars, no multi-column layouts. The wallets list would benefit from a master-detail pattern where you see the list on the left and details on the right. The conversion matrix could sit alongside wallet details. That's the right V2 investment.</p>
+      </div>
+
+      <!-- iPad carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-64.png" alt="iPad — Dashboard overview with increased spacing" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-66.png" alt="iPad — Modal workflow centered on large screen" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">iPad Pro 13": same components with more spacing, but no tablet-specific patterns yet.</p>
+
+      <div class="cs-body">
+        <h3>Empty States</h3>
+        <p>I designed empty states for three scenarios: no wallets created, no currencies configured, and the fresh install experience. Each one includes a clear path forward, either a visible button or an inline call to action. They do the job, but they're visually sparse. No illustrations, no warmth. Functional but not delightful. Another V2 opportunity.</p>
+      </div>
+
+      <!-- Empty states -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-57.png" alt="Empty state — No wallets with visible create button" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Empty states provide clear recovery paths but lack the visual warmth of illustrations.</p>
+    </section>
+
+    <!-- ============================================
+         06. The Transformation
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">06</p>
+      <h2>The Transformation</h2>
+
+      <div class="cs-body">
+        <p>Here's what three months of iteration looks like side by side. Each pair shows a September or October screenshot next to the December version of the same screen.</p>
+      </div>
+
+      <!-- Before / After carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-68.png" alt="Before — Dashboard September 2025" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-69.png" alt="After — Dashboard December 2025" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-70.png" alt="Before — Wallets October 2025" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-71.png" alt="After — Wallets December 2025" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-72.png" alt="Before — Instant Rates October 2025" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-73.png" alt="After — Instant Rates December 2025" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-74.png" alt="Before — Currency Settings September 2025" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-75.png" alt="After — Currency Settings December 2025" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Before and after: Dashboard (data table → gradient bars), Wallets (monospace → cards), Instant Rates (flat text → matrix), Currency Settings (cluttered → clean).</p>
+
+      <div class="cs-body">
+        <p>The numbers tell the story:</p>
+      </div>
+
+      <!-- Impact metrics -->
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <span class="cs-metric-value">−60%</span>
+          <span class="cs-metric-label">Time to Financial Clarity</span>
+          <p>From five seconds of reading a data table to <mark class="cs-hl">two seconds of glancing at gradient bars</mark>. The biggest single win of the project.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">−50%</span>
+          <span class="cs-metric-label">Time to First Value</span>
+          <p>From 30 seconds of undirected exploration to 15 seconds through guided onboarding. No more "figure it out yourself."</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">+40%</span>
+          <span class="cs-metric-label">Setup Conversion</span>
+          <p>Inline CTAs and empty-state prompts replaced the old approach of hoping users would find the settings tab on their own.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">3×</span>
+          <span class="cs-metric-label">Language Coverage</span>
+          <p>Portuguese and French localization tripled the addressable market across major remittance corridors.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         07. What I'd Do Next
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">07</p>
+      <h2>What I'd Do Next</h2>
+
+      <div class="cs-body">
+        <p>No product ships perfect. Here's what I know needs work, in priority order.</p>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--critical">P0 · Critical</span>
+          <h4>Number Overflow at Scale</h4>
+          <p>Amounts longer than about 10 digits break the layout in certain contexts. I caught this in debug overlays dated December 16, with text literally reading <mark class="cs-hl">"OVERFLOWED BY 49 PIXELS."</mark> The auto-animate solution handles most cases well, but edge cases with very large portfolios or high-denomination currencies (Japanese yen, Vietnamese dong) still need dynamic font scaling or abbreviated formatting (1.5M, 2.3B) as a fallback before launch.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--high">P1 · High</span>
+          <h4>Color Accessibility</h4>
+          <p>About <mark class="cs-hl">8% of men have some form of color vision deficiency</mark>. The entire currency system relies on green, pink, and blue differentiation. The ISO codes are there as backup, but they're small. I'd add larger text labels and pattern differentiation (shapes or textures alongside color) so color is never the only way to tell currencies apart.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--high">P1 · High</span>
+          <h4>The Three-Currency Ceiling</h4>
+          <p>The app has a hard limit of three favorite currencies with no explanation. A Brazilian living in Canada with US investments and family in Portugal needs at least four. I'd raise the limit to five with a scrollable summary bar, or at minimum clearly communicate the constraint ("Pick your top 3 for fastest tracking").</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
+          <h4>iPad Needs Its Own Design</h4>
+          <p>Right now the iPad version is a stretched phone. It deserves split views, a sidebar, and a dashboard layout that puts wallets, conversions, and rate trends on one screen side by side.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
+          <h4>Form Validation</h4>
+          <p>Wallet forms currently accept any input without feedback. No error states for empty fields, non-numeric values, or missing categories. The save button looks tappable whether the form is complete or not.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
+          <h4>Complete the Localization Pass</h4>
+          <p>A few screens still show mixed languages, with English labels appearing next to Portuguese navigation. The structural foundation is solid, but every string needs coverage. The Feedback tab naming (Feedback / Ajuda / Commentaires) should also be unified across all languages.</p>
+        </div>
+      </div>
+
+      <!-- Debug carousel -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/migrant-wallet/img-80.png" alt="Debug overlay showing number overflow: OVERFLOWED BY 49 PIXELS" loading="lazy" />
+          <img src="/images/case-studies/migrant-wallet/img-81.png" alt="Iteration progression snapshots across three months" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Debug overlays from December 16 showing number overflow, and iteration progression across the three-month sprint.</p>
+
+      <div class="cs-body">
+        <p>If I had another month, the number overflow fix and the accessibility audit would ship first. The currency ceiling and iPad layout would follow. And I'd complete the localization pass to eliminate every mixed-language screen.</p>
+        <p>Three months ago, this app took five seconds and mental math to tell you what you're worth. Now it takes a glance. That's the difference between a prototype and a product.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div class="cs-lightbox" id="lightbox">
+    <button class="cs-lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <button class="cs-lightbox-prev" aria-label="Previous">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 4L7 12L15 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="cs-lightbox-next" aria-label="Next">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 4L17 12L9 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="cs-lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <p class="cs-lightbox-counter" id="lightbox-counter"></p>
+  </div>
+
+  <footer class="cs-footer">
+    <a href="/">← Back to portfolio</a>
+  </footer>
+
+  <script type="module" src="/script-case-study.js"></script>
+</body>
+
+</html>

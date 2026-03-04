@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canadian Tomorrow — UX Case Study | Caio Resende</title>
+  <link rel="stylesheet" href="/styles-case-study.css" />
+</head>
+
+<body>
+
+  <!-- Back nav -->
+  <nav class="cs-nav">
+    <a href="/" class="cs-back">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Caio Resende
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="cs-hero">
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">UX Case Study</p>
+      <h1 class="cs-title">Canadian Tomorrow</h1>
+      <p class="cs-subtitle">Every citizenship app I found was just a quiz. None of them helped with the actual journey. I spent six weeks building the companion app I wished I had, from paper sketches to a cross-platform product.</p>
+      <div class="cs-meta">
+        <span>January – February 2026</span>
+        <span>Flutter · Firebase</span>
+        <span>4 Locales · 7 Device Sizes</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero carousel -->
+  <section class="cs-carousel-full">
+    <div class="cs-carousel" data-carousel>
+      <div class="cs-carousel-track">
+        <img src="/images/case-studies/canadian-tomorrow/img-65.png" alt="Final — Splash screen: Born to become Canadian" loading="lazy" />
+        <img src="/images/case-studies/canadian-tomorrow/img-32.png" alt="Final — Test dashboard with progress by level, chapter, and category" loading="lazy" />
+        <img src="/images/case-studies/canadian-tomorrow/img-36.png" alt="Final — Presence dashboard iterations showing day tracking" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <main class="cs-content">
+
+    <!-- ============================================
+         01. The Problem Nobody Was Solving
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">01</p>
+      <h2>The Problem Nobody Was Solving</h2>
+
+      <div class="cs-body">
+        <p>When I started my Canadian citizenship process, the first thing I did was look for an app. I found fifteen of them. Every single one was a quiz app. Study for the test, take practice questions, check your score. That's it.</p>
+        <p>But the citizenship process isn't just a test. It's months of tracking physical presence days, organizing stacks of documents across eight categories, and studying content that spans Canadian history, geography, rights, and government. <mark class="cs-hl">The test is the last step, not the whole journey.</mark></p>
+        <p>No app treated it that way. Some had decent question banks, but they were all missing the same things: presence tracking (the legal requirement to prove you've lived in Canada long enough), document management (the paperwork that actually makes or breaks your application), and any sense of progress beyond "you scored 70%."</p>
+        <p>I wanted an app that sat with me through the whole process. Not just test prep. <mark class="cs-hl">A companion for the full citizenship journey.</mark></p>
+      </div>
+
+      <!-- Competitor analysis -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-31.png" alt="Competitive analysis — screenshots of 15 citizenship apps, all quiz-focused" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-59.png" alt="Competitor monetization patterns — subscription paywalls from various learning apps" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Competitive analysis of 15 citizenship apps. Every single one focuses on quizzes. None offer presence tracking or document management.</p>
+    </section>
+
+    <!-- ============================================
+         02. The Spark
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">02</p>
+      <h2>The Spark</h2>
+
+      <div class="cs-body">
+        <p>I started sketching on January 18, 2026. The first page was a brain dump on sticky note paper: questions should be closed options, each tied to a category (history, dates, culture, law), a collection of tests available, reports provided, difficulty levels. On the right side, rough thumbnail sketches of what screens might look like.</p>
+        <p>The next few pages got more specific. I mapped out a reports system: <mark class="cs-hl">knowledge gap heatmaps, a readiness score, learning curves over time, average time per question</mark>. This wasn't just about right or wrong. I wanted the app to help people understand how they learn, not just what they got wrong.</p>
+        <p>The confidence slider showed up early. On the third sketch, I drew a vertical scale with "Answer" and "Confident" at opposite ends. The idea was simple: after you pick an answer, rate how sure you are. A "correct but not confident" answer tells a very different story than a "correct and very confident" one. The first is a lucky guess. The second is real knowledge.</p>
+        <p>By January 20, I had a sprint plan with numbered priorities. Create cloud function to read from spreadsheet. Upload test questions to Firebase. Create cloud functions to process data. Store history for user based on questions answered. The timeline was tight: <mark class="cs-hl">six weeks from paper to product</mark>.</p>
+      </div>
+
+      <!-- Spark sketches -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-01.jpg" alt="January 18 — First brainstorm: citizenship test structure, categories, reports, and thumbnail screen sketches" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-02.jpg" alt="Reports vision — Knowledge gap heatmap, readiness score, learning curve, time per question, coverage metrics" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-03.jpg" alt="Content structure — Confidence slider concept (0-5 scale) and question data model" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-04.jpg" alt="Sprint plan — January 20 to 31, numbered priorities from backend setup to frontend UI" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-05.jpg" alt="Quiz modes planning — Per theme, specific theme, category, difficulty level, infinite scroll, home navigation" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-69.jpg" alt="Design thinking sketch — additional product vision and feature prioritization" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-70.jpg" alt="Design thinking sketch — interaction patterns and navigation edge cases" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Seven initial sketches: brainstorm, reports vision, confidence slider concept, sprint plan, quiz modes, and design thinking explorations.</p>
+
+      <div class="cs-body">
+        <h3>The Architecture</h3>
+        <p>I chose a hub-and-spoke information architecture. The home screen is the hub, and each major feature (quiz, presence, documents) is a spoke you reach from there. For an app with only a handful of primary destinations, this keeps navigation flat and direct. Every major action is one tap away from home, no hamburger menus, no hidden drawers.</p>
+        <p>The tech stack was Flutter for cross-platform, Firebase for the backend, RevenueCat for monetization, and Cloud Functions for the heavy lifting like presence day calculations and quiz stats processing. I needed a stack that could move fast and handle real-time data without me spending weeks on infrastructure.</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         03. The Quiz System
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">03</p>
+      <h2>The Quiz System</h2>
+
+      <div class="cs-body">
+        <p>The quiz is the core of the app, and it had to do more than ask questions. I designed seven distinct modes: Random (shuffle everything), By Difficulty (easy, moderate, hard), By Chapter (focus on specific test sections), By Category (history, geography, rights), Second Chances (retry questions you got wrong), Retry (redo a previous quiz), and Test Simulation (timed, 20 questions, mimics the real exam).</p>
+
+        <h3>The Data Model</h3>
+        <p>Each question carries more than just a prompt and four options. I sketched the full data structure early: number, ID, category, prompt, options A through D, difficulty level, a full explanation shown after answering, and a reference to the page in the official study guide. On the stats side: attempts, correct attempts, whether they got it right on the first try, if they asked for an explanation, each option users picked, skipped count, time to answer, and the confidence score.</p>
+        <p>That level of tracking is what makes the reporting meaningful. <mark class="cs-hl">Most quiz apps record right or wrong. This one records how you answered, how fast, how confident, and whether you bothered reading the explanation.</mark></p>
+      </div>
+
+      <!-- Quiz sketches -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-06.jpg" alt="Question layout sketch — prompt, options A-D, explanation, reference, global stats structure" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-07.jpg" alt="Backend goals sketch (Jan 19) — Cloud functions, Firebase, dashboard data: attempts, correct, confidence, mastery, time" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-09.jpg" alt="Data structure sketch — Question fields, mastery zones from Fluke to Lucky Guess to Mastery" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-10.jpg" alt="User flow sketch — Question display to answer to confidence to cloud function to stats to next question" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-68.jpg" alt="Quiz mode selector sketch — card layouts for each quiz type with icons and descriptions" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-08.jpg" alt="Quiz flow and architecture sketch — screen transitions, data dependencies" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-11.jpg" alt="Study modes sketch — focused study, review, and practice mode planning" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-12.jpg" alt="Color coding sketch — visual differentiation system for quiz categories" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-13.jpg" alt="Document integration sketch — bridging quiz content with study guide references" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-14.jpg" alt="Quiz coaching sketch — guided learning paths and feedback loops" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-15.jpg" alt="Additional quiz system sketch — edge cases and interaction details" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Eleven sketches covering the full quiz system: question layout, backend goals, data structure, user flow, mode selector, study modes, color coding, and coaching.</p>
+
+      <div class="cs-body">
+        <h3>The Confidence Slider</h3>
+        <p>This is the feature I'm most proud of. After every answer, a slider appears asking how confident you were. Combined with whether the answer was actually correct, this creates five mastery zones I sketched on the data structure page: Fluke (got it right but was guessing), Lucky Guess, Growth Zone, Stable Knowledge, and Mastery.</p>
+        <p>That data feeds into a confidence matrix on the dashboard. You can see at a glance which topics you truly know versus which ones you've been getting lucky on. For a high-stakes test like citizenship, <mark class="cs-hl">the difference between luck and knowledge matters</mark>.</p>
+
+        <h3>From Sketch to Screen</h3>
+        <p>The mode selection screen went through eight wireframe iterations. The first version was a simple list. By the final version, each mode had its own icon, a subtitle explaining what it does, and progress indicators. Below the mode grid, a secondary selector lets you drill into specific difficulty levels, chapters, or categories, each showing how many questions you've completed and your accuracy.</p>
+        <p>For the answer flow, I iterated through every state: question displayed, option selected, correct answer revealed, incorrect answer revealed, explanation expanded. Each quiz mode has its own color identity so you always know where you are. I designed three loading states with meaningful copy that changes based on context: "Finding [chapter name] questions," "Checking question preferences," "Preparing your quiz." Small details, but they <mark class="cs-hl">make the wait feel purposeful instead of empty</mark>.</p>
+      </div>
+
+      <!-- Quiz wireframes -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-16.png" alt="Mode selection — 8 wireframe iterations: from basic list to card grid with icons and progress" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-17.png" alt="Quiz selectors — Choose level (Easy/Medium/Hard), chapter, and category with progress bars" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-22.png" alt="Full answer flow — correct, incorrect, and explanation states across Random, Chapter, Category, and Retry modes" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-23.png" alt="Color palette — Pastel color system for quiz categories and difficulty levels" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-24.png" alt="Loading states — Three contextual screens: finding questions, checking preferences, preparing quiz" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-18.png" alt="Quiz component wireframes — input fields, buttons, and interactive element specifications" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-19.png" alt="Quiz component details — expanded states, spacing, and layout rules" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-21.png" alt="Confidence slider wireframe — scale from guess to certain, integration with answer flow" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-25.png" alt="Final mode selection and home screen — six quiz modes with icons alongside hub-and-spoke home with four feature cards" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Mode selection iterations, selectors, answer flow, color system, loading states, component specs, confidence slider, and the final home screen.</p>
+
+      <div class="cs-body">
+        <h3>Results and Dashboard</h3>
+        <p>The quiz results screen went through seven iterations. The first version was a basic percentage ring. By the final version, it shows accuracy, questions answered versus skipped, average time, and a breakdown by confidence level. Each iteration refined the information hierarchy: what do people need to see first when a quiz ends?</p>
+        <p>The test dashboard aggregates everything into one dense but readable view. It evolved across four major iterations into a layout showing: overall accuracy with a donut chart, per-mode stats, <mark class="cs-hl">progress by difficulty level, by chapter, by category, and a history of test simulations</mark>. Each stat cluster uses the same visual pattern (donut chart, fraction, percentage) so your eye learns the layout once and reads it everywhere.</p>
+      </div>
+
+      <!-- Results + Dashboard wireframes -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-26.png" alt="Quiz results — 7 iterations from basic percentage ring to detailed stats with confidence breakdown" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-20.png" alt="Answer states wireframe — correct, incorrect, explanation expanded, reference shown" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-32.png" alt="Test dashboard — 4 iterations with progress by level, chapter, category, and test simulation history" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-27.png" alt="Results header wireframe — score display, time elapsed, question count" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-28.png" alt="Results stats wireframe — accuracy breakdown, confidence distribution, category performance" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-29.png" alt="Full results wireframe — complete post-quiz review with all metrics and question list" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-30.png" alt="Hi-fi results wireframe — polished version with final typography and spacing" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-37.jpg" alt="Stats by mode sketch — level cards, stats grid, and per-mode performance tracking" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Quiz results (seven iterations), answer states, test dashboard, results header/stats/full review wireframes, and stats-by-mode sketch.</p>
+    </section>
+
+    <!-- ============================================
+         04. Tracking Presence
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">04</p>
+      <h2>Tracking Presence</h2>
+
+      <div class="cs-body">
+        <p>This is the feature that no competitor has. To apply for Canadian citizenship, you need to prove you've been physically present in Canada for at least <mark class="cs-hl">1,095 days within the five years before your application</mark>. That's a legal requirement, and miscounting can delay or reject your application.</p>
+        <p>Most people track this in a spreadsheet or not at all. I wanted the app to handle it automatically.</p>
+        <p>I sketched the presence calculator on paper first. The core logic runs as a Cloud Function: it takes your arrival date, calculates how many days you've been physically present, accounts for absences you log, and tells you exactly where you stand. The onboarding screen collects the essentials: date of arrival, immigration status, and first entry date.</p>
+      </div>
+
+      <!-- Presence sketches -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-33.jpg" alt="Presence calculator sketch — Cloud functions, onboarding fields, data model, status tracking" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-35.jpg" alt="Presence tracking sketch — Calendar entries, absence logging, stage progression" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-34.jpg" alt="Quiz home and presence data sketch — confidence matrix, dashboard data structure" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Paper sketches for the presence tracker: cloud function architecture, calendar entry system, and dashboard data structure.</p>
+
+      <div class="cs-body">
+        <p>The wireframe went through eight or more iterations. The dashboard shows a calendar-style view with your current date, the number of days in different categories (permanent resident, temporary), a stage indicator, and a "days left to qualify" countdown. Date entries below let you log absences, with each entry showing the duration and dates.</p>
+        <p>The later iterations refined things significantly. I tested different arrangements for the summary cards, experimented with how to show stage progression visually, and iterated on the date entry list. The final version puts the most important number front and center: <mark class="cs-hl">where you are relative to the 1,095-day requirement</mark>. Everything else is secondary.</p>
+      </div>
+
+      <!-- Presence wireframes -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-36.png" alt="Presence dashboard — 8+ wireframe iterations: summary cards, day counters, stage progress, date entries, arrival onboarding" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Eight iterations of the presence dashboard: from first layout to final version with summary cards, stage progress, and entry management.</p>
+    </section>
+
+    <!-- ============================================
+         05. Organizing Documents
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">05</p>
+      <h2>Organizing Documents</h2>
+
+      <div class="cs-body">
+        <p>The citizenship application requires documents across eight categories: application form, photos, identity documents, language proficiency, physical presence proof, tax records, citizenship photos, and test readiness. Each category has its own rules for what format is accepted: paper originals, color copies, scanned digital files, or online forms.</p>
+        <p>I started with a sketch dated February 23. The structure was clear from the beginning: folders containing mandatory documents, the ability to upload and mark files, and the system showing <mark class="cs-hl">validation status for each folder once the required files are ready</mark>. I built a table mapping each document type to its paper and online requirements.</p>
+      </div>
+
+      <!-- Document sketches + references -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-51.jpg" alt="Documents sketch (Feb 23) — Folder structure, mandatory documents, paper vs online matrix" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-50.png" alt="Design inspiration — iOS Files, Notes, and folder-based UIs from competing document management apps" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-38.jpg" alt="Document management sketch — folder hierarchy and category organization" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-39.jpg" alt="Document management sketch — file states, upload flow, and validation rules" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-40.jpg" alt="Document management sketch — progress tracking and completion indicators" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-41.jpg" alt="Document management sketch — document detail view and file metadata" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-42.jpg" alt="Document management sketch — edge cases, empty states, and error handling" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Document sketches covering folder structure, file states, progress tracking, and design references from iOS file management apps.</p>
+
+      <div class="cs-body">
+        <p>For design inspiration, I studied how the best file management apps handle similar problems. iOS Files, Apple Notes, and various folder-based UIs informed my approach. The key insight was that <mark class="cs-hl">document management for citizenship isn't really about files. It's about progress.</mark> You need to see at a glance which categories are complete, which are missing items, and what you need to do next.</p>
+        <p>The documents dashboard went through seven iterations. Each one refined the balance between the folder list, progress indicators, and individual document status. I tested different icon styles, progress badge placements, and color treatments for complete versus incomplete states. The file management screens handle the actual upload and tracking: document type, status (pending, approved, rejected), language, and a preview area.</p>
+      </div>
+
+      <!-- Document wireframes -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-43.png" alt="Documents dashboard — 7+ iterations: folder list, progress indicators, category icons, completion states" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-44.png" alt="Document detail wireframes — Individual document view with status and file list" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-47.png" alt="File management wireframes — Upload flow, file status, language selector, preview iterations" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-45.png" alt="Document wireframe — additional layout exploration for document categories" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-46.png" alt="File container types — four icon designs for document file representations" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-48.png" alt="Document reference wireframes — source linking and study guide integration" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-49.png" alt="Document wireframe — final iteration with refined progress indicators" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Documents dashboard iterations, detail views, file management flow, container icon designs, and reference integration wireframes.</p>
+    </section>
+
+    <!-- ============================================
+         06. Making It Sustainable
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">06</p>
+      <h2>Making It Sustainable</h2>
+
+      <div class="cs-body">
+        <p>I studied how other citizenship and learning apps monetize. The landscape is mostly subscriptions: monthly or annual fees for "premium" access. But for a citizenship app, subscriptions don't make sense. The process has a clear end date. You study, you pass, you're done. <mark class="cs-hl">Asking someone to pay monthly for something they'll use for three to six months felt wrong.</mark></p>
+        <p>I went with one-time pricing instead. Three tiers that unlock features permanently: no recurring charges, no "your access expires" anxiety. For something as stressful as citizenship, the last thing people need is subscription pressure on top of everything else.</p>
+      </div>
+
+      <!-- Monetization sketches -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-55.jpg" alt="Landing wireframe sketch — Hero, how does it work, frequent questions, upgrade; upsell modal structure" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-52.jpg" alt="Monetization sketch — Pricing tiers, feature mapping, value proposition per level" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-53.jpg" alt="Monetization sketch — paywall trigger points and contextual upsell strategy" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-54.jpg" alt="Monetization sketch — feature gating logic and free vs premium boundaries" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-56.jpg" alt="Monetization sketch — pricing psychology and tier comparison layout" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Paper sketches covering landing page structure, pricing tiers, paywall triggers, feature gating, and tier comparison.</p>
+
+      <div class="cs-body">
+        <p>I designed feature cards that explain exactly what each tier unlocks: all 400 questions, quiz customization, confidence-based analytics, document analysis, focused stats, study mode, and unlimited test simulations. Each card shows a screenshot of the actual feature so users can see what they're paying for.</p>
+        <p>The paywall appears contextually. When you tap a locked feature, you see a paywall specific to that feature rather than a generic "upgrade" screen. The headline stays the same across contexts, but <mark class="cs-hl">the featured card at the top changes to match what you were trying to access</mark>. This respects the user's intent instead of interrupting them with irrelevant upselling. I studied what other apps do wrong here: generic walls that feel disconnected from what the user wanted. Contextual paywalls convert better because they answer the question you already had.</p>
+      </div>
+
+      <!-- Monetization wireframes -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-57.png" alt="Paywall wireframes — 'The shortcut to your citizenship?' with three pricing tiers and feature breakdowns" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-58.png" alt="Feature cards — Unlock 400 questions, customize quizzes, confidence analytics, document analysis, study mode" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-59.png" alt="Competitor paywall references — subscription patterns from various learning and productivity apps" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Paywall iterations with one-time pricing, feature cards showing unlockable value, and competitor monetization references.</p>
+    </section>
+
+    <!-- ============================================
+         07. The First Impression
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">07</p>
+      <h2>The First Impression</h2>
+
+      <div class="cs-body">
+        <p>The splash screen sets the tone for everything. I wanted something that felt confident without being corporate. The tagline "Born to become Canadian, proud to do it yourself" captures the spirit: this app is for people who are doing this on their own, without lawyers, without immigration consultants.</p>
+        <p>The typography for the splash went through extensive iteration. I explored different ways to stack the manifesto: <mark class="cs-hl">"Track, study, organize, belong. Start today, Canadian tomorrow."</mark> Each version tested different font weights, line breaks, and hierarchies. Some versions led with the action verbs in bold, others emphasized "Canadian tomorrow" as the punchline.</p>
+      </div>
+
+      <!-- Splash design arc -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-60.jpg" alt="Sprint notes (Jan 23-24) — Splash screen planning, quiz page, questions, responsiveness checklist" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-62.jpg" alt="Splash screen sketch — Layout exploration for the branded launch screen" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-61.jpg" alt="Splash screen sketch — initial layout concepts and copy positioning" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-62.jpg" alt="Splash screen sketch — layout exploration for the branded launch screen" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-63.jpg" alt="Splash screen sketch — icon placement and tagline hierarchy" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-64.png" alt="Splash typography iterations — 'Track, study, organize, belong. Start today, Canadian tomorrow.'" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">From sprint notes through three splash sketches to typography iterations: the full design arc of the first screen.</p>
+
+      <div class="cs-body">
+        <p>The app icon is a maple leaf, rendered in dark gray against a light gradient. Clean, recognizable, and distinctly Canadian without being obvious. The final splash screen pairs it with "Born to become Canadian, proud to do it yourself" and a single call to action: "Let's do this." At the bottom, a quiet line of copy sets expectations: "Legal-grade accuracy with a budget-friendly tech for your Canadian citizenship application."</p>
+        <p>I designed for <mark class="cs-hl">seven device sizes from the start</mark>. The interface renders cleanly on an iPhone SE (the smallest supported device), an iPhone 17 Pro, and a full desktop browser. Flutter's responsive framework made this possible, but I still had to verify every breakpoint. Typography sizes, button proportions, and spacing all needed to feel right on each screen. What looks spacious on a Pro Max can feel cramped on an SE.</p>
+      </div>
+
+      <!-- Final splash + cross-device -->
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/canadian-tomorrow/img-65.png" alt="Final splash screen — Maple leaf icon, 'Born to become Canadian, proud to do it yourself', Let's do this CTA" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-66.png" alt="Cross-device — Splash screen on iPhone SE, iPhone 17 Pro, and desktop browser" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/img-67.png" alt="Onboarding wireframe — Progressive disclosure guiding new users through setup" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The polished splash screen, responsive layouts across three device sizes, and the onboarding flow.</p>
+    </section>
+
+    <!-- ============================================
+         08. The Numbers
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">08</p>
+      <h2>The Numbers</h2>
+
+      <div class="cs-body">
+        <p>Six weeks of work. Here's what came out of it:</p>
+      </div>
+
+      <!-- Metrics grid -->
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <span class="cs-metric-value">166</span>
+          <span class="cs-metric-label">Commits</span>
+          <p>Six weeks of daily shipping. Each commit was a working increment, not a batch dump.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">644</span>
+          <span class="cs-metric-label">Unique Screens</span>
+          <p>Every state, every device size, every locale variation designed and accounted for.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">37</span>
+          <span class="cs-metric-label">Hand-drawn Sketches</span>
+          <p><mark class="cs-hl">Every feature started on paper.</mark> Sketching is faster than wireframing for exploring dead ends quickly.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">37</span>
+          <span class="cs-metric-label">Wireframe Explorations</span>
+          <p>Each sketch that survived became a wireframe with multiple iterations before any code was written.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">4</span>
+          <span class="cs-metric-label">Locales</span>
+          <p>Localization from day one, not bolted on after launch. The layout handles every language without breaking.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">7</span>
+          <span class="cs-metric-label">Device Sizes</span>
+          <p>From iPhone SE to desktop browser. Every breakpoint verified, every component responsive.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         09. What I'd Do Differently
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">09</p>
+      <h2>What I'd Do Differently</h2>
+
+      <div class="cs-body">
+        <p>I designed this app from my own experience as an immigrant going through the Canadian citizenship process. That gave me strong instincts about what matters, but it also means I have blind spots. Here's what I know needs work.</p>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--high">P0 · Critical</span>
+          <h4>User Testing</h4>
+          <p>I built this based on my journey, but citizenship processes vary by country of origin, immigration status, and province. <mark class="cs-hl">A Brazilian permanent resident in Ontario has a different experience than a Syrian refugee in Quebec.</mark> Real user testing with diverse immigrants would surface problems I can't see from my own perspective.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--high">P1 · High</span>
+          <h4>Accessibility Audit</h4>
+          <p>The confidence slider needs screen reader testing. Sliders are notoriously difficult for assistive technology, and this one is a core interaction. I'd also audit the color-coded quiz categories to ensure they work for color-blind users with pattern or shape alternatives.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
+          <h4>Dark Mode</h4>
+          <p>The sage and cream palette doesn't have a dark counterpart yet. For an app people might use at night while studying, that's a real gap.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
+          <h4>Analytics Integration</h4>
+          <p>The confidence slider is my biggest bet, but I don't have data yet to validate whether it actually changes study behavior. I'd want to see: do people study more after seeing they got lucky? Does the confidence matrix drive focused review? Without analytics, the hypothesis stays unproven.</p>
+        </div>
+
+        <div class="cs-finding">
+          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
+          <h4>Offline Support for Documents</h4>
+          <p>The quiz and presence features work offline through cached data. But document management currently requires a connection for uploads. For people in remote areas or with unstable internet, offline document staging with background sync would make the app more reliable.</p>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <p>If I had another month, the user testing and accessibility audit would come first. The confidence slider hypothesis needs real data. And dark mode would ship alongside it.</p>
+        <p>Six weeks ago, every citizenship app was just a quiz. Now there's one that tracks your presence days, organizes your documents, helps you understand how you learn, and does it all in four languages across seven device sizes. <mark class="cs-hl">It's not just test prep anymore. It's a companion for the whole journey.</mark></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div class="cs-lightbox" id="lightbox">
+    <button class="cs-lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <button class="cs-lightbox-prev" aria-label="Previous">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 4L7 12L15 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="cs-lightbox-next" aria-label="Next">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 4L17 12L9 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="cs-lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <p class="cs-lightbox-counter" id="lightbox-counter"></p>
+  </div>
+
+  <footer class="cs-footer">
+    <a href="/">← Back to portfolio</a>
+  </footer>
+
+  <script type="module" src="/script-case-study.js"></script>
+</body>
+
+</html>
