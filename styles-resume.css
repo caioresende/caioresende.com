@@ -99,6 +99,32 @@ body {
   50% { opacity: 0.15; }
 }
 
+.tw-name-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.tw-phonetic {
+  position: absolute;
+  left: 0;
+  top: 89%;
+  font-size: 0.27em;
+  font-weight: 400;
+  color: #86868b;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.tw-phonetic.is-visible {
+  opacity: 1;
+}
+
 .tw-highlight {
   background: rgba(255, 210, 52, 0.25);
   border-radius: 2px;

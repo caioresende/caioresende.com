@@ -23,6 +23,7 @@ document.querySelectorAll(".cs-hl").forEach((el) => hlObserver.observe(el));
 (function typewriter() {
   const titleEl = document.querySelector(".cs-title");
   const textEl = document.querySelector(".tw-text");
+  const phoneticEl = document.querySelector(".tw-phonetic");
   if (!titleEl || !textEl) return;
 
   const NAME = "Caio";
@@ -32,6 +33,17 @@ document.querySelectorAll(".cs-hl").forEach((el) => hlObserver.observe(el));
   const PUNCTUATION = new Set(['"', "'", ",", ".", "!", "?", " "]);
 
   let running = false;
+  let phoneticTimer = null;
+
+  function hidePhonetic() {
+    if (phoneticEl) phoneticEl.classList.remove("is-visible");
+  }
+
+  function showPhonetic() {
+    clearTimeout(phoneticTimer);
+    if (phoneticEl) phoneticEl.classList.add("is-visible");
+    phoneticTimer = setTimeout(hidePhonetic, 3000);
+  }
 
   function sleep(ms) {
     return new Promise((r) => setTimeout(r, ms));
@@ -94,6 +106,9 @@ document.querySelectorAll(".cs-hl").forEach((el) => hlObserver.observe(el));
     // Retype name
     await typeText(NAME);
 
+    // Fade in phonetic hint, auto-hide after 3s
+    showPhonetic();
+
     // 👋 wave cursor after name is back
     startWave();
 
@@ -128,5 +143,9 @@ document.querySelectorAll(".cs-hl").forEach((el) => hlObserver.observe(el));
   }
 
   titleEl.addEventListener("mouseenter", animate);
-  titleEl.addEventListener("mouseleave", stopWave);
+  titleEl.addEventListener("mouseleave", () => {
+    stopWave();
+    clearTimeout(phoneticTimer);
+    hidePhonetic();
+  });
 })();
