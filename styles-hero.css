@@ -62,12 +62,55 @@ nav {
     opacity: 0.7;
 }
 
+.menu {
+    position: relative;
+}
+
 .menu p {
     padding: 0.75rem 1.25rem;
     border-radius: 0.25rem;
     background-color: #000;
     color: #fff;
     cursor: pointer;
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 160px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: #000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.menu.open .menu-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-link {
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.menu-link:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .hero {

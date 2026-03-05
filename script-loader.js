@@ -69,6 +69,37 @@ async function startSite() {
   initProjects();
   initPhotos();
 
+  // Menu dropdown toggle & scroll
+  const menuEl = document.querySelector(".menu");
+  const menuToggle = menuEl?.querySelector("p");
+  const menuLinks = menuEl?.querySelectorAll(".menu-link");
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      menuEl.classList.toggle("open");
+    });
+  }
+
+  if (menuLinks) {
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        menuEl.classList.remove("open");
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  }
+
+  // Close menu on click outside
+  document.addEventListener("click", (e) => {
+    if (menuEl && !menuEl.contains(e.target)) {
+      menuEl.classList.remove("open");
+    }
+  });
+
   // Fade out loader
   loaderEl.classList.add("loaded");
   loaderEl.addEventListener("transitionend", () => {

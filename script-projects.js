@@ -19,15 +19,17 @@ export function init() {
   const section = document.querySelector(".projects");
   if (!section) return;
 
-  let html = "";
+  let html = '<h2 class="projects-title">Projects</h2>';
   let idx = 0;
   for (let r = 0; r < TOTAL_ROWS; r++) {
     html += '<div class="projects-row">';
     for (let c = 0; c < PROJECTS_PER_ROW; c++) {
       const project = PROJECTS[idx % PROJECTS.length];
       const lazy = r > 0 ? ' loading="lazy"' : '';
+      const openTag = project.link ? `<a href="${project.link}" class="project">` : '<div class="project">';
+      const closeTag = project.link ? '</a>' : '</div>';
       html += `
-        <div class="project">
+        ${openTag}
           <div class="project-img">
             <img src="${project.img}" alt="${project.name}"${lazy} />
           </div>
@@ -52,7 +54,7 @@ export function init() {
               <p class="project-meta">${project.company} &bull; ${project.year}</p>
             </div>
           </div>
-        </div>`;
+        ${closeTag}`;
       idx++;
     }
     html += "</div>";
