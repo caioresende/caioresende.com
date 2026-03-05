@@ -3,7 +3,7 @@ export const PROJECTS = [
   {
     name: "Canadian Tomorrow",
     company: "Canadian Tomorrow",
-    year: 2024,
+    year: 2026,
     img: "/images/projects/img1.jpg",
     color: "#EFFBFF",
     description: "The citizenship companion app I wished I had — from paper sketches to a cross-platform product in six weeks.",
@@ -12,7 +12,7 @@ export const PROJECTS = [
   {
     name: "Canadian Tomorrow",
     company: "Canadian Tomorrow",
-    year: 2024,
+    year: 2026,
     img: "/images/projects/img2.jpg",
     color: "#E6F4EE",
     description: "The citizenship companion app I wished I had — from paper sketches to a cross-platform product in six weeks.",
@@ -21,7 +21,7 @@ export const PROJECTS = [
   {
     name: "Canadian Tomorrow",
     company: "Canadian Tomorrow",
-    year: 2024,
+    year: 2026,
     img: "/images/projects/img3.jpg",
     color: "#FFF2F0",
     description: "The citizenship companion app I wished I had — from paper sketches to a cross-platform product in six weeks.",
@@ -30,7 +30,7 @@ export const PROJECTS = [
   {
     name: "Canadian Tomorrow",
     company: "Canadian Tomorrow",
-    year: 2024,
+    year: 2026,
     img: "/images/projects/img4.jpg",
     color: "#F6E6ED",
     description: "The citizenship companion app I wished I had — from paper sketches to a cross-platform product in six weeks.",
@@ -39,7 +39,7 @@ export const PROJECTS = [
   {
     name: "Canadian Tomorrow",
     company: "Canadian Tomorrow",
-    year: 2024,
+    year: 2026,
     img: "/images/projects/img5.jpg",
     color: "#E8F0F6",
     description: "The citizenship companion app I wished I had — from paper sketches to a cross-platform product in six weeks.",
@@ -48,7 +48,7 @@ export const PROJECTS = [
   {
     name: "Canadian Tomorrow",
     company: "Canadian Tomorrow",
-    year: 2024,
+    year: 2026,
     img: "/images/projects/img6.jpg",
     color: "#E6F4EE",
     description: "The citizenship companion app I wished I had — from paper sketches to a cross-platform product in six weeks.",
@@ -57,7 +57,7 @@ export const PROJECTS = [
   {
     name: "Canadian Tomorrow",
     company: "Canadian Tomorrow",
-    year: 2024,
+    year: 2026,
     img: "/images/projects/img7.jpg",
     color: "#FFFCE8",
     description: "The citizenship companion app I wished I had — from paper sketches to a cross-platform product in six weeks.",
@@ -67,7 +67,7 @@ export const PROJECTS = [
   {
     name: "Migrant Wallet",
     company: "Migrant Wallet",
-    year: 2023,
+    year: 2025,
     img: "/images/projects/img8.jpg",
     color: "#B5D3D9",
     description: "From sketches to App Store — a personal finance app helping immigrants see their total assets across currencies.",
@@ -76,7 +76,7 @@ export const PROJECTS = [
   {
     name: "Migrant Wallet",
     company: "Migrant Wallet",
-    year: 2023,
+    year: 2025,
     img: "/images/projects/img9.jpg",
     color: "#AEC0C7",
     description: "From sketches to App Store — a personal finance app helping immigrants see their total assets across currencies.",
@@ -85,7 +85,7 @@ export const PROJECTS = [
   {
     name: "Migrant Wallet",
     company: "Migrant Wallet",
-    year: 2023,
+    year: 2025,
     img: "/images/projects/img10.jpg",
     color: "#D0E9D1",
     description: "From sketches to App Store — a personal finance app helping immigrants see their total assets across currencies.",
@@ -95,7 +95,7 @@ export const PROJECTS = [
   {
     name: "Comentto",
     company: "Comentto",
-    year: 2022,
+    year: 2018,
     img: "/images/projects/img11.jpg",
     color: "#09527F",
     description: "Rebuilding a research management platform from the ground up — design system, survey engine, dashboards, and mobile apps.",
@@ -104,7 +104,7 @@ export const PROJECTS = [
   {
     name: "Comentto",
     company: "Comentto",
-    year: 2022,
+    year: 2018,
     img: "/images/projects/img12.jpg",
     color: "#55AFDA",
     description: "Rebuilding a research management platform from the ground up — design system, survey engine, dashboards, and mobile apps.",
@@ -113,7 +113,7 @@ export const PROJECTS = [
   {
     name: "Comentto",
     company: "Comentto",
-    year: 2022,
+    year: 2018,
     img: "/images/projects/img13.jpg",
     color: "#00AA96",
     description: "Rebuilding a research management platform from the ground up — design system, survey engine, dashboards, and mobile apps.",
@@ -123,7 +123,7 @@ export const PROJECTS = [
   {
     name: "FIFA 20 Global Series",
     company: "EA",
-    year: 2020,
+    year: 2021,
     img: "/images/projects/img14.jpg",
     color: "#a66363",
     description: "Rethinking competitiveness in one of the biggest sport video games in the world — redesigning the fan-facing experience.",
@@ -132,7 +132,7 @@ export const PROJECTS = [
   {
     name: "FIFA 20 Global Series",
     company: "EA",
-    year: 2020,
+    year: 2021,
     img: "/images/projects/img15.jpg",
     color: "#e67339",
     description: "Rethinking competitiveness in one of the biggest sport video games in the world — redesigning the fan-facing experience.",
@@ -141,7 +141,7 @@ export const PROJECTS = [
   {
     name: "FIFA 20 Global Series",
     company: "EA",
-    year: 2020,
+    year: 2021,
     img: "/images/projects/img16.jpg",
     color: "#5f7c98",
     description: "Rethinking competitiveness in one of the biggest sport video games in the world — redesigning the fan-facing experience.",
