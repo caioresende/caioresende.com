@@ -97,31 +97,8 @@ export function init() {
   const centerX = window.innerWidth / 2 - (containerRect.left + containerRect.width / 2);
   const centerY = window.innerHeight / 2 - (containerRect.top + containerRect.height / 2);
 
-  // Start with icons full size and centered
-  gsap.set(animatedIcons, { x: centerX, y: centerY, scale: 1, opacity: 1 });
-
-  // Slot-machine pool: all available logos
-  const slotPool = [];
-  for (let i = 1; i <= 14; i++) slotPool.push(`/images/icons/slot_${i}.png`);
-  for (let i = 1; i <= 7; i++) slotPool.push(`/images/icons/final_${i}.png`);
-
-  // Save original (final) src for each icon
-  const originalSrcs = [];
-  iconElements.forEach((icon) => {
-    originalSrcs.push(icon.querySelector("img").src);
-  });
-
-  // Pre-generate random swap sequences per icon (no duplicates per step)
-  const slotSteps = 20;
-  const iconCount = iconElements.length;
-  const slotSequences = Array.from({ length: iconCount }, () => []);
-  for (let s = 0; s < slotSteps; s++) {
-    const shuffled = [...slotPool].sort(() => Math.random() - 0.5);
-    for (let i = 0; i < iconCount; i++) {
-      slotSequences[i].push(shuffled[i]);
-    }
-  }
-  let lastSlotStep = -1;
+  // Start with icons already at small scale and centered (skip the slot machine phase)
+  gsap.set(animatedIcons, { x: centerX, y: centerY, scale: exactScale, opacity: 1 });
 
   // Pre-generate random tilts (alternating CW and CCW)
   const tilts = iconElements.length;
@@ -132,13 +109,18 @@ export function init() {
     iconTilts.push(angle);
   }
 
+  // Save original src for each icon
+  const originalSrcs = [];
+  iconElements.forEach((icon) => {
+    originalSrcs.push(icon.querySelector("img").src);
+  });
+
   function createDuplicates() {
     if (window.duplicateIcons) return;
     window.duplicateIcons = [];
     window.iconTilts = iconTilts;
     iconElements.forEach((icon, index) => {
       const duplicate = icon.cloneNode(true);
-      // Force correct final image regardless of slot-machine state
       duplicate.querySelector("img").src = originalSrcs[index];
       duplicate.className = "duplicate-icon";
       duplicate.style.position = "absolute";
@@ -157,7 +139,7 @@ export function init() {
   ScrollTrigger.create({
     trigger: ".icons-section",
     start: "top top",
-    end: `+=${window.innerHeight * 5}px`,
+    end: `+=${window.innerHeight * 4}px`,
     pin: true,
     pinSpacing: true,
     scrub: 1,
@@ -168,38 +150,12 @@ export function init() {
         gsap.set(segment, { opacity: 0 });
       });
 
-      // Phase 1: Icons scale down from big to small in center (0–0.15)
-      if (progress <= 0.15) {
-        const scaleProgress = progress / 0.15;
-        const currentScale = 1 + (exactScale - 1) * scaleProgress;
+      // Phase 1: Icons fly from center to text placeholders (0–0.3)
+      if (progress <= 0.3) {
+        const moveProgress = progress / 0.3;
 
         // Clean up duplicates if scrolling back
         cleanupDuplicates();
-
-        // Slot-machine: swap icon images at discrete steps
-        const step = Math.min(Math.floor(scaleProgress * slotSteps), slotSteps - 1);
-        if (step !== lastSlotStep) {
-          lastSlotStep = step;
-          iconElements.forEach((icon, i) => {
-            icon.querySelector("img").src = slotSequences[i][step];
-          });
-        }
-
-        gsap.set(animatedIcons, { x: centerX, y: centerY, scale: currentScale, opacity: 1 });
-        gsap.set(iconsContent, { y: 0, scale: 1 });
-        gsap.set(logosReveal, { y: window.innerHeight * 0.5, opacity: 0 });
-
-      // Phase 2: Duplicates fly to text placeholders (0.15–0.4)
-      } else if (progress <= 0.4) {
-        const moveProgress = (progress - 0.15) / 0.25;
-
-        // Restore original icon sources (for correct duplicate cloning)
-        if (lastSlotStep !== -1) {
-          iconElements.forEach((icon, i) => {
-            icon.querySelector("img").src = originalSrcs[i];
-          });
-          lastSlotStep = -1;
-        }
 
         // Hide original icons immediately
         gsap.set(animatedIcons, { opacity: 0 });
@@ -211,7 +167,6 @@ export function init() {
 
         window.duplicateIcons.forEach((duplicate, index) => {
           if (index < placeholders.length) {
-            // Start position: where the original icon was (center of viewport, at exactScale)
             const iconRect = iconElements[index].getBoundingClientRect();
             const startPageX = iconRect.left + iconRect.width / 2 + window.pageXOffset;
             const startPageY = iconRect.top + iconRect.height / 2 + window.pageYOffset;
@@ -241,13 +196,13 @@ export function init() {
           }
         });
 
-      // Phase 3: Text reveals (0.4–0.65)
-      } else if (progress <= 0.65) {
+      // Phase 2: Text reveals (0.3–0.55)
+      } else if (progress <= 0.55) {
         gsap.set(animatedIcons, { opacity: 0 });
         gsap.set(iconsContent, { y: 0, scale: 1 });
         gsap.set(logosReveal, { y: window.innerHeight * 0.5, opacity: 0 });
 
-        // Create duplicates if needed (scrolling forward past Phase 1)
+        // Create duplicates if needed
         createDuplicates();
 
         // Keep duplicates at target positions with tilt
@@ -268,20 +223,20 @@ export function init() {
 
         const revealPerSegment = Math.min(0.04, 0.2 / textAnimationOrder.length);
         textAnimationOrder.forEach((item, randomIndex) => {
-          const segmentStart = 0.4 + randomIndex * revealPerSegment;
+          const segmentStart = 0.3 + randomIndex * revealPerSegment;
           const segmentEnd = segmentStart + revealPerSegment * 0.5;
           const segmentProgress = gsap.utils.mapRange(segmentStart, segmentEnd, 0, 1, progress);
           gsap.set(item.segment, { opacity: Math.max(0, Math.min(1, segmentProgress)) });
         });
 
-      // Phase 4: Slide text up, reveal logos below (0.65–1.0)
+      // Phase 3: Slide text up, reveal logos below (0.55–1.0)
       } else {
         gsap.set(animatedIcons, { opacity: 0 });
 
         // All text fully visible
         textSegments.forEach((segment) => gsap.set(segment, { opacity: 1 }));
 
-        const slideProgress = (progress - 0.65) / 0.35;
+        const slideProgress = (progress - 0.55) / 0.45;
         const clamped = Math.max(0, Math.min(1, slideProgress));
 
         // Text slides up and scales down to make room for logos
@@ -327,4 +282,3 @@ export function init() {
     },
   });
 }
-
