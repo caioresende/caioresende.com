@@ -1,6 +1,41 @@
 import * as THREE from 'three';
 import { vertexShader, fluidFragmentShader, displayFragmentShader } from './shaders.js';
 
+/**
+ * ─── BRUSH CONFIG ───────────────────────────────────────────
+ * Tweak these values to change the brush reveal effect.
+ *
+ *  STROKE
+ *    strokeWidth     – radius of the brush   (try 0.01–0.15)
+ *    maxIntensity    – peak opacity per frame (0.0–1.0)
+ *    decay           – trail persistence      (0.90 = fast fade, 0.999 = lingers)
+ *
+ *  RIPPLE  (edge wobble)
+ *    rippleFrequency – ripple count along edge (0 = smooth, 60+ = jagged)
+ *    rippleSpeed     – animation speed         (needs uTime, see animate())
+ *    rippleAmplitude – wobble amount            (0 = clean edge)
+ *
+ *  REVEAL MASK
+ *    featherStart    – fluid value where reveal begins       (lower = earlier)
+ *    featherEnd      – fluid value where reveal is full      (higher = softer)
+ * ────────────────────────────────────────────────────────────
+ */
+const BRUSH_CONFIG = {
+    // Stroke
+    strokeWidth:      0.05,
+    maxIntensity:     0.5,
+    decay:            0.985,
+
+    // Ripple (edge wobble)
+    rippleFrequency:  1,
+    rippleSpeed:      2,
+    rippleAmplitude:  0.0025,
+
+    // Reveal mask
+    featherStart:     0.1,
+    featherEnd:       0.3,
+};
+
 export function init() {
     const canvas = document.querySelector("canvas");
     const renderer = new THREE.WebGLRenderer({
@@ -45,12 +80,19 @@ export function init() {
 
     const trailsMaterial = new THREE.ShaderMaterial({
         uniforms: {
-            uPrevTrails: { value: null },
-            uMouse: { value: mouse },
-            uPrevMouse: { value: prevMouse },
-            uResolution: { value: new THREE.Vector2(size, size) },
-            uDecay: { value: 0.98 },
-            uIsMoving: { value: false },
+            uPrevTrails:      { value: null },
+            uMouse:           { value: mouse },
+            uPrevMouse:       { value: prevMouse },
+            uResolution:      { value: new THREE.Vector2(size, size) },
+            uIsMoving:        { value: false },
+            uTime:            { value: 0 },
+            // ── Brush config ──
+            uDecay:           { value: BRUSH_CONFIG.decay },
+            uStrokeWidth:     { value: BRUSH_CONFIG.strokeWidth },
+            uMaxIntensity:    { value: BRUSH_CONFIG.maxIntensity },
+            uRippleFrequency: { value: BRUSH_CONFIG.rippleFrequency },
+            uRippleSpeed:     { value: BRUSH_CONFIG.rippleSpeed },
+            uRippleAmplitude: { value: BRUSH_CONFIG.rippleAmplitude },
         },
         vertexShader,
         fragmentShader: fluidFragmentShader,
@@ -58,13 +100,16 @@ export function init() {
 
     const displayMaterial = new THREE.ShaderMaterial({
         uniforms: {
-            uFluid: { value: null },
-            uTopTexture: { value: topTexture },
-            uBottomTexture: { value: bottomTexture },
-            uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
-            uDpr: { value: window.devicePixelRatio },
-            uTopTextureSize: { value: topTextureSize },
-            uBottomTextureSize: { value: bottomTextureSize },
+            uFluid:            { value: null },
+            uTopTexture:       { value: topTexture },
+            uBottomTexture:    { value: bottomTexture },
+            uResolution:       { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+            uDpr:              { value: window.devicePixelRatio },
+            uTopTextureSize:   { value: topTextureSize },
+            uBottomTextureSize:{ value: bottomTextureSize },
+            // ── Brush config ──
+            uFeatherStart:     { value: BRUSH_CONFIG.featherStart },
+            uFeatherEnd:       { value: BRUSH_CONFIG.featherEnd },
         },
         vertexShader,
         fragmentShader: displayFragmentShader,
@@ -165,6 +210,7 @@ export function init() {
 
         trailsMaterial.uniforms.uPrevTrails.value = prevTarget.texture;
         trailsMaterial.uniforms.uIsMoving.value = isMoving;
+        trailsMaterial.uniforms.uTime.value = performance.now() * 0.001;
 
         renderer.setRenderTarget(currentRenderTarget);
         renderer.render(simScene, camera);

@@ -16,9 +16,17 @@ export const fluidFragmentShader = `
     uniform sampler2D uPrevTrails;
     uniform vec2 uMouse;
     uniform vec2 uPrevMouse;
-    uniform float uDecay; 
-    uniform float uTime;
     uniform bool uIsMoving;
+    uniform float uTime;
+
+    // ── Brush config (driven from BRUSH_CONFIG) ──
+    uniform float uDecay;
+    uniform float uStrokeWidth;
+    uniform float uMaxIntensity;
+    uniform float uRippleFrequency;
+    uniform float uRippleSpeed;
+    uniform float uRippleAmplitude;
+
     varying vec2 vUv;
 
     void main() {
@@ -31,16 +39,13 @@ export const fluidFragmentShader = `
 
             if (lineLength > 0.001) {
                 vec2 mouseDir = mouseDirection / lineLength;
-                vec2 toPixel = vUv - uPrevMouse;
-                float projAlong = dot(toPixel, mouseDir);
-                projAlong = clamp(projAlong, 0.0, lineLength);
-
+                float projAlong = clamp(dot(vUv - uPrevMouse, mouseDir), 0.0, lineLength);
                 vec2 closestPoint = uPrevMouse + projAlong * mouseDir;
                 float dist = length(vUv - closestPoint);
 
-                float ripple = sin(dist * 25.0 - uTime * 6.0) * 0.015;
-                float lineWidth = 0.04 + ripple; 
-                float intensity = smoothstep(lineWidth, 0.0, dist) * 0.7;
+                float ripple = sin(dist * uRippleFrequency - uTime * uRippleSpeed) * uRippleAmplitude;
+                float width = uStrokeWidth + ripple;
+                float intensity = smoothstep(width, 0.0, dist) * uMaxIntensity;
                 newValue += intensity;
             }
         }
@@ -58,6 +63,11 @@ export const displayFragmentShader = `
     uniform vec2 uResolution;
     uniform vec2 uTopTextureSize;
     uniform vec2 uBottomTextureSize;
+
+    // ── Brush config (driven from BRUSH_CONFIG) ──
+    uniform float uFeatherStart;
+    uniform float uFeatherEnd;
+
     varying vec2 vUv;
 
     vec2 getCorrectedUV(vec2 uv, vec2 textureSize) {
@@ -67,8 +77,8 @@ export const displayFragmentShader = `
         vec2 scaledSize = textureSize * scale;
         vec2 offset = (uResolution - scaledSize) * 0.5;
         return (uv * uResolution - offset) / scaledSize;
-    } 
-    
+    }
+
     void main () {
         float fluid = texture2D(uFluid, vUv).r;
         vec2 topUV = getCorrectedUV(vUv, uTopTextureSize);
@@ -77,7 +87,7 @@ export const displayFragmentShader = `
         vec4 topColor = texture2D(uTopTexture, topUV);
         vec4 bottomColor = texture2D(uBottomTexture, bottomUV);
 
-        float mask = smoothstep(0.05, 0.2, fluid);
+        float mask = smoothstep(uFeatherStart, uFeatherEnd, fluid);
         gl_FragColor = mix(topColor, bottomColor, mask);
     }
 `;
