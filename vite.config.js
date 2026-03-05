@@ -12,6 +12,8 @@ export default defineConfig({
         resume: resolve(__dirname, "resume.html"),
         comentto: resolve(__dirname, "comentto.html"),
         valence: resolve(__dirname, "valence.html"),
+        portals: resolve(__dirname, "portals.html"),
+        fifa: resolve(__dirname, "fifa.html"),
       },
       output: {
         assetFileNames: "assets/[name]-[hash].[ext]",

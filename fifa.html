@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIFA 20 Global Series — UX Case Study | Caio Resende</title>
+  <link rel="stylesheet" href="/styles-case-study.css" />
+</head>
+
+<body>
+
+  <!-- Back nav -->
+  <nav class="cs-nav">
+    <a href="/" class="cs-back">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Caio Resende
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="cs-hero">
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">UX Case Study</p>
+      <h1 class="cs-title">FIFA 20 Global Series</h1>
+      <p class="cs-subtitle">Rethinking competitiveness in one of the biggest sport video games in the world — redesigning the fan-facing experience and increasing player feedback by 32x</p>
+      <div class="cs-meta">
+        <span>Product Designer · 2019–2020</span>
+        <span>Esports · B2C · Fan Experience</span>
+        <span>Adobe XD · Miro · Qualtrics</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero carousel -->
+  <section class="cs-carousel-full">
+    <div class="cs-carousel" data-carousel>
+      <div class="cs-carousel-track">
+        <img src="/images/case-studies/fifa/home-desktop.png" alt="FIFA 20 Global Series — Home page desktop" loading="lazy" />
+        <img src="/images/case-studies/fifa/home-live-desktop.png" alt="FIFA 20 Global Series — Home with live match" loading="lazy" />
+        <img src="/images/case-studies/fifa/home-mobile.png" alt="FIFA 20 Global Series — Home mobile" loading="lazy" />
+        <img src="/images/case-studies/fifa/home-pnp-desktop.png" alt="FIFA 20 Global Series — Home PnP desktop" loading="lazy" />
+        <img src="/images/case-studies/fifa/home-alt-theme-desktop.png" alt="FIFA 20 Global Series — Home alternate theme" loading="lazy" />
+        <img src="/images/case-studies/fifa/home-alt-theme-mobile.png" alt="FIFA 20 Global Series — Home alternate theme mobile" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <main class="cs-content">
+
+    <!-- ============================================
+         01. The Project
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">01</p>
+      <h2>The Project</h2>
+
+      <div class="cs-body">
+        <h3>What Is the FIFA 20 Global Series</h3>
+        <p>The FIFA 20 Global Series was EA's competitive esports program for FIFA — the largest competitive football video game in the world. It brought together professional and amateur players across multiple regions, competing in tournaments with prize pools, live broadcasts, and a global audience of millions. The fan-facing website was the central hub where <mark class="cs-hl">players discovered events, watched live matches, tracked results, and engaged with the competitive scene</mark>.</p>
+
+        <h3>My Role</h3>
+        <p>I was the Product Designer responsible for the full redesign of the FIFA 20 Global Series fan-facing website. The project spanned the complete design process — from prior research and experience assessment through information architecture, wireframing, and high-fidelity mockups. I worked closely with the product and engineering teams at Battlefy, who powered the competitive infrastructure behind EA's esports programs.</p>
+
+        <h3>Two Audiences</h3>
+        <p><strong>Players</strong> — competitive FIFA players who needed to discover tournaments, register, track schedules, and follow results across their region. They wanted a personalized experience that surfaced relevant events and rewarded engagement.</p>
+        <p><strong>Viewers</strong> — fans who watched live broadcasts, followed their favorite competitors, and consumed highlight content. They needed easy access to live streams, match stats, and video recaps.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/fifa/home-desktop.png" alt="FIFA 20 Global Series — redesigned home page desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-mobile.png" alt="FIFA 20 Global Series — redesigned home page mobile" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-mobile-full.png" alt="FIFA 20 Global Series — full mobile home scroll" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The redesigned FIFA 20 Global Series home page — desktop and mobile versions featuring live match integration, video content, and event discovery.</p>
+    </section>
+
+    <!-- ============================================
+         02. The Problem
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">02</p>
+      <h2>The Problem</h2>
+
+      <div class="cs-body">
+        <h3>A Competitive Experience That Wasn't Competing</h3>
+        <p>Data showed that the competitive experience for EA FIFA 20 was not reflecting the current needs of its consumers: players and viewers. The existing website had significant usability issues that were hurting engagement across the board. <mark class="cs-hl">A full redesign was proposed with one core question: how might we increase engagement with viewership and rewards in mind?</mark></p>
+
+        <h3>What the Assessment Revealed</h3>
+        <p><strong>Navigation needed reprioritization.</strong> The internal navigation buried important sections like official rules and about pages under equal weight, when they didn't need that much attention. Meanwhile, CTAs for account creation and login weren't visible enough — the rewards for watching content weren't being communicated convincingly.</p>
+        <p><strong>The main content area wasn't personalized.</strong> The primary real estate should have been curated to the logged-in user or shown more relevant and dynamic content like live broadcasts or favorite team content. Instead, it showed generic, static information.</p>
+        <p><strong>Event content lacked diversity.</strong> The event section could have been improved by showing more diverse content. The logos looked alike and the content was not curated to a specific region or favorite team — <mark class="cs-hl">it was showing irrelevant events to most visitors</mark>.</p>
+        <p><strong>Carousel components hid content.</strong> Carousel components could be replaced by a grid system. Hiding content was not an ideal experience — a grid with "Load more" buttons could be more effective at surfacing relevant content.</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         03. Proposed Information Architecture
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">03</p>
+      <h2>Proposed Information Architecture</h2>
+
+      <div class="cs-body">
+        <h3>Auditing the Current State</h3>
+        <p>The first step was a thorough experience assessment — mapping the current website side by side with a proposed IA that addressed every issue identified. Each section of the existing page was annotated with specific problems and opportunities, then mapped to a new structure with <mark class="cs-hl">clear rationale for every architectural decision</mark>.</p>
+
+        <h3>Key IA Decisions</h3>
+        <p><strong>Internal navigation.</strong> Prioritize CTAs for viewership. Work on current IA to add and remove items based on importance to the competitive experience.</p>
+        <p><strong>Live events.</strong> Show what's currently happening on FGS. Prioritize favorite team results and region. Include live scoring so viewers never miss a moment.</p>
+        <p><strong>Favorite team & rewards.</strong> Motivate users to watch content for coins (rewards system). Enable users to view events pages and brackets for more info on each event.</p>
+        <p><strong>Personal adjustments.</strong> Region selector (auto set from account), favorite team selection, and My Coins rewards system for content consumption — <mark class="cs-hl">making the experience feel tailored to each visitor</mark>.</p>
+        <p><strong>Video content.</strong> Show broadcasts or live events. Content could be a game, recap, or news. Include CTA for coins rewards to incentivize viewership.</p>
+        <p><strong>Recent articles & news.</strong> Most recent news globally related to events and league updates. Ordered based on region, showing global news or updates that impact the whole experience.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/fifa/wireframe-home-annotated-desktop.png" alt="Proposed IA — annotated current state audit with new structure" loading="lazy" />
+          <img src="/images/case-studies/fifa/wireframe-home-alt-desktop.png" alt="Wireframe — home page alternative structure" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Proposed IA: the current state (left) annotated with identified issues, mapped against the new information architecture (right) with detailed rationale for each section.</p>
+    </section>
+
+    <!-- ============================================
+         04. Wireframes
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">04</p>
+      <h2>Wireframes</h2>
+
+      <div class="cs-body">
+        <h3>Exploring the Structure</h3>
+        <p>With the IA validated, I moved into wireframing to explore layout options and content hierarchy. The wireframes focused on two key scenarios: the standard home experience and the <mark class="cs-hl">live broadcast state where matches were actively being played</mark>. Both desktop and mobile needed to handle these states gracefully.</p>
+
+        <h3>Broadcast Live States</h3>
+        <p>A critical addition was designing for the live experience. When a match was in progress, the home page needed to transform — surfacing the live stream, match scores, and real-time stats without disrupting the overall navigation flow. The "Picture-in-Picture" variant allowed viewers to keep watching while browsing other content.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/fifa/wireframe-home-desktop.png" alt="Wireframe — home page desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/wireframe-broadcast-desktop.png" alt="Wireframe — broadcast live state desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/wireframe-broadcast-pnp-desktop.png" alt="Wireframe — broadcast live Picture-in-Picture desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/wireframe-home-mobile.png" alt="Wireframe — home page mobile" loading="lazy" />
+          <img src="/images/case-studies/fifa/wireframe-broadcast-mobile.png" alt="Wireframe — broadcast live state mobile" loading="lazy" />
+          <img src="/images/case-studies/fifa/wireframe-broadcast-pnp-mobile.png" alt="Wireframe — broadcast live PnP mobile" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Wireframes for the home page across three states: default, broadcast live, and Picture-in-Picture — all designed for both desktop and mobile.</p>
+    </section>
+
+    <!-- ============================================
+         05. Navigation Components
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">05</p>
+      <h2>Navigation Components</h2>
+
+      <div class="cs-body">
+        <h3>Global & Internal Navigation</h3>
+        <p>The navigation system was split into two layers. The <strong>global navigation</strong> served as the EA-wide header — consistent across all EA products with login, help center, and home links. The <strong>internal navigation</strong> was specific to the FIFA 20 Global Series, <mark class="cs-hl">reprioritized to surface Match, Events, Rewards, Standings, and News</mark> as the primary paths.</p>
+        <p>On mobile, the internal navigation collapsed into an expandable menu that maintained the same priority hierarchy while saving screen real estate for content.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/fifa/global-nav-desktop.png" alt="Global navigation component — desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/global-nav-mobile.png" alt="Global navigation component — mobile" loading="lazy" />
+          <img src="/images/case-studies/fifa/internal-nav-desktop.png" alt="Internal navigation component — desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/internal-nav-mobile.png" alt="Internal navigation component — mobile collapsed" loading="lazy" />
+          <img src="/images/case-studies/fifa/internal-nav-open-mobile.png" alt="Internal navigation component — mobile expanded" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Navigation components: global EA header and FIFA 20 Global Series internal navigation — desktop and mobile states including the expanded mobile menu.</p>
+    </section>
+
+    <!-- ============================================
+         06. High-Fidelity Mockups — Desktop
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">06</p>
+      <h2>High-Fidelity Mockups — Desktop</h2>
+
+      <div class="cs-body">
+        <h3>Bringing the Redesign to Life</h3>
+        <p>The high-fidelity mockups brought together all the research, IA decisions, and wireframe explorations into a polished, production-ready design. The home page featured a dark, immersive aesthetic that matched EA's competitive brand identity — <mark class="cs-hl">with live match integration, video content grids, event discovery, and team personalization all working together</mark>.</p>
+
+        <h3>Multiple States & Themes</h3>
+        <p>The design system supported multiple home page states: the default experience with latest videos and news, the live match state with real-time scores and match facts, a Picture-in-Picture mode for continued browsing during live streams, and team selection for personalization. An alternate color theme was also explored to accommodate different tournament branding needs.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/fifa/home-desktop.png" alt="Home page — default state desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-live-desktop.png" alt="Home page — live match state desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-live-stats-desktop.png" alt="Home page — live match with stats desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-pnp-desktop.png" alt="Home page — Picture-in-Picture mode desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-select-team-desktop.png" alt="Home page — team selection state desktop" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-alt-theme-desktop.png" alt="Home page — alternate theme desktop" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Desktop mockups: default home, live match, live match with stats, Picture-in-Picture browsing, team selection, and alternate tournament theme.</p>
+    </section>
+
+    <!-- ============================================
+         07. High-Fidelity Mockups — Mobile
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">07</p>
+      <h2>High-Fidelity Mockups — Mobile</h2>
+
+      <div class="cs-body">
+        <h3>Mobile-First Competitive Experience</h3>
+        <p>The mobile experience was designed to give fans full access to the competitive scene from their phones. Every feature available on desktop — live matches, event details, video content, team selection — was carefully adapted for mobile with <mark class="cs-hl">touch-friendly interactions and optimized content density</mark>.</p>
+        <p>The live match state on mobile prioritized the score and key match facts, with expandable sections for deeper stats. The team selection and alternate theme states ensured personalization worked seamlessly across devices.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/fifa/home-mobile.png" alt="Home page — default mobile" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-mobile-full.png" alt="Home page — full scroll mobile" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-live-stats-mobile.png" alt="Home page — live match stats mobile" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-live-stats-mobile-full.png" alt="Home page — live match stats full scroll mobile" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-select-team-mobile.png" alt="Home page — team selection mobile" loading="lazy" />
+          <img src="/images/case-studies/fifa/home-alt-theme-mobile.png" alt="Home page — alternate theme mobile" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Mobile mockups: default home, full page scroll, live match with stats, team selection, and alternate tournament theme — all optimized for touch interaction.</p>
+    </section>
+
+    <!-- ============================================
+         08. Player Ratings Feature
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">08</p>
+      <h2>Player Ratings Feature</h2>
+
+      <div class="cs-body">
+        <h3>The Feedback Problem</h3>
+        <p>Players could submit feedback on their tournament experience, but interactions were extremely low — <mark class="cs-hl">only 0.5% of all players who participated in tournaments were leaving ratings</mark>. The initial goal was to grow this by 3%, but through iterative design and testing, the results far exceeded expectations.</p>
+
+        <h3>Inspired by Uber</h3>
+        <p>The approach was inspired by how Uber handles rating and feedback in their app. Uber's system succeeds because it appears at the right moment, requires minimal effort, and provides structured options for both positive and negative feedback. I adapted this model for tournament experiences — a thumbs up/down binary choice that expanded into contextual follow-up questions.</p>
+
+        <h3>Three Iterations of Testing</h3>
+        <p>This feature went through at least three iterations. User flows were created to define precisely when rating modals would appear — after login (floating card), on tournament pages, on match pages, and after tournament completion. Each iteration tested different triggers, copy variations, and feedback flows. <mark class="cs-hl">After reaching the goal of increasing ratings on each iteration, the final round showed an increase of 3200% in player ratings.</mark></p>
+
+        <h3>The Rating Flow</h3>
+        <p>The flow started with a simple question: "Enjoying this tournament?" with thumbs up or thumbs down. A positive response led to a "Give compliment" modal with options like "Well organized," "Clear rules," and "Great prizing." A negative response surfaced a "What can be improved?" modal with structured options like wait times, admin management, format issues, skill balance, and bugs. Both paths ended with a thank you confirmation and a CTA to follow the organizer or discover new tournaments.</p>
+        <p>Different copy was used for ongoing versus finished tournaments — "Enjoying this tournament?" for active events, and "Did you enjoy this tournament?" for completed ones.</p>
+      </div>
+
+      <div class="cs-body">
+        <h3>Organizer Dashboard</h3>
+        <p>The collected feedback fed into an Organizer Dashboard — giving tournament organizers visibility into their player count, new followers, approval ratings over time, and detailed breakdowns of compliments and improvements. This created a <mark class="cs-hl">feedback loop that incentivized organizers to improve their tournament quality</mark> based on real player data.</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         09. Results & Impact
+         ============================================ -->
+    <section class="cs-section">
+      <p class="cs-section-number">09</p>
+      <h2>Results & Impact</h2>
+
+      <div class="cs-body">
+        <p>The FIFA 20 Global Series redesign and Player Ratings feature delivered measurable improvements to the competitive experience for both players and organizers.</p>
+      </div>
+
+      <!-- Impact metrics -->
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <span class="cs-metric-value">32x</span>
+          <span class="cs-metric-label">Player Feedback Increase</span>
+          <p>Player ratings on tournaments went from <mark class="cs-hl">0.5% to 16% participation</mark> — a 3200% increase through iterative UX improvements to the feedback flow.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">3+</span>
+          <span class="cs-metric-label">Design Iterations</span>
+          <p>At least three full iterations of user flows and testing were conducted, each one surpassing the previous engagement target.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">Full IA</span>
+          <span class="cs-metric-label">Redesign Delivered</span>
+          <p>Complete information architecture overhaul with personalization, live match integration, and rewards-driven engagement across desktop and mobile.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">Feedback Loop</span>
+          <span class="cs-metric-label">Organizer Insights</span>
+          <p>A new Organizer Dashboard gave tournament hosts real-time visibility into player satisfaction, compliments, and areas for improvement.</p>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <h3>The Bigger Picture</h3>
+        <p>This project demonstrated that <mark class="cs-hl">a structured design process — from research through iterative testing — could transform engagement metrics</mark> in competitive gaming. The IA redesign made the fan-facing experience relevant and personalized, while the player ratings feature created a virtuous cycle between player feedback and organizer improvement. Both projects became foundational patterns that could be applied across other EA esports titles on the Battlefy platform.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div class="cs-lightbox" id="lightbox">
+    <button class="cs-lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <button class="cs-lightbox-prev" aria-label="Previous">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 4L7 12L15 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="cs-lightbox-next" aria-label="Next">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 4L17 12L9 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="cs-lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <p class="cs-lightbox-counter" id="lightbox-counter"></p>
+  </div>
+
+  <footer class="cs-footer">
+    <a href="/">← Back to portfolio</a>
+  </footer>
+
+  <script type="module" src="/script-case-study.js"></script>
+</body>
+
+</html>
