@@ -1,6 +1,33 @@
 import { inject } from "@vercel/analytics";
 inject();
 
+import { optimizedCaseStudyPath, supportsWebPSync } from "./image-utils.js";
+
+// ========================================
+// Rewrite carousel images to optimized thumbnails
+// ========================================
+
+function getThumbHeight() {
+  if (window.innerWidth <= 480) return 360;
+  if (window.innerWidth <= 768) return 420;
+  return 560;
+}
+
+const thumbHeight = getThumbHeight();
+const isWebP = supportsWebPSync();
+
+document.querySelectorAll(".cs-carousel-track img").forEach((img) => {
+  const originalSrc = img.getAttribute("src");
+  // Store original for lightbox full-res loading
+  img.dataset.fullSrc = originalSrc;
+
+  // Determine fallback format from original extension
+  const origExt = originalSrc.match(/\.png$/i) ? "png" : "jpg";
+  const thumbFmt = isWebP ? "webp" : origExt;
+
+  img.src = optimizedCaseStudyPath(originalSrc, thumbHeight, thumbFmt, false);
+});
+
 // ========================================
 // Highlight animation on scroll (once per load)
 // ========================================
@@ -69,7 +96,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 });
 
 // ========================================
-// Lightbox
+// Lightbox (thumbnail → full-res swap)
 // ========================================
 
 const lightbox = document.getElementById("lightbox");
@@ -96,12 +123,41 @@ function closeLightbox() {
 }
 
 function updateLightbox() {
-  lightboxImg.src = currentImages[currentIndex].src;
-  lightboxImg.alt = currentImages[currentIndex].alt;
+  const img = currentImages[currentIndex];
+
+  // Show thumbnail immediately as placeholder
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt || "";
   lightboxCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
 
   prevBtn.style.display = currentIndex === 0 ? "none" : "";
   nextBtn.style.display = currentIndex === currentImages.length - 1 ? "none" : "";
+
+  // Load full-res in background, swap when ready
+  const originalSrc = img.dataset.fullSrc;
+  if (originalSrc) {
+    const origExt = originalSrc.match(/\.png$/i) ? "png" : "jpg";
+    const fullFmt = isWebP ? "webp" : origExt;
+    const fullSrc = optimizedCaseStudyPath(originalSrc, "full", fullFmt, true);
+
+    // Tag this request so stale loads don't overwrite
+    lightboxImg.dataset.targetSrc = fullSrc;
+
+    const loader = new Image();
+    loader.onload = () => {
+      // Only swap if we're still on the same image
+      if (lightboxImg.dataset.targetSrc === fullSrc) {
+        lightboxImg.src = fullSrc;
+      }
+    };
+    loader.onerror = () => {
+      // Fall back to original unoptimized file
+      if (lightboxImg.dataset.targetSrc === fullSrc) {
+        lightboxImg.src = originalSrc;
+      }
+    };
+    loader.src = fullSrc;
+  }
 }
 
 function nextImage() {

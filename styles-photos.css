@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #141414 url("/images/timber-interior-texture.jpg") center / cover no-repeat;
+    background: #141414 center / cover no-repeat;
     overflow: hidden;
 }
 

@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PHOTOS_CONFIG } from "./photos-config.js";
+import { optimizedPath, selectSize } from "./image-utils.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,18 +16,34 @@ export function init() {
   const BASE_W = vw * 0.15;
   const STICKER_BASE_W = vw * 0.07;
 
+  // ---- Set background texture via JS (optimized) ----
+  const bgSize = selectSize([1920, 1280], vw);
+  const bgUrl = optimizedPath("/images/timber-interior-texture.jpg", bgSize);
+  section.style.backgroundImage = `url("${bgUrl}")`;
+
   // ---- Photo cards ----
   const cards = PHOTOS_CONFIG.cards.map((cfg) => {
     const card = document.createElement("div");
     card.classList.add("photo-card");
 
+    const s = cfg.scale ?? 1;
+    const displayW = BASE_W * s;
+    const imgSize = selectSize([900, 600, 400], displayW);
+    const origExt = cfg.src.endsWith(".png") ? "png" : "jpg";
+
+    const picture = document.createElement("picture");
+    const sourceWebp = document.createElement("source");
+    sourceWebp.type = "image/webp";
+    sourceWebp.srcset = optimizedPath(cfg.src, imgSize, "webp");
     const img = document.createElement("img");
-    img.src = cfg.src;
-    card.appendChild(img);
+    img.src = optimizedPath(cfg.src, imgSize, origExt);
+    img.alt = "";
+    picture.appendChild(sourceWebp);
+    picture.appendChild(img);
+    card.appendChild(picture);
     section.appendChild(card);
 
-    const s = cfg.scale ?? 1;
-    const w = BASE_W * s;
+    const w = displayW;
 
     card.style.width = w + "px";
     card.style.zIndex = cfg.z ?? 0;
@@ -57,13 +74,21 @@ export function init() {
     const el = document.createElement("div");
     el.classList.add("sticker-card");
 
-    const img = document.createElement("img");
-    img.src = cfg.src;
-    el.appendChild(img);
-    section.appendChild(el);
-
     const s = cfg.scale ?? 1;
     const w = STICKER_BASE_W * s;
+    const stickerSize = selectSize([400, 200, 134], w);
+
+    const picture = document.createElement("picture");
+    const sourceWebp = document.createElement("source");
+    sourceWebp.type = "image/webp";
+    sourceWebp.srcset = optimizedPath(cfg.src, stickerSize, "webp");
+    const img = document.createElement("img");
+    img.src = optimizedPath(cfg.src, stickerSize, "png");
+    img.alt = "";
+    picture.appendChild(sourceWebp);
+    picture.appendChild(img);
+    el.appendChild(picture);
+    section.appendChild(el);
     el.style.width = w + "px";
     el.style.zIndex = 20 + i;
 

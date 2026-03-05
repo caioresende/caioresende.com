@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { vertexShader, fluidFragmentShader, displayFragmentShader } from './shaders.js';
+import { optimizedPath, selectSize } from './image-utils.js';
 
 /**
  * ─── BRUSH CONFIG ───────────────────────────────────────────
@@ -115,8 +116,9 @@ export function init() {
         fragmentShader: displayFragmentShader,
     });
 
-    loadImage("/images/portrait-top.jpg", topTexture, topTextureSize);
-    loadImage("/images/portrait-bottom.jpg", bottomTexture, bottomTextureSize);
+    const heroSize = selectSize([1920, 1280], window.innerWidth);
+    loadImage(optimizedPath("/images/portrait-top.jpg", heroSize), topTexture, topTextureSize);
+    loadImage(optimizedPath("/images/portrait-bottom.jpg", heroSize), bottomTexture, bottomTextureSize);
 
     const planeGeometry = new THREE.PlaneGeometry(2, 2);
     const displayMesh = new THREE.Mesh(planeGeometry, displayMaterial);

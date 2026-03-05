@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ICONS_CONFIG } from "./icons-config.js";
 import { LOGOS_CONFIG } from "./logos-config.js";
+import { optimizedPath } from "./image-utils.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +18,12 @@ function buildHTML(section) {
     const start = r * perRow;
     const end = Math.min(start + perRow, icons.length);
     for (let i = start; i < end; i++) {
-      iconsHTML += `<div class="animated-icon icon-${i + 1}"><img src="${icons[i].src}" alt="${icons[i].alt}" /></div>`;
+      iconsHTML += `<div class="animated-icon icon-${i + 1}">
+        <picture>
+          <source type="image/webp" srcset="${optimizedPath(icons[i].src, 72, 'webp')} 72w, ${optimizedPath(icons[i].src, 144, 'webp')} 144w" sizes="72px" />
+          <img src="${optimizedPath(icons[i].src, 144, 'png')}" srcset="${optimizedPath(icons[i].src, 72, 'png')} 72w, ${optimizedPath(icons[i].src, 144, 'png')} 144w" sizes="72px" alt="${icons[i].alt}" />
+        </picture>
+      </div>`;
     }
     iconsHTML += "</div>";
   }
@@ -39,7 +45,12 @@ function buildHTML(section) {
     <h1 class="logos-title">And many more</h1>
     <div class="logos-grid">`;
   logos.forEach((logo) => {
-    logosHTML += `<div class="logo-item"><img src="${logo.src}" alt="${logo.name}" /></div>`;
+    logosHTML += `<div class="logo-item">
+      <picture>
+        <source type="image/webp" srcset="${optimizedPath(logo.src, 64, 'webp')} 64w, ${optimizedPath(logo.src, 128, 'webp')} 128w" sizes="64px" />
+        <img src="${optimizedPath(logo.src, 128, 'png')}" srcset="${optimizedPath(logo.src, 64, 'png')} 64w, ${optimizedPath(logo.src, 128, 'png')} 128w" sizes="64px" alt="${logo.name}" />
+      </picture>
+    </div>`;
   });
   logosHTML += "</div></div>";
 

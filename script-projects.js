@@ -1,6 +1,7 @@
 import { PROJECTS } from "./projects.js";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { optimizedPath } from "./image-utils.js";
 
 gsap.registerPlugin(SplitText);
 
@@ -31,7 +32,20 @@ export function init() {
       html += `
         ${openTag}
           <div class="project-img">
-            <img src="${project.img}" alt="${project.name}"${lazy} />
+            <picture>
+              <source
+                type="image/webp"
+                srcset="${optimizedPath(project.img, 200, 'webp')} 200w, ${optimizedPath(project.img, 400, 'webp')} 400w, ${optimizedPath(project.img, 600, 'webp')} 600w"
+                sizes="(max-width: 1000px) 25vw, 12vw"
+              />
+              <img
+                src="${optimizedPath(project.img, 400, 'jpg')}"
+                srcset="${optimizedPath(project.img, 200, 'jpg')} 200w, ${optimizedPath(project.img, 400, 'jpg')} 400w, ${optimizedPath(project.img, 600, 'jpg')} 600w"
+                sizes="(max-width: 1000px) 25vw, 12vw"
+                alt="${project.name}"
+                ${lazy}
+              />
+            </picture>
           </div>
           <div class="svg-stroke svg-stroke-1">
             <svg width="2453" height="2273" viewBox="0 0 2453 2273" fill="none" xmlns="http://www.w3.org/2000/svg">

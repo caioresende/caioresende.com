@@ -1,33 +1,19 @@
 import { inject } from "@vercel/analytics";
 inject();
 
-import { PROJECTS } from "./projects.js";
-import { PHOTOS_CONFIG } from "./photos-config.js";
 import { ICONS_CONFIG } from "./icons-config.js";
-import { LOGOS_CONFIG } from "./logos-config.js";
+import { optimizedPath, selectSize } from "./image-utils.js";
 
-// Collect all image URLs
+// ── Phase 1: Only preload critical above-the-fold images ─────
+// Hero textures + icons. Everything else loads lazily per section.
 const urls = new Set();
 
-// Hero images
-urls.add("/images/portrait-top.jpg");
-urls.add("/images/portrait-bottom.jpg");
+const heroSize = selectSize([1920, 1280], window.innerWidth);
+urls.add(optimizedPath("/images/portrait-top.jpg", heroSize));
+urls.add(optimizedPath("/images/portrait-bottom.jpg", heroSize));
 
-// Background texture
-urls.add("/images/timber-interior-texture.jpg");
-
-// Project thumbnails
-PROJECTS.forEach((p) => urls.add(p.img));
-
-// Photo cards + stickers
-PHOTOS_CONFIG.cards.forEach((c) => urls.add(c.src));
-(PHOTOS_CONFIG.stickers || []).forEach((s) => urls.add(s.src));
-
-// Icon images
-ICONS_CONFIG.icons.forEach((i) => urls.add(i.src));
-
-// Logo images
-LOGOS_CONFIG.logos.forEach((l) => urls.add(l.src));
+const iconSize = selectSize([144, 72], 72);
+ICONS_CONFIG.icons.forEach((i) => urls.add(optimizedPath(i.src, iconSize)));
 
 const allUrls = [...urls];
 const total = allUrls.length;
@@ -50,7 +36,7 @@ function preloadImages() {
   allUrls.forEach((url) => {
     const img = new Image();
     img.onload = updateProgress;
-    img.onerror = updateProgress; // count errors too so we don't stall
+    img.onerror = updateProgress;
     img.src = url;
   });
 }
