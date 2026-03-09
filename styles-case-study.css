@@ -580,7 +580,7 @@ body {
   gap: 12px;
   max-width: 820px;
   margin: 0 auto;
-  padding: 16px 0 0;
+  padding: 32px 0 0;
 }
 
 .cs-gallery-arrow {
@@ -1190,8 +1190,8 @@ body {
   background: linear-gradient(180deg, #E8F0F6, #f6f6f6);
 }
 
-.--bg-mist {
-  background: linear-gradient(180deg, #e8ecf1, #f5f5f7);
+.--bg-docs {
+  background: linear-gradient(180deg, #E6F4EE, #f6f6f6);
 }
 
 .--bg-slate {
