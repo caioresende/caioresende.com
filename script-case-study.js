@@ -29,6 +29,77 @@ document.querySelectorAll(".cs-carousel-track img").forEach((img) => {
 });
 
 // ========================================
+// Highlights carousel (horizontal scroll + snap)
+// ========================================
+
+document.querySelectorAll("[data-highlights]").forEach((wrapper) => {
+  const track = wrapper.querySelector(".cs-highlights-track");
+  const slides = [...wrapper.querySelectorAll(".cs-highlights-slide")];
+  const dots = [...wrapper.querySelectorAll(".cs-highlights-dot")];
+  if (!track || slides.length === 0) return;
+
+  let current = 0;
+
+  // Observe which slide is most visible
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const idx = slides.indexOf(entry.target);
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          slides.forEach((s) => s.classList.remove("is-visible"));
+          entry.target.classList.add("is-visible");
+          current = idx;
+          dots.forEach((d, i) => d.classList.toggle("cs-highlights-dot--active", i === idx));
+        }
+      });
+    },
+    { root: track, threshold: 0.5 }
+  );
+
+  slides.forEach((s) => observer.observe(s));
+
+  // First slide visible by default
+  slides[0].classList.add("is-visible");
+
+  // Dot click → smooth scroll to slide
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const idx = Number(dot.dataset.index);
+      slides[idx].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    });
+  });
+
+  // Drag-to-scroll
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  track.addEventListener("mousedown", (e) => {
+    isDown = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    track.style.scrollSnapType = "none";
+  });
+
+  track.addEventListener("mouseleave", () => {
+    if (isDown) track.style.scrollSnapType = "";
+    isDown = false;
+  });
+
+  track.addEventListener("mouseup", () => {
+    isDown = false;
+    track.style.scrollSnapType = "";
+  });
+
+  track.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+  });
+});
+
+// ========================================
 // Highlight animation on scroll (once per load)
 // ========================================
 
@@ -45,6 +116,86 @@ const hlObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll(".cs-hl").forEach((el) => hlObserver.observe(el));
+
+// ========================================
+// Single-slide reveal on scroll
+// ========================================
+
+const singleSlideObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        singleSlideObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.4 }
+);
+
+document.querySelectorAll(".cs-single-slide .cs-highlights-slide").forEach((el) => {
+  singleSlideObserver.observe(el);
+});
+
+// ========================================
+// Gallery (Apple-style caption tiles)
+// ========================================
+
+document.querySelectorAll("[data-gallery]").forEach((gallery) => {
+  const track = gallery.querySelector(".cs-gallery-track");
+  const cards = [...track.querySelectorAll(".cs-gallery-card")];
+  const prevBtn = gallery.querySelector(".cs-gallery-arrow--prev");
+  const nextBtn = gallery.querySelector(".cs-gallery-arrow--next");
+  if (!track || cards.length === 0) return;
+
+  function updateArrows() {
+    if (!prevBtn || !nextBtn) return;
+    const { scrollLeft, scrollWidth, clientWidth } = track;
+    prevBtn.disabled = scrollLeft <= 2;
+    nextBtn.disabled = scrollLeft + clientWidth >= scrollWidth - 2;
+  }
+
+  // Scroll by one card width
+  function scrollByCard(direction) {
+    const cardWidth = cards[0].offsetWidth + 20; // card + gap
+    track.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
+  }
+
+  if (prevBtn) prevBtn.addEventListener("click", () => scrollByCard(-1));
+  if (nextBtn) nextBtn.addEventListener("click", () => scrollByCard(1));
+
+  track.addEventListener("scroll", updateArrows, { passive: true });
+  updateArrows();
+
+  // Drag-to-scroll
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  track.addEventListener("mousedown", (e) => {
+    isDown = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    track.style.scrollSnapType = "none";
+  });
+
+  track.addEventListener("mouseleave", () => {
+    if (isDown) track.style.scrollSnapType = "";
+    isDown = false;
+  });
+
+  track.addEventListener("mouseup", () => {
+    isDown = false;
+    track.style.scrollSnapType = "";
+  });
+
+  track.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+  });
+});
 
 // ========================================
 // Carousel drag-to-scroll
@@ -92,6 +243,122 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
         e.stopPropagation();
       }
     });
+  });
+});
+
+// ========================================
+// Stacked pile carousel
+// ========================================
+
+document.querySelectorAll("[data-stack-carousel]").forEach((carousel) => {
+  if (!window.matchMedia("(hover: hover)").matches) return;
+
+  const track = carousel.querySelector(".cs-carousel-track");
+  const images = [...track.querySelectorAll("img")];
+  if (!track || images.length === 0) return;
+
+  let stacked = false;
+
+  function calcAndApplyStack(animate) {
+    // Measure layout positions BEFORE adding --stacked
+    const centerX = carousel.clientWidth / 2;
+
+    const precomputed = images.map((img, i) => {
+      const imgCenter = img.offsetLeft + img.offsetWidth / 2;
+      const dx = centerX - imgCenter;
+      const mid = (images.length - 1) / 2;
+      const off = i - mid;
+      const angle = off * 5;
+      return {
+        t: `translateX(${dx}px) translateY(-150px) rotate(${angle}deg) scale(0.8)`,
+        z: images.length - Math.abs(i - Math.floor(images.length / 2)),
+      };
+    });
+
+    if (!animate) {
+      images.forEach((img) => (img.style.transition = "none"));
+    }
+
+    carousel.classList.add("--stacked");
+
+    images.forEach((img, i) => {
+      img.style.transform = precomputed[i].t;
+      img.style.zIndex = precomputed[i].z;
+    });
+
+    stacked = true;
+
+    if (!animate) {
+      track.offsetHeight;
+      images.forEach((img) => (img.style.transition = ""));
+    }
+  }
+
+  function expand() {
+    carousel.classList.remove("--stacked");
+    images.forEach((img) => {
+      img.style.transform = "";
+      img.style.zIndex = "";
+    });
+    stacked = false;
+  }
+
+  function tryInit() {
+    if (images.every((img) => img.offsetWidth > 0)) {
+      calcAndApplyStack(false);
+      carousel.classList.add("--initialized");
+      return true;
+    }
+    return false;
+  }
+
+  if (!tryInit()) {
+    Promise.all(
+      images.map((img) =>
+        img.complete
+          ? Promise.resolve()
+          : new Promise((r) => {
+              img.addEventListener("load", r, { once: true });
+              img.addEventListener("error", r, { once: true });
+            })
+      )
+    ).then(() => tryInit());
+  }
+
+  carousel.addEventListener("mouseenter", () => {
+    if (stacked) expand();
+  });
+
+  carousel.addEventListener("mouseleave", () => {
+    if (!stacked) calcAndApplyStack(true);
+  });
+});
+
+// ========================================
+// Device tilt (3D rotate + zoom on hover)
+// ========================================
+
+document.querySelectorAll(".cs-feature-panel-media").forEach((media) => {
+  const wrap = media.querySelector(".cs-device-wrap");
+  if (!wrap) return;
+
+  media.style.perspective = "800px";
+  wrap.style.transition = "transform 0.15s ease-out";
+  wrap.style.willChange = "transform";
+
+  media.addEventListener("mousemove", (e) => {
+    const rect = media.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width; // 0 → 1
+    const y = (e.clientY - rect.top) / rect.height; // 0 → 1
+
+    const rotateY = (x - 0.5) * 24; // -12° to +12°
+    const scale = 1 + y * 0.3; // 1.0 at top → 1.3 at bottom
+
+    wrap.style.transform = `rotateY(${rotateY}deg) scale(${scale})`;
+  });
+
+  media.addEventListener("mouseleave", () => {
+    wrap.style.transform = "rotateY(0deg) scale(1)";
   });
 });
 

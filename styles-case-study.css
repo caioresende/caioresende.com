@@ -12,7 +12,6 @@
 
 body {
   font-family: "Gabarito", system-ui, -apple-system, sans-serif;
-  background: #fafafa;
   color: #1d1d1f;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -72,7 +71,7 @@ body {
 
 .cs-title {
   font-size: clamp(3rem, 8vw, 5.5rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1;
   letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
@@ -100,6 +99,301 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #86868b;
+}
+
+/* ========================================
+   Carousel
+   ======================================== */
+
+/* ========================================
+   Highlights Carousel
+   ======================================== */
+
+.cs-highlights-title {
+  max-width: 820px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cs-highlights {
+  position: relative;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.cs-highlights-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 max(20px, calc((100vw - 1280px) / 2));
+  scroll-padding-inline: max(20px, calc((100vw - 1280px) / 2));
+  cursor: grab;
+}
+
+.cs-highlights-track:active {
+  cursor: grabbing;
+}
+
+.cs-highlights-track::-webkit-scrollbar {
+  display: none;
+}
+
+.cs-highlights-slide {
+  position: relative;
+  flex: 0 0 min(1280px, calc(100vw - 40px));
+  aspect-ratio: 1280 / 680;
+  border-radius: 20px;
+  overflow: hidden;
+  scroll-snap-align: center;
+}
+
+/* Shadow */
+.cs-highlights-slide.--shadow {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.cs-highlights-slide-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.cs-highlights-slide-text {
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  max-width: 40%;
+  font-size: clamp(0.95rem, 1.6vw, 1.4rem);
+  line-height: 1.3;
+  color: #fff;
+  text-align: left;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
+}
+
+.cs-highlights-slide.is-visible .cs-highlights-slide-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Position: vertical */
+.cs-highlights-slide.--bottom .cs-highlights-slide-text {
+  top: auto;
+  bottom: 48px;
+}
+
+.cs-highlights-slide.--v-center .cs-highlights-slide-text {
+  top: 0;
+  bottom: 0;
+  margin-block: auto;
+  height: fit-content;
+}
+
+/* Position: horizontal */
+.cs-highlights-slide.--right .cs-highlights-slide-text {
+  left: auto;
+  right: 48px;
+  text-align: right;
+  transform: translateX(-30px);
+}
+
+.cs-highlights-slide.--right.is-visible .cs-highlights-slide-text {
+  transform: translateX(0);
+}
+
+.cs-highlights-slide.--h-center .cs-highlights-slide-text {
+  left: 48px;
+  right: 48px;
+  max-width: none;
+  text-align: center;
+  transform: none;
+  opacity: 0;
+}
+
+.cs-highlights-slide.--h-center.is-visible .cs-highlights-slide-text {
+  opacity: 1;
+}
+
+/* Color: black text */
+.cs-highlights-slide.--black .cs-highlights-slide-text {
+  color: #1d1d1f;
+  text-shadow: none;
+}
+
+/* Single feature slide (same look as highlights, no carousel) */
+.cs-single-slide {
+  max-width: min(1280px, calc(100vw - 40px));
+  margin: 0 auto 3rem;
+}
+
+.cs-single-slide .cs-highlights-slide {
+  flex: none;
+  width: 100%;
+}
+
+/* ========================================
+   Feature Panel (split: text + device video)
+   ======================================== */
+
+.cs-feature-panel {
+  max-width: min(1280px, calc(100vw - 40px));
+  margin: 0 auto 3rem;
+  aspect-ratio: 1280 / 680;
+  border-radius: 20px;
+  overflow: visible;
+  display: flex;
+  align-items: stretch;
+  background: linear-gradient( #ede2cb, #f6f6f6)
+}
+
+.cs-feature-panel-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px;
+}
+
+.cs-feature-panel-text h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+  margin: 0 0 1.25rem;
+}
+
+.cs-feature-panel-text ul {
+  width: 65%;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cs-feature-panel-text li {
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  padding-left: 1.1em;
+  position: relative;
+}
+
+.cs-feature-panel-text li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+.cs-feature-panel-media {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.cs-device-wrap {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1226 / 2534;
+}
+
+.cs-device-wrap video {
+  position: absolute;
+  inset: 1.5% 4%;
+  width: 92%;
+  height: 97%;
+  object-fit: cover;
+  border-radius: 36px;
+  box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+}
+
+.cs-device-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .cs-feature-panel {
+    aspect-ratio: auto;
+    flex-direction: column;
+  }
+
+  .cs-feature-panel-text {
+    padding: 32px 24px 24px;
+  }
+
+  .cs-feature-panel-media {
+    padding: 0 24px 32px;
+  }
+}
+
+.cs-highlights-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.cs-highlights-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.cs-highlights-dot--active {
+  background: #1d1d1f;
+  transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+  .cs-highlights-track {
+    gap: 12px;
+    padding: 0 20px;
+    scroll-padding-inline: 20px;
+  }
+  .cs-highlights-slide {
+    flex: 0 0 calc(100vw - 40px);
+    scroll-snap-align: start;
+  }
+  .cs-highlights-slide-text {
+    top: 24px;
+    left: 24px;
+    max-width: 70%;
+  }
+  .cs-highlights-slide.--bottom .cs-highlights-slide-text {
+    top: auto;
+    bottom: 24px;
+  }
+  .cs-highlights-slide.--right .cs-highlights-slide-text {
+    left: auto;
+    right: 24px;
+  }
+  .cs-highlights-slide.--h-center .cs-highlights-slide-text {
+    left: 24px;
+    right: 24px;
+  }
 }
 
 /* ========================================
@@ -162,11 +456,191 @@ body {
 
 .cs-caption {
   max-width: 820px;
-  margin: 1rem auto 0;
+  margin: 1rem auto 3rem;
   padding: 0 2rem;
   font-size: 0.85rem;
   color: #86868b;
+  text-align: center;
   line-height: 1.5;
+}
+
+/* ========================================
+   Stacked pile carousel
+   ======================================== */
+
+@media (hover: hover) {
+  .cs-carousel[data-stack-carousel] .cs-carousel-track {
+    opacity: 0;
+  }
+
+  .cs-carousel[data-stack-carousel].--initialized .cs-carousel-track {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .cs-carousel[data-stack-carousel] .cs-carousel-track img {
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s ease;
+  }
+
+  .cs-carousel.--stacked .cs-carousel-track {
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .cs-carousel.--stacked .cs-carousel-track img {
+    transform-origin: 50% 300%;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* ========================================
+   Gallery (Apple-style caption tiles)
+   ======================================== */
+
+.cs-gallery {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.cs-gallery-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 max(20px, calc((100vw - 1280px) / 2));
+  scroll-padding-inline: max(20px, calc((100vw - 1280px) / 2));
+  cursor: grab;
+}
+
+.cs-gallery-track:active {
+  cursor: grabbing;
+}
+
+.cs-gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.cs-gallery-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+}
+
+.cs-gallery-card.--wide {
+  flex: 0 0 596px;
+}
+
+/* Text block (below image) */
+.cs-gallery-card-text {
+  padding: 14px 4px 0;
+}
+
+.cs-gallery-card-text p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #6e6e73;
+  margin: 0;
+}
+
+.cs-gallery-card-text .cs-gallery-label {
+  color: #1d1d1f;
+}
+
+/* Image tile */
+.cs-gallery-card-media {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f5f5f7;
+  height: 450px;
+}
+
+.cs-gallery-card-media img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Empty state — show gray box even without an image */
+.cs-gallery-card-media img[src=""],
+.cs-gallery-card-media img:not([src]) {
+  visibility: hidden;
+}
+
+/* Navigation arrows (below carousel) */
+.cs-gallery-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 16px 0 0;
+}
+
+.cs-gallery-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.08);
+  color: #1d1d1f;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, opacity 0.3s;
+  flex-shrink: 0;
+}
+
+.cs-gallery-arrow:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.cs-gallery-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.cs-gallery-arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+@media (max-width: 768px) {
+  .cs-gallery-track {
+    gap: 14px;
+    padding: 0 20px;
+    scroll-padding-inline: 20px;
+  }
+  .cs-gallery-card {
+    flex: 0 0 280px;
+  }
+  .cs-gallery-card.--wide {
+    flex: 0 0 420px;
+  }
+  .cs-gallery-card-media {
+    height: 360px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-gallery-card {
+    flex: 0 0 260px;
+  }
+  .cs-gallery-card.--wide {
+    flex: 0 0 340px;
+  }
+  .cs-gallery-card-media {
+    height: 300px;
+  }
 }
 
 /* ========================================
@@ -198,7 +672,7 @@ body {
   margin: 0 auto;
   padding: 0 2rem;
   font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 2.5rem;
@@ -212,9 +686,9 @@ body {
 }
 
 .cs-body h3 {
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: 1.75rem;
   margin-bottom: 0.75rem;
+  font-weight: 400;
   margin-top: 2.5rem;
   letter-spacing: -0.01em;
 }
@@ -240,7 +714,7 @@ body {
 
 .cs-hl {
   background-color: transparent;
-  background-image: linear-gradient(120deg, rgba(255, 210, 52, 0.35) 0%, rgba(255, 210, 52, 0.35) 100%);
+  background-image: linear-gradient(120deg, #fbecb659 0%, rgba(255, 227, 124, 0.35) 100%);
   background-repeat: no-repeat;
   background-size: 0% 100%;
   background-position: 0 0;
@@ -495,6 +969,121 @@ body {
 }
 
 /* ========================================
+   Bird's View (Figma Embed)
+   ======================================== */
+
+.cs-birdsview {
+  padding: 5rem 0 3rem;
+}
+
+.cs-birdsview h1 {
+  max-width: 820px;
+  margin: 0 auto 2.5rem;
+  padding: 0 2rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cs-birdsview-embed {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.cs-birdsview-embed iframe {
+  width: 100%;
+  height: 720px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+}
+
+/* ========================================
+   Project Stack
+   ======================================== */
+
+.cs-stack {
+  padding: 5rem 0 3rem;
+}
+
+.cs-stack h1 {
+  max-width: 820px;
+  margin: 0 auto 1rem;
+  padding: 0 2rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cs-stack > p {
+  max-width: 820px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #6e6e73;
+}
+
+.cs-stack-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cs-stack-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.cs-stack-item {
+  flex: 0 0 160px;
+  scroll-snap-align: start;
+}
+
+.cs-stack-item img {
+  width: 160px;
+  height: 160px;
+  border-radius: 20px;
+  object-fit: cover;
+  background: #f5f5f7;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.cs-stack-item p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #6e6e73;
+  margin: 0;
+}
+
+.cs-stack-item .cs-stack-label {
+  color: #1d1d1f;
+}
+
+@media (max-width: 768px) {
+  .cs-stack-grid {
+    gap: 14px;
+    padding: 0 20px;
+  }
+  .cs-stack-item {
+    flex: 0 0 140px;
+  }
+  .cs-stack-item img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* ========================================
    Footer
    ======================================== */
 
@@ -587,4 +1176,40 @@ body {
   .cs-metrics {
     grid-template-columns: 1fr;
   }
+}
+
+/* ========================================
+   Background gradient utilities
+   ======================================== */
+
+.--bg-warm {
+  background: linear-gradient(180deg, #ede2cb, #f6f0e4);
+}
+
+.--bg-presence {
+  background: linear-gradient(180deg, #E8F0F6, #f6f6f6);
+}
+
+.--bg-mist {
+  background: linear-gradient(180deg, #e8ecf1, #f5f5f7);
+}
+
+.--bg-slate {
+  background: linear-gradient(180deg, #d6dce4, #eef1f5);
+}
+
+.--bg-cloud {
+  background: linear-gradient(180deg, #f5f5f7, #e9e9eb);
+}
+
+.--bg-pearl {
+  background: linear-gradient(180deg, #f0f0f2, #dddde0);
+}
+
+.--bg-dusk {
+  background: linear-gradient(180deg, #2c2c2e, #1d1d1f);
+}
+
+.--bg-charcoal {
+  background: linear-gradient(180deg, #3a3a3c, #2c2c2e);
 }
