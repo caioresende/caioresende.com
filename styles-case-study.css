@@ -564,6 +564,7 @@ body {
   display: block;
   width: 100%;
   object-fit: cover;
+  cursor: zoom-in;
 }
 
 /* Empty state — show gray box even without an image */
@@ -1194,8 +1195,8 @@ body {
   background: linear-gradient(180deg, #E6F4EE, #f6f6f6);
 }
 
-.--bg-slate {
-  background: linear-gradient(180deg, #d6dce4, #eef1f5);
+.--bg-category {
+  background: linear-gradient(180deg, #FBF0FF, #f6f6f6);
 }
 
 .--bg-cloud {

@@ -16,7 +16,7 @@ function getThumbHeight() {
 const thumbHeight = getThumbHeight();
 const isWebP = supportsWebPSync();
 
-document.querySelectorAll(".cs-carousel-track img").forEach((img) => {
+document.querySelectorAll(".cs-carousel-track img, .cs-gallery-card-media img").forEach((img) => {
   const originalSrc = img.getAttribute("src");
   // Store original for lightbox full-res loading
   img.dataset.fullSrc = originalSrc;
@@ -447,6 +447,16 @@ document.querySelectorAll(".cs-carousel-track img").forEach((img) => {
     // Get all images in the same carousel
     const track = img.closest(".cs-carousel-track");
     const images = [...track.querySelectorAll("img")];
+    const index = images.indexOf(img);
+    openLightbox(images, index);
+  });
+});
+
+// Click on gallery card images → open lightbox
+document.querySelectorAll(".cs-gallery-card-media img").forEach((img) => {
+  img.addEventListener("click", (e) => {
+    const gallery = img.closest(".cs-gallery");
+    const images = [...gallery.querySelectorAll(".cs-gallery-card-media img")];
     const index = images.indexOf(img);
     openLightbox(images, index);
   });

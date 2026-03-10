@@ -568,6 +568,15 @@
       <p class="cs-section-number">04</p>
       <h2>Tracking Presence</h2>
 
+        <!-- Architecture single slide -->
+      <div class="cs-single-slide">
+        <div class="cs-highlights-slide --bottom --left --white">
+          <img class="cs-highlights-slide-bg" src="/images/case-studies/canadian-tomorrow/highlight-single/presence-highlight.jpg" alt="" loading="lazy" />
+          <p class="cs-highlights-slide-text">Knowing how long you've been in Canada <br>is crucial. Counting down the days for the citizenship is seamless.</p>
+        </div>
+      </div>
+
+
       <div class="cs-body">
         <p>This is the feature that no competitor has. To apply for Canadian citizenship, you need to prove you've been physically present in Canada for at least <mark class="cs-hl">1,095 days within the five years before your application</mark>. That's a legal requirement, and miscounting can delay or reject your application.</p>
         <p>Most people track this in a spreadsheet or not at all. I wanted the app to handle it automatically.</p>
@@ -575,28 +584,407 @@
       </div>
 
       <!-- Presence sketches -->
-      <div class="cs-carousel" data-carousel>
+      <div class="cs-carousel" data-carousel data-stack-carousel>
         <div class="cs-carousel-track">
-          <img src="/images/case-studies/canadian-tomorrow/img-33.jpg" alt="Presence calculator sketch — Cloud functions, onboarding fields, data model, status tracking" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-35.jpg" alt="Presence tracking sketch — Calendar entries, absence logging, stage progression" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-34.jpg" alt="Quiz home and presence data sketch — confidence matrix, dashboard data structure" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/sketches/presence/sketch-001.jpg" alt="Presence calculator sketch — Cloud functions, onboarding fields, data model, status tracking" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/sketches/presence/sketch-002.jpg" alt="Presence tracking sketch — Calendar entries, absence logging, stage progression" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/sketches/presence/sketch-003.jpg" alt="Presence tracking sketch — Calendar entries, absence logging, stage progression" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/sketches/presence/sketch-004.jpg" alt="Presence tracking sketch — Calendar entries, absence logging, stage progression" loading="lazy" />
+          <img src="/images/case-studies/canadian-tomorrow/sketches/presence/sketch-005.jpg" alt="Presence tracking sketch — Calendar entries, absence logging, stage progression" loading="lazy" />
+
         </div>
       </div>
       <p class="cs-caption">Paper sketches for the presence tracker: cloud function architecture, calendar entry system, and dashboard data structure.</p>
 
+      <!-- UX Analysis — Physical Presence Calculator -->
       <div class="cs-body">
-        <p>The wireframe went through eight or more iterations. The dashboard shows a calendar-style view with your current date, the number of days in different categories (permanent resident, temporary), a stage indicator, and a "days left to qualify" countdown. Date entries below let you log absences, with each entry showing the duration and dates.</p>
-        <p>The later iterations refined things significantly. I tested different arrangements for the summary cards, experimented with how to show stage progression visually, and iterated on the date entry list. The final version puts the most important number front and center: <mark class="cs-hl">where you are relative to the 1,095-day requirement</mark>. Everything else is secondary.</p>
+        <h3>UX analysis of the government tool</h3>
+        <p>Before designing my own solution, I needed to understand what already existed. The Government of Canada offers a Physical Presence Calculator on their website — the only official tool available for applicants to check if they meet the 1,095-day requirement. I performed a UX audit of this tool to identify pain points, usability issues, and opportunities that my app could address.</p>
+        <p>The analysis revealed <mark class="cs-hl">10 significant usability issues</mark> ranging from poor visual hierarchy and information overload to confusing date formats and unnecessary mandatory fields. These findings directly shaped the design decisions for the presence tracker in Canadian Tomorrow — every issue I found became a design constraint I committed to solving.</p>
       </div>
 
-      <!-- Presence wireframes -->
-      <div class="cs-carousel" data-carousel>
-        <div class="cs-carousel-track">
-          <img src="/images/case-studies/canadian-tomorrow/img-36.png" alt="Presence dashboard — 8+ wireframe iterations: summary cards, day counters, stage progress, date entries, arrival onboarding" loading="lazy" />
+      <div class="cs-gallery" data-gallery>
+        <div class="cs-gallery-track">
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-001.png" alt="UX analysis — Visual hierarchy and layout issues on the Physical Presence Calculator" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">1. Visual hierarchy and layout.</span> There's a lack of visual hierarchy, which makes it hard to know where to start. Headers could be larger, and important sections could use color or other styling to stand out. Spacing between sections is minimal, making it feel cramped.</p>
+            </div>
+          </div>
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-002.png" alt="UX analysis — Dense text and information overload on the landing page" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">2. Dense Text and Information Overload.</span> Landing page contains long blocks of text without much separation or visual hierarchy, which can be overwhelming and hard to scan. Important information, like the "1,095-day requirement", is buried in the text.</p>
+            </div>
+          </div>
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-003.png" alt="UX analysis — Mobile responsiveness issues" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">3. Mobile Responsiveness.</span> Although the design is responsive, there are some flaws to its implementation, where excessive text, lack of visual hierarchy and a better content strategy. Content density is too high.</p>
+            </div>
+          </div>
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-004.png" alt="UX analysis — Confusing sequence of flow" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">4. Sequence of flow is confusing.</span> Although the page explains what data users need to enter, it could benefit from visual examples or tooltips next to each instruction. Having form fields directly on the page with dynamic instructions could make it more interactive.</p>
+            </div>
+          </div>
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-005.png" alt="UX analysis — UI could be more polished" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">5. UI could be more polished.</span> The current state of the UI presents many areas for improvements including credibility, accessibility, consistency, clarity and focus. In many moments users are overwhelmed with unpolished components and lack of aesthetic appeal.</p>
+            </div>
+          </div>
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-006.png" alt="UX analysis — Excessive amount of text" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">6. Excessive amount of text.</span> Government tools tend to be excessive on how they present information and instructions, potentially slowing down task completion. The use of images and icons can reduce the amount of text and improve scan-ability overall.</p>
+            </div>
+          </div>
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-007.png" alt="UX analysis — Dates are not user friendly" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">7. Dates are not user friendly.</span> Dates are displayed in a format that is hard to read at first, making users connect numbers to a specific month. This becomes specially more complex when immigrants are not used to how they learned how to write and read date formats.</p>
+            </div>
+          </div>
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-008.png" alt="UX analysis — Date picker prone to user error" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">8. Date picker prone to user error.</span> There is a change to avoid user error by limiting date range to specific time window. Since the government expects your calculation to happen in the past 5 years, the system fails to limit that, allowing dates to be picked outside of the range.</p>
+            </div>
+          </div>
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-009.png" alt="UX analysis — Unnecessary mandatory fields" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">9. Unnecessary mandatory fields.</span> The system requires users to add information that is not important to them at the moment of calculating a preview of their citizenship journey. For example, when you're absent, the system expects a reason – this is not relevant before actually applying.</p>
+            </div>
+          </div>
+
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="/images/case-studies/canadian-tomorrow/ux-analysis/seq-010.png" alt="UX analysis — Confusing CTAs" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">10. Confusing CTAs.</span> CTAs are crucial to guide and keep users in the flow. The system uses generic CTAs in all screens, for example "Calculate" is used many steps before actually calculating your physical presence. Something like "Continue" or "Proceed to [phase name]" is more appropriate.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cs-gallery-nav">
+          <button class="cs-gallery-arrow cs-gallery-arrow--prev" aria-label="Previous" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m20 25c-.384 0-.768-.147-1.06-.44l-5.5-5.5a1.5 1.5 0 010-2.12l5.5-5.5a1.5 1.5 0 012.12 2.12L16.622 18l4.44 4.44a1.5 1.5 0 01-1.06 2.56z"/></svg>
+          </button>
+          <button class="cs-gallery-arrow cs-gallery-arrow--next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m22.56 16.94-5.508-5.5a1.5 1.5 0 00-2.112 2.124L19.383 18l-4.444 4.437a1.5 1.5 0 002.116 2.122l5.508-5.5A1.5 1.5 0 0022.56 16.94z"/></svg>
+          </button>
         </div>
       </div>
-      <p class="cs-caption">Eight iterations of the presence dashboard: from first layout to final version with summary cards, stage progress, and entry management.</p>
-    </section>
+
+      <!-- Onboarding Presence -->
+      <div class="cs-body">
+        <h3>Onboarding Presence</h3>
+        <p>Before the app can calculate anything, it needs to know when you arrived. The onboarding flow collects three key data points: your date of entry into Canada, your immigration status at the time, and whether you held temporary resident status before becoming a permanent resident. Getting this right on the first try was critical — if users enter incorrect dates during onboarding, every calculation downstream becomes unreliable.</p>
+        <p>I designed the onboarding as a focused, step-by-step flow rather than a single long form. Each screen asks one question with clear context about why it matters. The status selector uses plain language instead of legal jargon, and a progress indicator shows users exactly where they are in the setup. <mark class="cs-hl">The goal was to make a legally complex process feel approachable — three screens, under two minutes, and you're tracking.</mark></p>
+      </div>
+
+      <div class="cs-gallery" data-gallery>
+        <div class="cs-gallery-track">
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-onboarding/Container.jpg" alt="Onboarding presence — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Entry pattern.</span> Some exploration and evolution of how the pattern for an date entry was designed. Every period has a start and end date plus a type. It’s used on onboarding and entry modals.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-onboarding/Container-2.jpg" alt="Onboarding presence — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Customization.</span>  Asking the right questions early on helps the users understand their tasks and statuses. Specially for the presence feature, knowing if they are temporary or permanent. Date picker is clean, isolated because it’s crucial to get them correct.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-onboarding/Container-1.jpg" alt="Onboarding presence — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Date picker.</span> I designed two ways of handling dates: if users are adding, it’s a date picker range, but if editing, a single one. It aligns better with the action of setting and tuning it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-gallery-nav">
+          <button class="cs-gallery-arrow cs-gallery-arrow--prev" aria-label="Previous" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m20 25c-.384 0-.768-.147-1.06-.44l-5.5-5.5a1.5 1.5 0 010-2.12l5.5-5.5a1.5 1.5 0 012.12 2.12L16.622 18l4.44 4.44a1.5 1.5 0 01-1.06 2.56z"/></svg>
+          </button>
+          <button class="cs-gallery-arrow cs-gallery-arrow--next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m22.56 16.94-5.508-5.5a1.5 1.5 0 00-2.112 2.124L19.383 18l-4.444 4.437a1.5 1.5 0 002.116 2.122l5.508-5.5A1.5 1.5 0 0022.56 16.94z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cs-feature-panel --bg-category">
+        <div class="cs-feature-panel-text">
+          <h2>Onboarding in action</h2>
+          <ul>
+            <li>Step-by-step flow reduces cognitive load during a legally sensitive data entry process.</li>
+            <li>Plain language replaces immigration jargon so users understand each question immediately.</li>
+            <li>IA that prioritizes touch areas so it's easy to setup and hard to miss. </li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-device-wrap">
+            <video src="images/case-studies/canadian-tomorrow/videos/presence-onboarding.mov" autoplay muted loop playsinline></video>
+            <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Adding/Editing Entries -->
+      <div class="cs-body">
+        <h3>Adding and editing entries</h3>
+        <p>Once onboarded, users need to log every absence from Canada. Each entry requires a departure date, return date, and destination. The same fields the government asks for on the official application. I designed the entry form to validate dates in real time: it flags overlapping absences, warns if a trip falls outside your eligibility window, and auto-calculates the number of days abroad so users never have to count manually.</p>
+        <p>Editing existing entries had to be just as frictionless. Users can tap any row in their absence list to modify it, with the form pre-filled and changes reflected instantly in the day count.  <mark class="cs-hl">There is a little calendar animation that not only elevate the experience, but makes the user pay attention to the new date. The principle was simple: if the government makes you track it, the app should make it painless to maintain.</mark></p>
+      </div>
+
+      <div class="cs-gallery" data-gallery>
+        <div class="cs-gallery-track">
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-crud/Container-2.jpg" alt="Adding entries — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Entry type.</span> Initially  all types were together. After knowing the status transition, temporary and permanent types were separated for more transparency and less errors from users.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-crud/Container.jpg" alt="Adding entries — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Confirmation nudge.</span> Every entry has a duration. I added a feedback counting the days on every interaction for support.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-crud/Container-3.jpg" alt="Adding entries — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Adding absent days.</span> Making sure users have a clean experience for the scenario they might use the most: travelling outside Canada. Flags add scan-ability and familiarity.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-crud/Container-1.jpg" alt="Adding entries — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Preventing errors.</span> Making sure the algorithm works validating many scenarios for errors early on. building trust into the app as well.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-crud/Container-4.jpg" alt="Adding entries — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Loading animation.</span> Because it’s a complex calculation flow, loading animation was added to create trust, and making sure there is a rhythm to the presence flow.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-gallery-nav">
+          <button class="cs-gallery-arrow cs-gallery-arrow--prev" aria-label="Previous" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m20 25c-.384 0-.768-.147-1.06-.44l-5.5-5.5a1.5 1.5 0 010-2.12l5.5-5.5a1.5 1.5 0 012.12 2.12L16.622 18l4.44 4.44a1.5 1.5 0 01-1.06 2.56z"/></svg>
+          </button>
+          <button class="cs-gallery-arrow cs-gallery-arrow--next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m22.56 16.94-5.508-5.5a1.5 1.5 0 00-2.112 2.124L19.383 18l-4.444 4.437a1.5 1.5 0 002.116 2.122l5.508-5.5A1.5 1.5 0 0022.56 16.94z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cs-feature-panel --bg-docs">
+        <div class="cs-feature-panel-text">
+          <h2>Entries in action</h2>
+          <ul>
+            <li>Real-time date validation catches overlapping absences and out-of-range trips before submission.</li>
+            <li>Auto-calculated day counts eliminate manual math that leads to application errors.</li>
+            <li>Swipe-to-delete with confirmation keeps the list manageable without accidental data loss.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-device-wrap">
+            <video src="images/case-studies/canadian-tomorrow/videos/presence-crud.mov" autoplay muted loop playsinline></video>
+            <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Presence Dashboard -->
+      <div class="cs-body">
+        <h3>Presence dashboard</h3>
+        <p>The presence dashboard is the heart of the tracking feature. It answers the one question every applicant asks themselves constantly: "Am I eligible yet?" The dashboard shows your total physical presence days front and center, broken down by permanent resident days, temporary resident days (counted at half credit), and days remaining to reach the 1,095-day threshold. A calendar animates your progress visually so you can see at a glance where you stand.</p>
+        <p>Below the summary, a calendar-style absence log lists every trip with dates, destination, and duration. I added a projected eligibility date that updates dynamically — if you add a new absence, the date shifts immediately.</p>
+        <p><mark class="cs-hl">The dashboard transforms a spreadsheet exercise into a living, breathing status page that tells you not just where you are, but exactly when you'll be ready to apply.</mark></p>
+      </div>
+
+      <div class="cs-gallery" data-gallery>
+        <div class="cs-gallery-track">
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-dashboard/Container-2.jpg" alt="Presence dashboard — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Layout challenges.</span> A lot go into debugging the code to make sure the UI behaves the way the design was initially created. Easy auto layout, a bit more complex frontend code.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-dashboard/Container.jpg" alt="Presence dashboard — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Date entries.</span> The list conveys with clarity what can be challenging to scan and read: lots of dates and similar looking like information.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-dashboard/Container-3.jpg" alt="Presence dashboard — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Adding absence days.</span> Making sure users have a clean experience for the scenario they might use the most: travelling outside Canada. Flags add scan-ability and familiarity..</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-dashboard/Container-1.jpg" alt="Presence dashboard — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Gaps.</span> They are calculated automatically. This is the most important feature, since gaps can delay your application by months.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-dashboard/Container-4.jpg" alt="Presence dashboard — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Expand on details.</span> The dashboard provides a bird’s view, but users get the chance to understand how the math is done, at any time of their journey.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-gallery-nav">
+          <button class="cs-gallery-arrow cs-gallery-arrow--prev" aria-label="Previous" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m20 25c-.384 0-.768-.147-1.06-.44l-5.5-5.5a1.5 1.5 0 010-2.12l5.5-5.5a1.5 1.5 0 012.12 2.12L16.622 18l4.44 4.44a1.5 1.5 0 01-1.06 2.56z"/></svg>
+          </button>
+          <button class="cs-gallery-arrow cs-gallery-arrow--next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m22.56 16.94-5.508-5.5a1.5 1.5 0 00-2.112 2.124L19.383 18l-4.444 4.437a1.5 1.5 0 002.116 2.122l5.508-5.5A1.5 1.5 0 0022.56 16.94z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cs-feature-panel">
+        <div class="cs-feature-panel-text">
+          <h2>Dashboard in action</h2>
+          <ul>
+            <li>Total days and stage indicator give an instant answer to "Am I eligible yet?"</li>
+            <li>Projected eligibility date updates dynamically as absences are added or modified.</li>
+            <li>Calendar-style absence log keeps every trip visible and verifiable at a glance.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-device-wrap">
+            <video src="images/case-studies/canadian-tomorrow/videos/presence-dashboard.mov" autoplay muted loop playsinline></video>
+            <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Updating Profile -->
+      <div class="cs-body">
+        <h3>Updating profile</h3>
+        <p>Immigration status changes. People transition from temporary workers to permanent residents, update their entry dates after finding old travel records, or correct mistakes they made during onboarding. The profile section lets users update their immigration status, key dates, and personal details without starting over. Every change triggers a recalculation of the presence dashboard, so the impact of a correction is visible immediately.</p>
+        <p>I designed the profile editor with safeguards: changing your status type shows a confirmation explaining how it affects your day count (temporary days count as half), and date changes display a before-and-after comparison of your total presence.</p>
+        <p><mark class="cs-hl">The goal was to make corrections feel safe rather than scary, no one should avoid fixing a mistake because they're afraid of breaking their calculation or progress so far.</mark></p>
+      </div>
+
+      <div class="cs-gallery" data-gallery>
+        <div class="cs-gallery-track">
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-profile/Container-1.jpg" alt="Updating profile — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Placeholder.</span> Feature highlight card content goes here.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-profile/Container.jpg" alt="Updating profile — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Placeholder.</span> Feature highlight card content goes here.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/presence-profile/Container-2.jpg" alt="Updating profile — placeholder" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Placeholder.</span> Feature highlight card content goes here.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-gallery-nav">
+          <button class="cs-gallery-arrow cs-gallery-arrow--prev" aria-label="Previous" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m20 25c-.384 0-.768-.147-1.06-.44l-5.5-5.5a1.5 1.5 0 010-2.12l5.5-5.5a1.5 1.5 0 012.12 2.12L16.622 18l4.44 4.44a1.5 1.5 0 01-1.06 2.56z"/></svg>
+          </button>
+          <button class="cs-gallery-arrow cs-gallery-arrow--next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m22.56 16.94-5.508-5.5a1.5 1.5 0 00-2.112 2.124L19.383 18l-4.444 4.437a1.5 1.5 0 002.116 2.122l5.508-5.5A1.5 1.5 0 0022.56 16.94z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cs-feature-panel --bg-presence">
+        <div class="cs-feature-panel-text">
+          <h2>Profile in action</h2>
+          <ul>
+            <li>Status change confirmation explains how the switch affects day calculations in plain language.</li>
+            <li>Before-and-after comparison removes the fear of correcting mistakes in key dates.</li>
+            <li>Instant recalculation across the dashboard ensures every correction is reflected immediately.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-device-wrap">
+            <video src="images/case-studies/canadian-tomorrow/videos/presence-profile.mov" autoplay muted loop playsinline></video>
+            <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
+          </div>
+        </div>
+      </div>
 
     <!-- ============================================
          05. Organizing Documents
