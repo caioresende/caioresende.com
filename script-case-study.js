@@ -517,3 +517,64 @@ lightbox.addEventListener("touchend", (e) => {
     else prevImage();
   }
 });
+
+// ========================================
+// Anchor navigation — show/hide + scroll spy
+// ========================================
+
+const anchorNav = document.querySelector(".cs-anchor-nav");
+const anchorLinks = [...document.querySelectorAll(".cs-anchor-link")];
+const mainNav = document.querySelector(".cs-nav");
+
+if (anchorNav && anchorLinks.length > 0) {
+  // Map each link to its target section
+  const sectionMap = anchorLinks
+    .map((link) => {
+      const id = link.getAttribute("href").slice(1);
+      const section = document.getElementById(id);
+      return section ? { link, section } : null;
+    })
+    .filter(Boolean);
+
+  // Scroll spy: track which section is in view
+  let activeLink = anchorLinks[0];
+
+  const spyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const match = sectionMap.find((s) => s.section === entry.target);
+        if (match) {
+          activeLink?.classList.remove("cs-anchor-link--active");
+          match.link.classList.add("cs-anchor-link--active");
+          activeLink = match.link;
+
+          // Auto-scroll the nav track to keep active link visible
+          const track = anchorNav.querySelector(".cs-anchor-nav-track");
+          const linkRect = match.link.getBoundingClientRect();
+          const trackRect = track.getBoundingClientRect();
+          if (linkRect.left < trackRect.left || linkRect.right > trackRect.right) {
+            match.link.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+          }
+        }
+      });
+    },
+    { threshold: 0, rootMargin: "-30% 0px -50% 0px" }
+  );
+
+  sectionMap.forEach(({ section }) => spyObserver.observe(section));
+
+  // Smooth scroll on click
+  anchorLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = link.getAttribute("href").slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        const navHeight = mainNav ? mainNav.offsetHeight : 52;
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    });
+  });
+}

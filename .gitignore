@@ -4,3 +4,4 @@ dist
 *.swp
 .claude/
 public/images/optimized/
+scripts/.image-manifest.json

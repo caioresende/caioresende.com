@@ -2,9 +2,11 @@ import sharp from "sharp";
 import { glob } from "glob";
 import path from "path";
 import fs from "fs/promises";
+import crypto from "crypto";
 
 const PUBLIC = "public/images";
 const OUTPUT = "public/images/optimized";
+const MANIFEST_PATH = "scripts/.image-manifest.json";
 
 // ── Category configs ──────────────────────────────────────────
 const CATEGORIES = [
@@ -87,6 +89,30 @@ const CATEGORIES = [
     suffix: "full",
   },
 ];
+
+// ── Manifest (cache) ────────────────────────────────────────
+
+async function loadManifest() {
+  try {
+    const data = await fs.readFile(MANIFEST_PATH, "utf-8");
+    return JSON.parse(data);
+  } catch {
+    return {};
+  }
+}
+
+async function saveManifest(manifest) {
+  await fs.writeFile(MANIFEST_PATH, JSON.stringify(manifest, null, 2));
+}
+
+function manifestKey(filePath, categoryName) {
+  return `${categoryName}::${filePath}`;
+}
+
+async function getFileFingerprint(filePath) {
+  const stat = await fs.stat(filePath);
+  return `${stat.mtimeMs}:${stat.size}`;
+}
 
 // ── Helpers ───────────────────────────────────────────────────
 
@@ -198,9 +224,14 @@ async function processImage(filePath, category) {
 // ── Main ──────────────────────────────────────────────────────
 
 async function main() {
-  console.log("Optimizing images...\n");
+  const forceAll = process.argv.includes("--force");
+  console.log(`Optimizing images${forceAll ? " (forced full rebuild)" : ""}...\n`);
   const startTime = Date.now();
   let totalFiles = 0;
+  let skippedFiles = 0;
+
+  const manifest = forceAll ? {} : await loadManifest();
+  const newManifest = {};
 
   for (const category of CATEGORIES) {
     const files = [];
@@ -214,27 +245,42 @@ async function main() {
       continue;
     }
 
-    console.log(`  [${category.name}] Processing ${files.length} images...`);
+    let processed = 0;
+    let skipped = 0;
 
     for (const filePath of files) {
+      const key = manifestKey(filePath, category.name);
+      const fingerprint = await getFileFingerprint(filePath);
+
+      // Skip if unchanged since last build
+      if (manifest[key] === fingerprint) {
+        newManifest[key] = fingerprint;
+        skipped++;
+        skippedFiles++;
+        continue;
+      }
+
       try {
         const outputs = await processImage(filePath, category);
         totalFiles += outputs.length;
+        processed++;
+        newManifest[key] = fingerprint;
       } catch (err) {
         console.error(`    ERROR processing ${filePath}: ${err.message}`);
       }
     }
+
+    if (processed > 0) {
+      console.log(`  [${category.name}] Processed ${processed} images${skipped > 0 ? `, skipped ${skipped} unchanged` : ""}`);
+    } else {
+      console.log(`  [${category.name}] All ${skipped} images unchanged, skipped.`);
+    }
   }
 
-  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
-  console.log(`\nDone! Generated ${totalFiles} optimized images in ${elapsed}s`);
+  await saveManifest(newManifest);
 
-  // Print size comparison
-  const origSize = await dirSize(PUBLIC);
-  const optSize = await dirSize(OUTPUT);
-  console.log(`  Original: ${formatBytes(origSize)}`);
-  console.log(`  Optimized: ${formatBytes(optSize)}`);
-  console.log(`  Saved: ${formatBytes(origSize - optSize)} (${Math.round((1 - optSize / origSize) * 100)}%)\n`);
+  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+  console.log(`\nDone in ${elapsed}s — ${totalFiles} files generated, ${skippedFiles} images skipped (cached)`);
 }
 
 async function dirSize(dir) {
