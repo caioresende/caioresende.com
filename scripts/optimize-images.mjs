@@ -6,7 +6,13 @@ import crypto from "crypto";
 
 const PUBLIC = "public/images";
 const OUTPUT = "public/images/optimized";
-const MANIFEST_PATH = "scripts/.image-manifest.json";
+
+// On Vercel, persist cache across builds via .vercel/cache
+const IS_VERCEL = !!process.env.VERCEL;
+const VERCEL_CACHE = ".vercel/cache/optimized-images";
+const MANIFEST_PATH = IS_VERCEL
+  ? path.join(VERCEL_CACHE, ".image-manifest.json")
+  : "scripts/.image-manifest.json";
 
 // ── Category configs ──────────────────────────────────────────
 const CATEGORIES = [
@@ -110,8 +116,46 @@ function manifestKey(filePath, categoryName) {
 }
 
 async function getFileFingerprint(filePath) {
-  const stat = await fs.stat(filePath);
-  return `${stat.mtimeMs}:${stat.size}`;
+  // Use content hash — mtime is unreliable after git clone on CI
+  const buf = await fs.readFile(filePath);
+  return crypto.createHash("md5").update(buf).digest("hex");
+}
+
+// Vercel cache: restore previously optimized images so unchanged ones are skipped
+async function restoreVercelCache() {
+  if (!IS_VERCEL) return;
+  const cacheOutput = path.join(VERCEL_CACHE, "files");
+  try {
+    await fs.access(cacheOutput);
+    console.log("  Restoring optimized images from Vercel cache...");
+    await copyDir(cacheOutput, OUTPUT);
+    console.log("  Cache restored.\n");
+  } catch {
+    console.log("  No Vercel cache found, full rebuild.\n");
+  }
+}
+
+async function saveVercelCache() {
+  if (!IS_VERCEL) return;
+  const cacheOutput = path.join(VERCEL_CACHE, "files");
+  console.log("  Saving optimized images to Vercel cache...");
+  await copyDir(OUTPUT, cacheOutput);
+}
+
+async function copyDir(src, dest) {
+  await fs.mkdir(dest, { recursive: true });
+  const entries = await fs.readdir(src, { withFileTypes: true, recursive: true });
+  for (const entry of entries) {
+    const srcPath = path.join(entry.parentPath || entry.path, entry.name);
+    const relPath = path.relative(src, srcPath);
+    const destPath = path.join(dest, relPath);
+    if (entry.isDirectory()) {
+      await fs.mkdir(destPath, { recursive: true });
+    } else if (entry.isFile()) {
+      await fs.mkdir(path.dirname(destPath), { recursive: true });
+      await fs.copyFile(srcPath, destPath);
+    }
+  }
 }
 
 // ── Helpers ───────────────────────────────────────────────────
@@ -225,10 +269,15 @@ async function processImage(filePath, category) {
 
 async function main() {
   const forceAll = process.argv.includes("--force");
-  console.log(`Optimizing images${forceAll ? " (forced full rebuild)" : ""}...\n`);
+  console.log(`Optimizing images${forceAll ? " (forced full rebuild)" : " (incremental)"}...`);
+  if (IS_VERCEL) console.log("  Running on Vercel — using .vercel/cache for persistence.");
+  console.log("");
   const startTime = Date.now();
   let totalFiles = 0;
   let skippedFiles = 0;
+
+  // Restore cached outputs on Vercel so we only rebuild changed images
+  await restoreVercelCache();
 
   const manifest = forceAll ? {} : await loadManifest();
   const newManifest = {};
@@ -278,6 +327,7 @@ async function main() {
   }
 
   await saveManifest(newManifest);
+  await saveVercelCache();
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
   console.log(`\nDone in ${elapsed}s — ${totalFiles} files generated, ${skippedFiles} images skipped (cached)`);
