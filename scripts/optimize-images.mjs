@@ -108,6 +108,7 @@ async function loadManifest() {
 }
 
 async function saveManifest(manifest) {
+  await fs.mkdir(path.dirname(MANIFEST_PATH), { recursive: true });
   await fs.writeFile(MANIFEST_PATH, JSON.stringify(manifest, null, 2));
 }
 
