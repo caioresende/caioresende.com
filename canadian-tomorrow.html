@@ -294,6 +294,7 @@
             <video src="/images/case-studies/canadian-tomorrow/videos/quiz-mode.mov" autoplay muted loop playsinline></video>
             <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
           </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
         </div>
       </div>
 
@@ -370,6 +371,7 @@
             <video src="/images/case-studies/canadian-tomorrow/videos/quiz-page.mov" autoplay muted loop playsinline></video>
             <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
           </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
         </div>
       </div>
 
@@ -557,6 +559,7 @@
             <video src="/images/case-studies/canadian-tomorrow/videos/quiz-home.mov" autoplay muted loop playsinline></video>
             <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
           </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
         </div>
       </div>
     </section>
@@ -766,6 +769,7 @@
             <video src="images/case-studies/canadian-tomorrow/videos/presence-onboarding.mov" autoplay muted loop playsinline></video>
             <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
           </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
         </div>
       </div>
 
@@ -843,6 +847,7 @@
             <video src="images/case-studies/canadian-tomorrow/videos/presence-crud.mov" autoplay muted loop playsinline></video>
             <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
           </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
         </div>
       </div>
 
@@ -921,6 +926,7 @@
             <video src="images/case-studies/canadian-tomorrow/videos/presence-dashboard.mov" autoplay muted loop playsinline></video>
             <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
           </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
         </div>
       </div>
 
@@ -983,6 +989,7 @@
             <video src="images/case-studies/canadian-tomorrow/videos/presence-profile.mov" autoplay muted loop playsinline></video>
             <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
           </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
         </div>
       </div>
 
@@ -995,11 +1002,13 @@
 
       <div class="cs-body">
         <p>The citizenship application requires documents across eight categories: application form, photos, identity documents, language proficiency, physical presence proof, tax records, citizenship photos, and test readiness. Each category has its own rules for what format is accepted: paper originals, color copies, scanned digital files, or online forms.</p>
-        <p>I started with a sketch dated February 23. The structure was clear from the beginning: folders containing mandatory documents, the ability to upload and mark files, and the system showing <mark class="cs-hl">validation status for each folder once the required files are ready</mark>. I built a table mapping each document type to its paper and online requirements.</p>
+        <p>The structure was clear from the beginning: folders containing mandatory documents, the ability to upload and mark files, and the system showing <mark class="cs-hl">validation status for each folder once the required files are ready</mark>. I built a table mapping each document type to its paper and online requirements.</p>
+        <p>For design inspiration, I studied how the best file management apps handle similar problems. iOS Files, Apple Notes, and various folder-based UIs informed my approach. The key insight was that <mark class="cs-hl">document management for citizenship isn't really about files — it's about progress.</mark> You need to see at a glance which categories are complete, which are missing items, and what you need to do next.</p>
+        <p>The documents dashboard went through seven iterations. Each one refined the balance between the folder list, progress indicators, and individual document status. I tested different icon styles, progress badge placements, and color treatments for complete versus incomplete states. The file management screens handle the actual upload and tracking: document type, status (pending, approved, rejected), language, and a preview area.</p>
       </div>
 
-      <!-- Document sketches + references -->
-      <div class="cs-carousel" data-carousel>
+      <!-- Document sketches -->
+      <div class="cs-carousel" data-carousel data-stack-carousel>
         <div class="cs-carousel-track">
           <img src="/images/case-studies/canadian-tomorrow/img-51.jpg" alt="Documents sketch (Feb 23) — Folder structure, mandatory documents, paper vs online matrix" loading="lazy" />
           <img src="/images/case-studies/canadian-tomorrow/img-50.png" alt="Design inspiration — iOS Files, Notes, and folder-based UIs from competing document management apps" loading="lazy" />
@@ -1012,24 +1021,207 @@
       </div>
       <p class="cs-caption">Document sketches covering folder structure, file states, progress tracking, and design references from iOS file management apps.</p>
 
+      <!-- Document Profile Onboarding -->
       <div class="cs-body">
-        <p>For design inspiration, I studied how the best file management apps handle similar problems. iOS Files, Apple Notes, and various folder-based UIs informed my approach. The key insight was that <mark class="cs-hl">document management for citizenship isn't really about files. It's about progress.</mark> You need to see at a glance which categories are complete, which are missing items, and what you need to do next.</p>
-        <p>The documents dashboard went through seven iterations. Each one refined the balance between the folder list, progress indicators, and individual document status. I tested different icon styles, progress badge placements, and color treatments for complete versus incomplete states. The file management screens handle the actual upload and tracking: document type, status (pending, approved, rejected), language, and a preview area.</p>
+        <h3>Document profile onboarding</h3>
+        <p>Before users can track documents, the app needs to know their situation. The onboarding flow asks which immigration pathway they're on — each pathway has different document requirements. A temporary worker applying for permanent residence needs different paperwork than a refugee claimant or a spousal sponsor. Based on the selected pathway, the app generates a personalized checklist of required document categories, pre-populated with the exact items they'll need to collect.</p>
+        <p>I designed the onboarding to feel like a conversation rather than a form. Each step narrows down the requirements, and users see their checklist build in real time. <mark class="cs-hl">By the end of three screens, they have a complete, personalized document roadmap instead of a generic eight-category list.</mark></p>
       </div>
 
-      <!-- Document wireframes -->
-      <div class="cs-carousel" data-carousel>
-        <div class="cs-carousel-track">
-          <img src="/images/case-studies/canadian-tomorrow/img-43.png" alt="Documents dashboard — 7+ iterations: folder list, progress indicators, category icons, completion states" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-44.png" alt="Document detail wireframes — Individual document view with status and file list" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-47.png" alt="File management wireframes — Upload flow, file status, language selector, preview iterations" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-45.png" alt="Document wireframe — additional layout exploration for document categories" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-46.png" alt="File container types — four icon designs for document file representations" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-48.png" alt="Document reference wireframes — source linking and study guide integration" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-49.png" alt="Document wireframe — final iteration with refined progress indicators" loading="lazy" />
+      <div class="cs-gallery" data-gallery>
+        <div class="cs-gallery-track">
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/document-setup/Container.jpg" alt="Document onboarding — name, date of birth, and applicant category selection" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Profile and category.</span> Users enter their name and date of birth, then the app auto-detects the applicant category — Adult (18-54), Adult (55+), or Minor — each with different document and test requirements.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/document-setup/Container-1.jpg" alt="Document onboarding — additional questions and personalized summary" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Questions and summary.</span> Follow-up questions determine if extra documents are needed — like police certificates for countries where you lived 183+ days. The final screen summarizes everything: name, category, total documents to track, and any extras.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-gallery-nav">
+          <button class="cs-gallery-arrow cs-gallery-arrow--prev" aria-label="Previous" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m20 25c-.384 0-.768-.147-1.06-.44l-5.5-5.5a1.5 1.5 0 010-2.12l5.5-5.5a1.5 1.5 0 012.12 2.12L16.622 18l4.44 4.44a1.5 1.5 0 01-1.06 2.56z"/></svg>
+          </button>
+          <button class="cs-gallery-arrow cs-gallery-arrow--next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m22.56 16.94-5.508-5.5a1.5 1.5 0 00-2.112 2.124L19.383 18l-4.444 4.437a1.5 1.5 0 002.116 2.122l5.508-5.5A1.5 1.5 0 0022.56 16.94z"/></svg>
+          </button>
         </div>
       </div>
-      <p class="cs-caption">Documents dashboard iterations, detail views, file management flow, container icon designs, and reference integration wireframes.</p>
+
+      <div class="cs-feature-panel --bg-category">
+        <div class="cs-feature-panel-text">
+          <h2>Docs profile in action</h2>
+          <ul>
+            <li>Pathway selector personalizes the checklist based on immigration status.</li>
+            <li>Real-time checklist preview builds confidence as users move through setup.</li>
+            <li>Three-screen flow replaces a generic list with a tailored document roadmap.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-device-wrap">
+            <video src="images/case-studies/canadian-tomorrow/videos/documents-onboarding.mov" autoplay muted loop playsinline></video>
+            <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
+          </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
+        </div>
+      </div>
+
+      <!-- Tracking Files -->
+      <div class="cs-body">
+        <h3>Tracking files</h3>
+        <p>I used a card-based layout for the document categories, where each card doubles as a progress indicator. The card surface shows category name, required count, and a circular progress ring — borrowed from fitness app patterns where users instinctively understand ring completion. Tapping a card expands into a detail list with individual document rows, each showing a status chip (missing, uploaded, verified) color-coded using a traffic-light system.</p>
+        <p>The global progress bar at the top follows a deliberate hierarchy: <mark class="cs-hl">percentage first, category breakdown second, individual files third.</mark> This layered information architecture lets users answer "am I done?" in one glance, "what's left?" in two seconds, and "which specific file?" only when they need to act. The filter bar defaults to showing missing items first — because that's the only actionable state.</p>
+      </div>
+
+      <div class="cs-gallery" data-gallery>
+        <div class="cs-gallery-track">
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/documents-dashboard/Container-2.jpg" alt="Document dashboard — category cards with progress rings" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Category cards.</span> Each folder uses a progress ring to show completion. The ring pattern makes scanning eight categories feel instant rather than overwhelming.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/documents-dashboard/Container.jpg" alt="Document list — status chips and filtering" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Document list.</span> Status chips use traffic-light colors: red for missing, amber for uploaded, green for verified. Filter defaults to missing items so users see what needs action.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/documents-dashboard/Container-1.jpg" alt="Global progress — aggregated completion percentage" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Global progress.</span> A single percentage at the top answers the most common question immediately. Category breakdown sits below for users who want specifics.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-gallery-nav">
+          <button class="cs-gallery-arrow cs-gallery-arrow--prev" aria-label="Previous" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m20 25c-.384 0-.768-.147-1.06-.44l-5.5-5.5a1.5 1.5 0 010-2.12l5.5-5.5a1.5 1.5 0 012.12 2.12L16.622 18l4.44 4.44a1.5 1.5 0 01-1.06 2.56z"/></svg>
+          </button>
+          <button class="cs-gallery-arrow cs-gallery-arrow--next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m22.56 16.94-5.508-5.5a1.5 1.5 0 00-2.112 2.124L19.383 18l-4.444 4.437a1.5 1.5 0 002.116 2.122l5.508-5.5A1.5 1.5 0 0022.56 16.94z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cs-feature-panel --bg-presence">
+        <div class="cs-feature-panel-text">
+          <h2>File tracking in action</h2>
+          <ul>
+            <li>Folder cards with progress rings show completion at a glance per category.</li>
+            <li>Global progress bar aggregates all categories into one clear percentage.</li>
+            <li>Status filtering lets users focus on missing documents instead of scrolling.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-device-wrap">
+            <video src="images/case-studies/canadian-tomorrow/videos/documents-dashboard.mov" autoplay muted loop playsinline></video>
+            <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
+          </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
+        </div>
+      </div>
+
+      <!-- File Page -->
+      <div class="cs-body">
+        <h3>File page</h3>
+        <p>The file detail page follows a top-down reading order: document name and category at the top, then the upload area as the primary action, followed by a live preview of the uploaded file. I designed the upload area as a large tap target with three input options — camera, photo library, and document scanner — displayed as icon buttons rather than a menu, reducing the interaction to a single tap. The preview renders inline with pinch-to-zoom so users can verify quality without leaving the page.</p>
+        <p>Below the preview, a requirements drawer pulls up to show exactly what the government expects for this specific document: format, dimensions, color requirements, and any notes. <mark class="cs-hl">Inline validation runs automatically on upload — checking file size, resolution, and format against specs — and surfaces errors as contextual banners directly on the preview, not as disconnected alerts.</mark></p>
+      </div>
+
+      <div class="cs-gallery" data-gallery>
+        <div class="cs-gallery-track">
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/documents-file/Container-3.jpg" alt="File page — wireframe explorations for layout and interaction patterns" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">Wireframe explorations.</span> Early iterations tested different layouts for the upload area, preview placement, and requirements drawer. Each round refined the top-down reading order and tap-target sizing.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/documents-file/Container-2.jpg" alt="File page — status states for pending, uploaded, and verified documents" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">File page statuses.</span> Each document cycles through clear states: empty, pending upload, uploaded, and verified. Visual cues update the header badge and progress ring in real time.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/documents-file/Container-1.jpg" alt="File page — validation error banner on preview" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">File validation error.</span> When an upload fails spec checks: wrong format, low resolution, or oversized file.  contextual error banner appears directly on the preview, explaining the issue and how to fix it.</p>
+            </div>
+          </div>
+          <div class="cs-gallery-card --wide">
+            <div class="cs-gallery-card-media">
+              <img src="images/case-studies/canadian-tomorrow/carousel-features/documents-file/Container.jpg" alt="File page — successful upload confirmation with verified badge" loading="lazy" />
+            </div>
+            <div class="cs-gallery-card-text">
+              <p><span class="cs-gallery-label">File upload success.</span> A confirmed upload shows the document preview with a verified badge, updates the category progress ring, and moves the file from the missing filter to the completed list.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-gallery-nav">
+          <button class="cs-gallery-arrow cs-gallery-arrow--prev" aria-label="Previous" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m20 25c-.384 0-.768-.147-1.06-.44l-5.5-5.5a1.5 1.5 0 010-2.12l5.5-5.5a1.5 1.5 0 012.12 2.12L16.622 18l4.44 4.44a1.5 1.5 0 01-1.06 2.56z"/></svg>
+          </button>
+          <button class="cs-gallery-arrow cs-gallery-arrow--next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m22.56 16.94-5.508-5.5a1.5 1.5 0 00-2.112 2.124L19.383 18l-4.444 4.437a1.5 1.5 0 002.116 2.122l5.508-5.5A1.5 1.5 0 0022.56 16.94z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cs-feature-panel">
+        <div class="cs-feature-panel-text">
+          <h2>File page in action</h2>
+          <ul>
+            <li>Inline file preview lets users verify documents before marking them as ready.</li>
+            <li>Automatic validation checks size, format, and resolution against government specs.</li>
+            <li>Requirements drawer shows exactly what's expected so nothing gets rejected.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-device-wrap">
+            <video src="images/case-studies/canadian-tomorrow/videos/documents-file.mov" autoplay muted loop playsinline></video>
+            <img class="cs-device-frame" src="/images/case-studies/canadian-tomorrow/iphone-device.png" alt="" />
+          </div>
+          <p class="cs-device-hint">Hover to zoom in</p>
+        </div>
+      </div>
+
+      <!-- Iconography -->
+      <div class="cs-body">
+        <h3>Iconography</h3>
+        <p>With eight document categories and dozens of individual file types, I needed a visual system that made each item instantly recognizable. I designed a custom icon set where each category has its own color and symbol: a camera for photos, a shield for identity documents, a globe for language proficiency, a calendar for physical presence, a receipt for tax records. The icons follow a consistent grid and stroke weight so they feel cohesive as a family.</p>
+        <p>Beyond the category icons, I created file-type indicators that show the format at a glance — PDF, image, scan — using a small badge on the document thumbnail. The color system extends to status badges too: green for verified, amber for uploaded but pending review, red for issues that need attention. <mark class="cs-hl">The entire visual language was designed so users could scan a full dashboard and understand their document status without reading a single label.</mark></p>
+      </div>
+
+      <!-- Iconography highlight -->
+      <div class="cs-single-slide">
+        <div class="cs-highlights-slide --v-center --left --black">
+          <img class="cs-highlights-slide-bg" src="/images/case-studies/canadian-tomorrow/highlight-single/documents-iconography.jpg" alt="Custom icon set for document categories — consistent grid, color-coded symbols" loading="lazy" />
+          <p class="cs-highlights-slide-text">Eight categories, one visual language.<br>Every icon tells you what's needed<br>before you read a word.</p>
+        </div>
+      </div>
+
     </section>
 
     <!-- ============================================
@@ -1044,166 +1236,10 @@
         <p>I went with one-time pricing instead. Three tiers that unlock features permanently: no recurring charges, no "your access expires" anxiety. For something as stressful as citizenship, the last thing people need is subscription pressure on top of everything else.</p>
       </div>
 
-      <!-- Monetization sketches -->
-      <div class="cs-carousel" data-carousel>
-        <div class="cs-carousel-track">
-          <img src="/images/case-studies/canadian-tomorrow/img-55.jpg" alt="Landing wireframe sketch — Hero, how does it work, frequent questions, upgrade; upsell modal structure" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-52.jpg" alt="Monetization sketch — Pricing tiers, feature mapping, value proposition per level" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-53.jpg" alt="Monetization sketch — paywall trigger points and contextual upsell strategy" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-54.jpg" alt="Monetization sketch — feature gating logic and free vs premium boundaries" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-56.jpg" alt="Monetization sketch — pricing psychology and tier comparison layout" loading="lazy" />
-        </div>
-      </div>
-      <p class="cs-caption">Paper sketches covering landing page structure, pricing tiers, paywall triggers, feature gating, and tier comparison.</p>
-
-      <div class="cs-body">
-        <p>I designed feature cards that explain exactly what each tier unlocks: all 400 questions, quiz customization, confidence-based analytics, document analysis, focused stats, study mode, and unlimited test simulations. Each card shows a screenshot of the actual feature so users can see what they're paying for.</p>
-        <p>The paywall appears contextually. When you tap a locked feature, you see a paywall specific to that feature rather than a generic "upgrade" screen. The headline stays the same across contexts, but <mark class="cs-hl">the featured card at the top changes to match what you were trying to access</mark>. This respects the user's intent instead of interrupting them with irrelevant upselling. I studied what other apps do wrong here: generic walls that feel disconnected from what the user wanted. Contextual paywalls convert better because they answer the question you already had.</p>
-      </div>
-
-      <!-- Monetization wireframes -->
-      <div class="cs-carousel" data-carousel>
-        <div class="cs-carousel-track">
-          <img src="/images/case-studies/canadian-tomorrow/img-57.png" alt="Paywall wireframes — 'The shortcut to your citizenship?' with three pricing tiers and feature breakdowns" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-58.png" alt="Feature cards — Unlock 400 questions, customize quizzes, confidence analytics, document analysis, study mode" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-59.png" alt="Competitor paywall references — subscription patterns from various learning and productivity apps" loading="lazy" />
-        </div>
-      </div>
-      <p class="cs-caption">Paywall iterations with one-time pricing, feature cards showing unlockable value, and competitor monetization references.</p>
     </section>
 
-    <!-- ============================================
-         07. The First Impression
-         ============================================ -->
-    <section class="cs-section">
-      <p class="cs-section-number">07</p>
-      <h2>The First Impression</h2>
-
-      <div class="cs-body">
-        <p>The splash screen sets the tone for everything. I wanted something that felt confident without being corporate. The tagline "Born to become Canadian, proud to do it yourself" captures the spirit: this app is for people who are doing this on their own, without lawyers, without immigration consultants.</p>
-        <p>The typography for the splash went through extensive iteration. I explored different ways to stack the manifesto: <mark class="cs-hl">"Track, study, organize, belong. Start today, Canadian tomorrow."</mark> Each version tested different font weights, line breaks, and hierarchies. Some versions led with the action verbs in bold, others emphasized "Canadian tomorrow" as the punchline.</p>
-      </div>
-
-      <!-- Splash design arc -->
-      <div class="cs-carousel" data-carousel>
-        <div class="cs-carousel-track">
-          <img src="/images/case-studies/canadian-tomorrow/img-60.jpg" alt="Sprint notes (Jan 23-24) — Splash screen planning, quiz page, questions, responsiveness checklist" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-62.jpg" alt="Splash screen sketch — Layout exploration for the branded launch screen" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-61.jpg" alt="Splash screen sketch — initial layout concepts and copy positioning" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-62.jpg" alt="Splash screen sketch — layout exploration for the branded launch screen" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-63.jpg" alt="Splash screen sketch — icon placement and tagline hierarchy" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-64.png" alt="Splash typography iterations — 'Track, study, organize, belong. Start today, Canadian tomorrow.'" loading="lazy" />
-        </div>
-      </div>
-      <p class="cs-caption">From sprint notes through three splash sketches to typography iterations: the full design arc of the first screen.</p>
-
-      <div class="cs-body">
-        <p>The app icon is a maple leaf, rendered in dark gray against a light gradient. Clean, recognizable, and distinctly Canadian without being obvious. The final splash screen pairs it with "Born to become Canadian, proud to do it yourself" and a single call to action: "Let's do this." At the bottom, a quiet line of copy sets expectations: "Legal-grade accuracy with a budget-friendly tech for your Canadian citizenship application."</p>
-        <p>I designed for <mark class="cs-hl">seven device sizes from the start</mark>. The interface renders cleanly on an iPhone SE (the smallest supported device), an iPhone 17 Pro, and a full desktop browser. Flutter's responsive framework made this possible, but I still had to verify every breakpoint. Typography sizes, button proportions, and spacing all needed to feel right on each screen. What looks spacious on a Pro Max can feel cramped on an SE.</p>
-      </div>
-
-      <!-- Final splash + cross-device -->
-      <div class="cs-carousel" data-carousel>
-        <div class="cs-carousel-track">
-          <img src="/images/case-studies/canadian-tomorrow/img-65.png" alt="Final splash screen — Maple leaf icon, 'Born to become Canadian, proud to do it yourself', Let's do this CTA" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-66.png" alt="Cross-device — Splash screen on iPhone SE, iPhone 17 Pro, and desktop browser" loading="lazy" />
-          <img src="/images/case-studies/canadian-tomorrow/img-67.png" alt="Onboarding wireframe — Progressive disclosure guiding new users through setup" loading="lazy" />
-        </div>
-      </div>
-      <p class="cs-caption">The polished splash screen, responsive layouts across three device sizes, and the onboarding flow.</p>
-    </section>
-
-    <!-- ============================================
-         08. The Numbers
-         ============================================ -->
-    <section class="cs-section">
-      <p class="cs-section-number">08</p>
-      <h2>The Numbers</h2>
-
-      <div class="cs-body">
-        <p>Six weeks of work. Here's what came out of it:</p>
-      </div>
-
-      <!-- Metrics grid -->
-      <div class="cs-metrics">
-        <div class="cs-metric">
-          <span class="cs-metric-value">166</span>
-          <span class="cs-metric-label">Commits</span>
-          <p>Six weeks of daily shipping. Each commit was a working increment, not a batch dump.</p>
-        </div>
-        <div class="cs-metric">
-          <span class="cs-metric-value">644</span>
-          <span class="cs-metric-label">Unique Screens</span>
-          <p>Every state, every device size, every locale variation designed and accounted for.</p>
-        </div>
-        <div class="cs-metric">
-          <span class="cs-metric-value">37</span>
-          <span class="cs-metric-label">Hand-drawn Sketches</span>
-          <p><mark class="cs-hl">Every feature started on paper.</mark> Sketching is faster than wireframing for exploring dead ends quickly.</p>
-        </div>
-        <div class="cs-metric">
-          <span class="cs-metric-value">37</span>
-          <span class="cs-metric-label">Wireframe Explorations</span>
-          <p>Each sketch that survived became a wireframe with multiple iterations before any code was written.</p>
-        </div>
-        <div class="cs-metric">
-          <span class="cs-metric-value">4</span>
-          <span class="cs-metric-label">Locales</span>
-          <p>Localization from day one, not bolted on after launch. The layout handles every language without breaking.</p>
-        </div>
-        <div class="cs-metric">
-          <span class="cs-metric-value">7</span>
-          <span class="cs-metric-label">Device Sizes</span>
-          <p>From iPhone SE to desktop browser. Every breakpoint verified, every component responsive.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-         09. What I'd Do Differently
-         ============================================ -->
-    <section class="cs-section">
-      <p class="cs-section-number">09</p>
-      <h2>What I'd Do Differently</h2>
-
-      <div class="cs-body">
-        <p>I designed this app from my own experience as an immigrant going through the Canadian citizenship process. That gave me strong instincts about what matters, but it also means I have blind spots. Here's what I know needs work.</p>
-
-        <div class="cs-finding">
-          <span class="cs-severity cs-severity--high">P0 · Critical</span>
-          <h4>User Testing</h4>
-          <p>I built this based on my journey, but citizenship processes vary by country of origin, immigration status, and province. <mark class="cs-hl">A Brazilian permanent resident in Ontario has a different experience than a Syrian refugee in Quebec.</mark> Real user testing with diverse immigrants would surface problems I can't see from my own perspective.</p>
-        </div>
-
-        <div class="cs-finding">
-          <span class="cs-severity cs-severity--high">P1 · High</span>
-          <h4>Accessibility Audit</h4>
-          <p>The confidence slider needs screen reader testing. Sliders are notoriously difficult for assistive technology, and this one is a core interaction. I'd also audit the color-coded quiz categories to ensure they work for color-blind users with pattern or shape alternatives.</p>
-        </div>
-
-        <div class="cs-finding">
-          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
-          <h4>Dark Mode</h4>
-          <p>The sage and cream palette doesn't have a dark counterpart yet. For an app people might use at night while studying, that's a real gap.</p>
-        </div>
-
-        <div class="cs-finding">
-          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
-          <h4>Analytics Integration</h4>
-          <p>The confidence slider is my biggest bet, but I don't have data yet to validate whether it actually changes study behavior. I'd want to see: do people study more after seeing they got lucky? Does the confidence matrix drive focused review? Without analytics, the hypothesis stays unproven.</p>
-        </div>
-
-        <div class="cs-finding">
-          <span class="cs-severity cs-severity--medium">P2 · Medium</span>
-          <h4>Offline Support for Documents</h4>
-          <p>The quiz and presence features work offline through cached data. But document management currently requires a connection for uploads. For people in remote areas or with unstable internet, offline document staging with background sync would make the app more reliable.</p>
-        </div>
-      </div>
-
-      <div class="cs-body">
-        <p>If I had another month, the user testing and accessibility audit would come first. The confidence slider hypothesis needs real data. And dark mode would ship alongside it.</p>
-        <p>Six weeks ago, every citizenship app was just a quiz. Now there's one that tracks your presence days, organizes your documents, helps you understand how you learn, and does it all in four languages across seven device sizes. <mark class="cs-hl">It's not just test prep anymore. It's a companion for the whole journey.</mark></p>
-      </div>
+    <section class="cs-section cs-wip">
+      <p class="cs-wip-label">Work in progress...</p>
     </section>
 
   </main>

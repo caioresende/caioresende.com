@@ -335,6 +335,25 @@ document.querySelectorAll("[data-stack-carousel]").forEach((carousel) => {
 });
 
 // ========================================
+// Feature panel text — staggered fade-in
+// ========================================
+
+const textObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      } else {
+        entry.target.classList.remove("is-visible");
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+document.querySelectorAll(".cs-feature-panel-text").forEach((el) => textObserver.observe(el));
+
+// ========================================
 // Device tilt (3D rotate + zoom on hover)
 // ========================================
 

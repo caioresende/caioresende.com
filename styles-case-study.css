@@ -264,6 +264,19 @@ body {
   padding: 48px;
 }
 
+.cs-feature-panel-text h2,
+.cs-feature-panel-text li {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cs-feature-panel-text.is-visible h2 { opacity: 1; transform: translateY(0); transition-delay: 0s; }
+.cs-feature-panel-text.is-visible li:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
+.cs-feature-panel-text.is-visible li:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.24s; }
+.cs-feature-panel-text.is-visible li:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.36s; }
+.cs-feature-panel-text.is-visible li:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.48s; }
+
 .cs-feature-panel-text h2 {
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   font-weight: 600;
@@ -275,7 +288,7 @@ body {
 
 .cs-feature-panel-text ul {
   width: 65%;
-  list-style: none;
+  list-style: disc;
   padding: 0;
   margin: 0 auto;
   display: flex;
@@ -287,14 +300,6 @@ body {
   font-size: clamp(0.85rem, 1.2vw, 1.05rem);
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.65);
-  padding-left: 1.1em;
-  position: relative;
-}
-
-.cs-feature-panel-text li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
 }
 
 .cs-feature-panel-media {
@@ -303,6 +308,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 48px;
+  cursor: pointer;
 }
 
 .cs-device-wrap {
@@ -327,6 +333,17 @@ body {
   height: 100%;
   object-fit: contain;
   pointer-events: none;
+}
+
+.cs-device-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.54);
+  text-align: center;
+  z-index: -1;
 }
 
 @media (max-width: 768px) {
@@ -1082,6 +1099,24 @@ body {
     width: 140px;
     height: 140px;
   }
+}
+
+/* ========================================
+   Work in Progress
+   ======================================== */
+
+.cs-wip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+}
+
+.cs-wip-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.04em;
 }
 
 /* ========================================
