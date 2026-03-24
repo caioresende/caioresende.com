@@ -147,6 +147,17 @@
         </div>
       </div>
       <p class="cs-caption">Some examples from my competitive analysis of citizenship apps. Every single one focuses on quizzes. None offer presence tracking or document management.</p>
+
+      <div class="cs-strategy">
+        <p class="cs-strategy-label">Product strategy thinking</p>
+        <p>I didn't start with an idea — I started with a market audit. Fifteen apps, all converging on the same narrow slice of the citizenship journey: quiz prep. Not one offered presence tracking, document management, or any sense of holistic progress. That's not a feature gap — it's a category blind spot. Every competitor optimized for the test, while the actual pain (years of tracking, organizing, and proving eligibility) went completely unaddressed.</p>
+        <p>The strategic question wasn't "can I build a better quiz?" — it was "why is no one treating citizenship as a multi-year process instead of a single exam?" That reframe defined everything: the product scope, the architecture, and ultimately the monetization model. When the entire category underserves the user, the opportunity isn't incremental improvement — it's redefining what the product should be.</p>
+        <ul>
+          <li>Next step: build a competitor matrix mapping capabilities across 10+ apps to make the gap visual and undeniable.</li>
+          <li>Next step: add market context — how many permanent residents are in the eligibility window, and what do they currently pay for help (lawyer fees vs. app fees).</li>
+          <li>Next step: pull verbatim app store complaints from competitor apps to validate that the gap is felt, not just observed.</li>
+        </ul>
+      </div>
     </section>
 
     <!-- ============================================
@@ -191,6 +202,13 @@
         </div>
       </div>
       <p class="cs-caption">Initial sketches: brainstorm, reports vision, confidence slider concept, sprint plan, quiz modes, and design thinking explorations.</p>
+
+      <div class="cs-strategy">
+        <p class="cs-strategy-label">Product strategy thinking</p>
+        <p>Every architectural choice here was a product bet. Horizontal information architecture wasn't just a navigation preference — it was a deliberate bet on expandability. A flat hub-and-spoke model means each new feature (timeline, eligibility checker, community) can be added without restructuring the app. That's designing for a roadmap, not just a launch.</p>
+        <p>The tech stack decision was equally strategic: Flutter for cross-platform meant shipping to iOS and Android with one codebase — cutting time-to-market in half. Firebase for real-time data meant presence calculations update instantly when users log absences. These aren't engineering preferences — they're product constraints that shaped what the app could do in three months versus twelve.</p>
+        <p>Starting on pen and paper wasn't nostalgia — it was velocity. Paper sketches let me explore 30 ideas in the time it takes to build one Figma screen. The sprint plan on January 20th, with numbered priorities, shows a product discipline that most side projects skip: scoping ruthlessly so the first version ships complete, not half-finished.</p>
+      </div>
     </section>
 
     <!-- ============================================
@@ -574,6 +592,13 @@
           </div>
           <p class="cs-device-hint">Hover to zoom in</p>
         </div>
+      </div>
+
+      <div class="cs-strategy">
+        <p class="cs-strategy-label">Product strategy thinking</p>
+        <p>The quiz system isn't just a feature — it's a data flywheel. Most quiz apps record right or wrong. This one captures confidence, time-to-answer, explanation engagement, and skip behavior. That depth of signal isn't over-engineering — it's the foundation for every differentiating feature downstream: the confidence matrix, the mastery zones, the personalized recommendations.</p>
+        <p>The confidence matrix is the product innovation that matters most here. By asking users how confident they feel alongside their answer, the app distinguishes between knowledge and luck — a distinction that's critical for a high-stakes test. "Fluke" versus "Mastery" isn't just a label; it changes what the app recommends you study next. That's the kind of insight no competitor offers because none of them capture the data to make it possible.</p>
+        <p>Seven quiz modes might seem excessive, but each one serves a different learning context: commute (quick random), deep study (by chapter), targeted review (second chances), and test readiness (simulation). Designing for learning contexts rather than just question delivery is what separates a study tool from a quiz generator.</p>
       </div>
     </section>
 
@@ -1006,6 +1031,14 @@
         </div>
       </div>
 
+      <div class="cs-strategy">
+        <p class="cs-strategy-label">Product strategy thinking</p>
+        <p>Presence tracking is the product's moat. Every competitor ignored it because it's hard — legally complex, calculation-heavy, and deeply personal. But it's also the feature with the highest switching cost. Once users log their travel history and absences into the app, they're not going to re-enter it somewhere else. That's retention by design, not by friction.</p>
+        <p>The UX audit of the government's Physical Presence Calculator wasn't academic — it was competitive intelligence. Ten usability issues in the only official tool means ten design constraints that become ten competitive advantages. When the government's own solution is confusing, slow, and error-prone, an app that solves those same problems elegantly isn't competing with other apps — it's replacing the government experience entirely.</p>
+        <p>The onboarding design decision — three focused screens instead of one long form — reflects a deeper product principle: the first interaction with a legally complex feature should build confidence, not anxiety. If users doubt the accuracy of their initial setup, they'll never trust the calculations downstream. Getting onboarding right isn't UX polish; it's the foundation of product trust.</p>
+      </div>
+    </section>
+
     <!-- ============================================
          05. Organizing Documents
          ============================================ -->
@@ -1235,6 +1268,12 @@
         </div>
       </div>
 
+      <div class="cs-strategy">
+        <p class="cs-strategy-label">Product strategy thinking</p>
+        <p>Document management is the second half of the product's moat, alongside presence tracking. Once users upload, organize, and validate their citizenship paperwork inside the app, switching to a competitor means starting that process from zero. The quiz is the acquisition hook — it gets people in the door. Documents and presence are the retention engine — they keep people committed to the product through the entire application journey.</p>
+        <p>The progress ring pattern (borrowed from fitness apps) was a deliberate UX strategy. Ring completion triggers the same psychological reward loop that makes fitness trackers sticky. For a citizenship application — a process that can feel endless and bureaucratic — turning document collection into a visual completion game transforms a chore into a satisfying progression. That's not decoration; it's behavioral design in service of a product goal.</p>
+        <p>Inline file validation (checking size, format, and resolution automatically on upload) is a product differentiator that saves users from a government rejection weeks or months later. The cost of a rejected document isn't just resubmission — it's delays, stress, and potentially restarting parts of the application. Catching errors at upload time is the kind of invisible product value that users don't appreciate until they hear someone else's rejection story.</p>
+      </div>
     </section>
 
     <!-- ============================================
@@ -1247,6 +1286,17 @@
       <div class="cs-body">
         <p>I studied how other citizenship and learning apps monetize. The landscape is mostly subscriptions: monthly or annual fees for "premium" access. But for a citizenship app, subscriptions don't make sense. The process has a clear end date. You study, you pass, you're done. <mark class="cs-hl">Asking someone to pay monthly for something they'll use for three to six months felt wrong.</mark></p>
         <p>I went with one-time pricing instead. Three tiers that unlock features permanently: no recurring charges, no "your access expires" anxiety. For something as stressful as citizenship, the last thing people need is subscription pressure on top of everything else.</p>
+      </div>
+
+      <div class="cs-strategy">
+        <p class="cs-strategy-label">Product strategy thinking</p>
+        <p>Choosing one-time pricing over subscriptions wasn't a pricing decision — it was a product positioning decision. The entire citizenship app category defaults to subscriptions because that's what the SaaS playbook says. But product thinking means questioning defaults. Citizenship has a hard end date: you study, you apply, you're done. Charging monthly for a time-limited journey creates misaligned incentives — the business benefits from users taking longer, while users want to finish as fast as possible. One-time pricing aligns the product with the user's goal: get through this efficiently.</p>
+        <p>The tier logic follows the product's natural value hierarchy. The quiz is the free hook — it's what every competitor offers, so giving it away removes the barrier to entry. Presence tracking and document management are the paid tiers — they're the features no one else has, and they're the ones that deliver the most tangible value (avoiding application delays, replacing a $3,000-5,000 immigration lawyer). When a lawyer costs thousands and the app costs a fraction of that, the pricing conversation shifts from "is this worth it?" to "why would I not?"</p>
+        <ul>
+          <li>Next step: audit 5-8 competitor monetization models — document what's gated, where the paywall appears in the user journey, and at what price point.</li>
+          <li>Next step: design the paywall moment — where in the app does the upsell appear, and what's the emotional trigger? The quiz results screen is a natural placement: users just saw their score and want to keep improving.</li>
+          <li>Next step: frame each tier around the emotional job it solves, not just the feature list. "Just passing the test" vs. "fully organized and confident to apply" vs. "lawyer-level preparation on your own."</li>
+        </ul>
       </div>
 
     </section>
