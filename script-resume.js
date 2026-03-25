@@ -11,7 +11,7 @@ const hlObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.6 }
+  { threshold: 1.0 }
 );
 
 document.querySelectorAll(".cs-hl").forEach((el) => hlObserver.observe(el));

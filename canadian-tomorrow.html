@@ -130,22 +130,21 @@
       <p class="cs-section-number">01</p>
       <h2>The problem nobody was solving</h2>
 
-      <div class="cs-strategy">
-        <p class="cs-strategy-label">Product strategy thinking</p>
-        <p>Before writing a single line of code, I downloaded every citizenship app I could find. Fifteen of them. I went through each one, took notes, screenshots, checked what they offered. Every single one stopped at quizzes. No presence tracking, no document management, no sense of where you actually are in the process. That told me something important: the whole category was treating citizenship like an exam, when it's actually a multi-year journey.</p>
-        <p>So the question I kept asking myself wasn't "can I make a better quiz app?" — it was "why is nobody building for the full process?" That's the gap I decided to go after. Not a better version of what exists, but something that doesn't exist yet.</p>
-        <ul>
-          <li>I want to build a proper competitor comparison table — name, features, what's missing — so the gap is obvious at a glance.</li>
-          <li>I need to add real numbers here: how many permanent residents are eligible right now, what people pay for immigration lawyers, and why that matters for an app like this.</li>
-          <li>I'm also collecting real app store reviews from competitors to show that this frustration isn't just mine.</li>
-        </ul>
-      </div>
-
       <div class="cs-body">
         <p>When I started my Canadian citizenship process, the first thing I did was look for an app. I found fifteen of them. Every single one was a quiz app. Study for the test, take practice questions, check your score. That's it.</p>
         <p><mark class="cs-hl">But the citizenship process isn't just a test. It's years (!) of tracking physical presence days, organizing stacks of documents across eight categories, and studying content that spans Canadian history, geography, rights, and government. The test is the last step, not the whole journey.</mark></p>
         <p>No app treated it that way. Some had decent question banks, but they were all missing the same things: presence tracking (the legal requirement to prove you've lived in Canada long enough), document management (the paperwork that actually makes or breaks your application), and any sense of progress beyond "you scored 70%."</p>
         <p>I wanted an app that sat with me through the whole process. Not just test prep. A companion for the full citizenship journey. <mark class="cs-hl">I also wanted to give people technology to be confident about their application, instead of paying thousands of dollars for an immigration lawyer.</mark></p>
+      </div>
+
+      <div class="cs-strategy --bg-warm">
+        <p class="cs-strategy-label">Product strategy</p>
+        <p>Going through the process myself, I did know that the citizenship journey was beyond just studying for the knowledge test.</p>
+        <p>I knew the quiz app was my foot at the door, and later, I could convince people to stay and get support for the other steps in the application. So, splitting the initial strategy into two:</p>
+        <ul>
+          <li><b>A better quiz app:</b> I had to think about what I could do better from the other dozens of quiz apps out there, so users would use it.</li> 
+          <li><b>Expand support to other parts of the process:</b> instead of paying thousands of dollars to immigration lawyers, I could give a technology that gives immigrants the confidence to do the process themselves.</li>
+        </ul>
       </div>
 
       <!-- Competitor analysis -->
@@ -166,20 +165,23 @@
          ============================================ -->
     <section class="cs-section">
       <p class="cs-section-number">02</p>
-      <h2>The Spark</h2>
-
-      <div class="cs-strategy">
-        <p class="cs-strategy-label">Product strategy thinking</p>
-        <p>I went with a horizontal layout on purpose. The home screen is a hub, and every feature lives one tap away. Right now that's four sections, but the structure means I can add more later (timeline, eligibility checker, community) without redesigning navigation. I was thinking about version 2 while building version 1.</p>
-        <p>Same thinking behind the tech stack. Flutter gives me both iOS and Android from one codebase — that's half the development time. Firebase handles real-time updates, so when someone logs an absence, the presence calculation updates instantly. I needed speed without sacrificing the product experience.</p>
-        <p>I still start on paper. It's faster. I can sketch 30 ideas in the time it takes to set up one Figma file. And the sprint plan I wrote on January 20th — numbered priorities, clear scope — that's what kept this from becoming one of those side projects that never ships. I gave myself less than 3 months. Paper to product.</p>
-      </div>
+      <h2>The beginning</h2>
 
       <div class="cs-body">
         <h3>The Architecture</h3>
-        <p>I chose a horizontal information architecture. The home screen is the hub, and each major feature (quiz, presence, documents) is a sub-section you reach from there. For an app with only four parts (for now), this keeps navigation flat and direct. Every major action is one tap away from home, no hamburger menus, no hidden drawers.</p>
-        <p><mark class="cs-hl">This approach with a grid layout opens the opportunity for future expansion to other features like timeline, eligibility and others.</mark></p>
-        <p>The tech stack was Flutter for cross-platform, Firebase for the backend, RevenueCat for monetization, and Cloud Functions for the heavy lifting like presence day calculations and quiz stats processing. I needed a stack that could move fast and handle real-time data without me spending weeks on infrastructure.</p>
+        <p>I chose to have a horizontal main navigation because each step of the process is very different from the other. So, the app is split into 4 areas: Documents, Presence, Language and Quiz. This keeps navigation flat and direct. Every major action is one tap away from home, no hamburger menus, no hidden drawers.</p>
+        <p>There are a lot of moving pieces and it’s not a linear journey: some users may have their documents ready and others may start with their presence calculation, creating a certain complexity on how to guide them individually. Each section in the home page provides a progress in sight, so they know what to work next.</p>
+        <p>But it was hard to track the overall progress.<mark class="cs-hl"> So, I decided to come up with a number I called “Canadian readiness” which would sum the progress from the 4 areas into one big number, answering the biggest question: How ready am I to apply?</mark></p>
+        <p>This approach with a grid layout opens the opportunity for future expansion to other features like timeline, eligibility and others.</p>
+      </div>
+
+      <div class="cs-strategy --bg-warm">
+        <p class="cs-strategy-label">Product Strategy</p>
+        <p>Experimenting with what kind of IA will be used help me not only making sure the user would not get lost or understand where they are at any given step of their journey, but also:</p>
+        <ul>
+          <li><b>Monetization:</b> where should the paywall screen show up? What features would be free vs. paid? Or even, which experiences would be given a freemium treatment.</li>
+          <li><b>Onboarding:</b> As mentioned above, each user has a different journey, so it was crucial to shape the IA in a way that onboarding was smooth and simple no matter which step they decided to start first.</li>
+        </ul>
       </div>
 
       <!-- Architecture single slide -->
@@ -192,9 +194,10 @@
 
       <div class="cs-body">
         <h3>Pen and paper, and ideas...</h3>
-        <p>I started sketching on mid January. I still like to dump ideas on pen and paper. The freedom to just start again and not polish it all at first is freeing. Because I went through the process myself, I knew I had to just sketch features that went beyond a quiz app.</p>
-        <p>But the quiz app was the starting point <mark class="cs-hl"> I mapped out a report system: knowledge gap heatmaps, a readiness score, learning curves over time, average time per question. I also knew I had to create features that would make my app stands out from the other quiz apps.</mark> I wanted to help people understand how they learn, not just what they got wrong.</p>
-        <p>A couple of days later, I had a plan with numbered priorities. I wanted a strong foundation, so that I was motivated to build a complete app. Upload test questions to Firebase. Create cloud functions to process data. Store history for user based on questions answered.<mark class="cs-hl"> The timeline was tight: I wanted to ship something in less than 3 months, from paper to product. I'm getting there!</mark></p>
+        <p>I still like to dump ideas on pen and paper. The freedom to just start again and not polish it all at first is freeing. Because I went through the process myself, I knew I had to just sketch features that went beyond a quiz app.</p>
+        <p>I explained the why I should build a better quiz, then I sketched the how: <mark class="cs-hl"> I mapped out a report system: knowledge gap heatmaps, a readiness score, learning curves over time, average time per question. </mark> I wanted to help people understand how they learn, not just what they got wrong.</p>
+        <p>The early sketches were helpful so I could then dig deeper into my favourite ideas: the <b>confidence matrix</b>. We will explore in depth later, but basically offering users a way to understand if they actually know the content or just guessing.</p>
+        <p>I wanted a strong foundation, so that I was motivated to build a complete app. Upload test questions to Firebase. Create cloud functions to process data. Store history for user based on questions answered.</p>
       </div>
 
       <!-- Spark sketches -->
@@ -219,13 +222,6 @@
     <section class="cs-section" id="quiz">
       <p class="cs-section-number">03</p>
       <h2>The Quiz System</h2>
-
-      <div class="cs-strategy">
-        <p class="cs-strategy-label">Product strategy thinking</p>
-        <p>I designed the quiz to collect way more data than just right or wrong. Every answer also captures how confident the user was, how long they took, whether they read the explanation, whether they skipped. That's a lot of tracking, but it's what makes everything else work. Without that data, I can't build the confidence matrix. I can't show someone they're guessing right instead of actually knowing the answer. For a citizenship test, that difference matters.</p>
-        <p>The confidence matrix is the feature I care about most. You answer a question, then you slide a bar saying how confident you were. If you got it right but said you were guessing, that's a "Fluke." If you got it right and you knew it, that's "Mastery." No other citizenship app does this because none of them collect the data to make it possible.</p>
-        <p>Seven quiz modes sounds like a lot, but each one exists for a reason. Quick random for a commute. By chapter for deep study. Second chances for the ones you got wrong. Test simulation for when you think you're ready. People don't study the same way every time — the modes reflect that.</p>
-      </div>
 
       <!-- Quiz single slide -->
       <div class="cs-single-slide">
@@ -259,6 +255,14 @@
         </div>
       </div>
       <p class="cs-caption">Data structure covering the full quiz system: question layout, backend goals, data structure, user flow, mode selector, study modes, color coding, and coaching.</p>
+
+
+        <div class="cs-strategy --bg-warm">
+          <p class="cs-strategy-label">Product Strategy</p>
+          <p>I designed the quiz to collect way more data than just right or wrong. Every answer also captures how confident the user was, how long they took, whether they read the explanation, whether they skipped. It gives me data nobody else has, which allows for stronger analysis on how to improve the experience.</p>
+          <p>The confidence matrix is the feature I care about most. It powers the user learning journey and set the app apart. No other citizenship app does this because none of them collect the data to make it possible.</p>
+          <p>Seven quiz modes sounds like a lot, but each one exists for a reason. Quick random for a commute. By chapter for deep study. Second chances for the ones you got wrong. Test simulation for when you think you're ready. Personalized experiences because people don't study the same way every time</p>
+      </div>
 
       <!-- Quiz Mode -->
       <div class="cs-body">
@@ -612,13 +616,6 @@
       <p class="cs-section-number">04</p>
       <h2>Tracking Presence</h2>
 
-      <div class="cs-strategy">
-        <p class="cs-strategy-label">Product strategy thinking</p>
-        <p>This is the feature no competitor has. I think it's the most important one. Once someone enters their travel history and absences into the app, they're not going to do that again somewhere else. The data is personal and takes time to put together. That's what makes presence tracking sticky — not because I'm locking people in, but because the value is in their own data.</p>
-        <p>Before building my version, I went through the government's Physical Presence Calculator. The only official tool out there. I found 10 usability problems. Dense text, confusing date formats, mandatory fields that don't matter yet, generic buttons. Every one of those problems became a design decision for my app. If the government's own tool is that frustrating, an app that solves it well isn't competing with other apps — it's replacing the government experience.</p>
-        <p>The onboarding had to be right on the first try. Three focused screens, one question each. If people enter wrong dates during setup, every calculation after that is off. I couldn't afford to make users anxious about a legal requirement. The first experience with presence tracking had to feel simple and trustworthy, or they'd never rely on it.</p>
-      </div>
-
         <!-- Architecture single slide -->
       <div class="cs-single-slide">
         <div class="cs-highlights-slide --bottom --left --white">
@@ -631,7 +628,7 @@
       <div class="cs-body">
         <p>This is the feature that no competitor has. To apply for Canadian citizenship, you need to prove you've been physically present in Canada for at least <mark class="cs-hl">1,095 days within the five years before your application</mark>. That's a legal requirement, and miscounting can delay or reject your application.</p>
         <p>Most people track this in a spreadsheet or not at all. I wanted the app to handle it automatically.</p>
-        <p>I sketched the presence calculator on paper first. The core logic runs as a Cloud Function: it takes your arrival date, calculates how many days you've been physically present, accounts for absences you log, and tells you exactly where you stand. The onboarding screen collects the essentials: date of arrival, immigration status, and first entry date.</p>
+        <p>It's a complex flow, so I decided to make it as transparent as possible for the users because I know mistakes can be made when dealing with dates. It takes your arrival date, calculates how many days you've been physically present, accounts for absences you log, and tells you exactly where you stand.</p>
       </div>
 
       <!-- Presence sketches -->
@@ -646,6 +643,13 @@
         </div>
       </div>
       <p class="cs-caption">Paper sketches for the presence tracker: cloud function architecture, calendar entry system, and dashboard data structure.</p>
+
+      <div class="cs-strategy --bg-warm">
+        <p class="cs-strategy-label">Product strategy</p>
+        <p>This part of the process is the one where immigrants get call backs from the government to fix their timelines the most. Due to the complexity of tracking the past five years of your life in Canada. The strategy here is to make this feature free, so it can attract users and support them in other areas of the process.</p>
+        <p>Creating trust by building a robust solution that facilitates the understanding of the legal requirements when compared to the official Canadian calculator also helps with the apps brand. If they are successful calculating their physical presence, they might as well continue to use the app during their journey to the citizenship.</p>
+      </div>
+
 
       <!-- UX Analysis — Physical Presence Calculator -->
       <div class="cs-body">
@@ -1050,11 +1054,11 @@
       <p class="cs-section-number">05</p>
       <h2>Organizing Documents</h2>
 
-      <div class="cs-strategy">
-        <p class="cs-strategy-label">Product strategy thinking</p>
-        <p>Documents and presence tracking are the two features that keep people using the app through the whole process. The quiz gets people in the door — everyone wants to practice for the test. But once they start uploading their paperwork and organizing it across eight categories, they're not switching to another app. That's months of work they'd have to redo.</p>
-        <p>I borrowed the progress ring pattern from fitness apps. When you see a ring filling up, you want to complete it. For something as bureaucratic as collecting citizenship documents, that visual feedback turns a chore into something that feels like progress. Each folder has its own ring, and there's a global one at the top. You can answer "am I done?" in one second.</p>
-        <p>The inline validation was important to me. When someone uploads a photo or a scan, the app checks the file size, format, and resolution right there. If something's wrong, they see it immediately — not weeks later when the government rejects their application. That kind of delay can set you back months. I wanted to catch those problems at the moment they happen.</p>
+      <div class="cs-strategy --bg-warm">
+        <p class="cs-strategy-label">Strategy thinking</p>
+        <p>Documents and presence tracking are the two features that keep people using the app through the whole process. The strategy here is to </p>
+        <p>Navigating all required documents can be a lot. The strategy here is to give them a to-do list architecture with clear status. For paid users, the option to upload and validate documents in real time gives them the clarity of what's missing.</p>
+        <p>The inline validation was important to me. When someone uploads a photo or a scan, the app checks the file size, format, and resolution right there. If something's wrong, they see it immediately, not weeks later when the government rejects their application. That kind of delay can set you back months. I wanted to catch those problems at the moment they happen.</p>
       </div>
 
       <div class="cs-body">
