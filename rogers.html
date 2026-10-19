@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wireless Dashboard Redesign — UX Case Study | Caio Resende</title>
+  <link rel="stylesheet" href="/styles-case-study.css" />
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="cs-nav">
+    <a href="/" class="cs-back">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Caio Resende
+    </a>
+    <div class="cs-anchor-nav">
+      <div class="cs-anchor-nav-track">
+        <a href="#intro" class="cs-anchor-link cs-anchor-link--active">Intro</a>
+        <a href="#context" class="cs-anchor-link">Context</a>
+        <a href="#problem" class="cs-anchor-link">Problem</a>
+        <a href="#discovery" class="cs-anchor-link">Discovery</a>
+        <a href="#iteration" class="cs-anchor-link">Iteration</a>
+        <a href="#results" class="cs-anchor-link">Results</a>
+        <a href="#learnings" class="cs-anchor-link">Learnings</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="cs-hero" id="intro">
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">UX Case Study · Rogers</p>
+      <h1 class="cs-title">The Wireless Dashboard Redesign</h1>
+      <p class="cs-subtitle">Years of patched solutions had turned the dashboard Rogers agents rely on during wireless calls into a cost multiplier. I pitched its redesign, then led it over five months — <mark class="cs-hl">grounding every decision in research with real agents</mark> and turning a one-off redesign into a platform for every OneView dashboard.</p>
+      <div class="cs-meta">
+        <span>Lead Product Designer · 5-month project</span>
+        <span>Telecom · Enterprise UX · Design Systems</span>
+        <span>Figma · FigJam · Prototypes · Figma Make</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Highlights -->
+  <h1 class="cs-highlights-title">Highlights</h1>
+  <section class="cs-highlights" data-highlights="rogers">
+    <div class="cs-highlights-track">
+      <div class="cs-highlights-slide">
+        <img class="cs-highlights-slide-bg" src="/images/projects/img20.jpg" alt="" loading="lazy" />
+        <p class="cs-highlights-slide-text">Escalation calls dropped 3% during the pilot.</p>
+      </div>
+      <div class="cs-highlights-slide">
+        <img class="cs-highlights-slide-bg" src="/images/projects/img21.jpg" alt="" loading="lazy" />
+        <p class="cs-highlights-slide-text">11% increase in page satisfaction from agents.</p>
+      </div>
+      <div class="cs-highlights-slide">
+        <img class="cs-highlights-slide-bg" src="/images/projects/img23.jpg" alt="" loading="lazy" />
+        <p class="cs-highlights-slide-text">20–40 seconds saved per call by removing the calculator app.</p>
+      </div>
+    </div>
+    <div class="cs-highlights-dots">
+      <button class="cs-highlights-dot cs-highlights-dot--active" data-index="0"></button>
+      <button class="cs-highlights-dot" data-index="1"></button>
+      <button class="cs-highlights-dot" data-index="2"></button>
+    </div>
+  </section>
+
+  <main class="cs-content">
+
+    <!-- ============================================
+         01. A Redesign Nobody Prioritized
+         ============================================ -->
+    <section class="cs-section" id="context">
+      <p class="cs-section-number">01</p>
+      <h2>A Redesign Nobody Prioritized</h2>
+
+      <div class="cs-body">
+        <h3>The Story Before the Work</h3>
+        <p>Like any big company, Rogers plans its work every quarter against a yearly plan. And when it's time to prioritize, customer-facing strategies almost always win over internal tools — they're easier to tie to revenue. That's why the dashboard redesign had been <mark class="cs-hl">pushed back for years</mark>.</p>
+        <p>I didn't want to wait another cycle. Before any design work started, I pitched it to my manager and the director of product — not as a visual refresh, but as a business case. Agents rely on this dashboard during wireless calls, so any second we saved there would compound across the whole call centre. That's how "just a redesign" made it onto the roadmap.</p>
+
+        <h3>Rogers</h3>
+        <p>Rogers is one of Canada's big three telecom companies and <mark class="cs-hl">#1 in wireless subscribers</mark> — over 11 million customers and around $10.7 billion in wireless revenue, nearly half of the company's total.</p>
+        <p>It's a publicly traded, revenue-driven business that lives with constant market shifts: reacting to competitors, launching new hardware every year, adjusting promotions. Hardware margins are thin, so a lot of the pressure lands on operational efficiency — finding ways to cut costs from operations. That includes the internal tools agents use to serve customers, which is exactly where my team sat.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/rogers/rogers-store.jpg" alt="A Rogers flagship store in downtown Toronto" loading="lazy" />
+          <img src="/images/case-studies/rogers/rogers-website.jpg" alt="The Rogers consumer website promoting 5G plans and internet offers" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Customers see stores and the website. Behind every interaction, an agent is working in internal tools.</p>
+
+      <div class="cs-body">
+        <h3>My Team and Responsibilities</h3>
+        <p>I joined the internal tools team, right in the middle of frontline operations: 12 designers, 2 researchers, and 1 designer dedicated to the design system. I led a pod of two designers — later expanded as projects got bigger — in a hybrid lead and individual contributor role.</p>
+        <p>My team owned all internal wireless tools and flows across OneView, Star and Maestro, serving call centres, Rogers stores, and partner stores like Best Buy and the Apple Store. That added up to <mark class="cs-hl">90+ initiatives</mark>, from bugs and new features to entirely new products and systems:</p>
+        <ul>
+          <li>Introducing new technologies like eSIM and satellite connectivity.</li>
+          <li>New government requirements for newcomers, and ID validation to prevent fraud.</li>
+          <li>Redesigning a decade-old system used in every Rogers and partner store.</li>
+        </ul>
+        <p>Day to day, I worked with four to eight product owners at a time, each with their own engineering team — buy flows, serve flows, system maintenance, and specific verticals like eSIM. Keeping one design direction across that many teams was part of the job.</p>
+        <p>Internal tools were rarely a priority — many agents were still working on decade-old systems — so securing budget to improve their work was a challenge in itself. That context shaped how I pitched and scoped this project.</p>
+
+        <h3>My Role</h3>
+        <p><strong>Led the design vision.</strong> I defined what "good" looked like — the information architecture, the interaction patterns, the component decisions — and defended it across four levels of stakeholders, from daily pod work to monthly leadership reviews.</p>
+        <p><strong>Architected the component system.</strong> I designed the core components for the redesigned dashboard, decided what to adopt from the existing library, and contributed those decisions back to the broader system. Every downstream dashboard inherits the same language — <mark class="cs-hl">turning a redesign into a platform</mark>.</p>
+        <p><strong>Shipped the work end-to-end.</strong> I set the patterns, then partnered with another designer to make sure they held up across every edge case: different customer types, plan configurations, and agent scenarios.</p>
+        <p><strong>Ran the research.</strong> Card sorting sessions to validate the IA, and design critiques to pressure-test component decisions with the people who'd use the tool every day. I wasn't designing from assumptions — I was in the room with agents, watching how they thought about the work.</p>
+        <p><strong>Presented to leadership.</strong> I made the case to cross-functional executive groups for why these design decisions served the business metrics they cared about.</p>
+      </div>
+
+      <div class="cs-strategy --bg-presence">
+        <p class="cs-strategy-label">Executive buy-in</p>
+        <p>You can't get executive buy-in by showing wireframes. You get it by <mark class="cs-hl">mapping design decisions to call time, training cost, and agent retention</mark>.</p>
+      </div>
+
+      <div class="cs-body">
+        <h3>Stakeholders</h3>
+        <p>Five stakeholder groups, each answering a different question:</p>
+        <p><strong>PM & Engineers</strong> — owned scope, feasibility, and delivery. My job was to keep the vision defensible when sprint pressure pushed back.</p>
+        <p><strong>Content Team</strong> — owned voice, compliance, and French translation. Partnering through a numbered content map let them write and localize in parallel instead of waiting for final designs.</p>
+        <p><strong>OneView design peers</strong> — the internal critique team. They held me to craft and consistency, and caught the decisions I was too close to see.</p>
+        <p><strong>Agents</strong> — the people the tool actually had to serve. Card sorts with them grounded the IA in evidence, not opinion.</p>
+        <p><strong>Frontline managers</strong> — surfaced the operational realities usability tests alone would have missed: training time, resource constraints, the things agents don't say in a research session.</p>
+        <p><mark class="cs-hl">Each group told me something the others couldn't.</mark></p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         02. When Patches Become the Product
+         ============================================ -->
+    <section class="cs-section" id="problem">
+      <p class="cs-section-number">02</p>
+      <h2>When Patches Become the Product</h2>
+
+      <div class="cs-single-slide">
+        <div class="cs-highlights-slide --placeholder --v-center --black --bg-rogers">
+          <img class="cs-opener-shot" src="/images/case-studies/rogers/old-dashboard-full.jpg" alt="The legacy wireless dashboard, with sections patched on over the years" loading="lazy" />
+          <p class="cs-highlights-slide-text">Years of patched solutions.<br>Dozens of teams.<br>One dashboard holding it all together.</p>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <h3>Not a Greenfield Project</h3>
+        <p>I walked into years of accumulated UX debt. Parts of the dashboard had clearly been designed in silos — different teams, different timelines, different assumptions. The result was a Frankenstein: <mark class="cs-hl">a fruit salad of components where nothing connected coherently</mark>, from the atomic level all the way up to the information architecture.</p>
+        <p>There was no blank canvas to hide behind. The work demanded holding multiple mental models at once — the agent's, the different customer journeys, the technical architecture, and the business metrics — and finding the design decisions that served all of them at the same time.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/rogers/old-dashboard.jpg" alt="The wireless dashboard before the redesign" loading="lazy" />
+          <img src="/images/case-studies/rogers/legacy-oneview.jpg" alt="A legacy internal tool with dense tables and nested windows" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Before: the wireless dashboard and the legacy tools around it — years of sections patched on in silos.</p>
+
+      <div class="cs-body">
+        <h3>Who the Users Are and Their Pains</h3>
+        <p><strong>Every second is a cost.</strong> Call centre agents are the frontline of Rogers' entire customer relationship. <mark class="cs-hl">Every second they spend navigating the tool is measurable</mark> — in call time, in cost, and in customer satisfaction scores.</p>
+        <p><strong>Constant rotation.</strong> Agents don't stay in one vertical — they move between wireless, internet, home, and bundles constantly. Every inconsistency in the UI becomes a training cost and a relearning experience, and it increases errors.</p>
+        <p><strong>A fragmented customer base.</strong> Newcomers, Rogers Business Plans, multiple brands, different plan types, hardware financing — each with a slightly different workflow, all living inside the same tool.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/rogers/call-centre-agent.jpg" alt="A call centre agent wearing a headset" loading="lazy" />
+          <img src="/images/case-studies/rogers/store-agent.jpg" alt="A retail store agent" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">Call centre and store agents: the people the dashboard actually had to serve.</p>
+
+      <div class="cs-strategy --bg-rogers">
+        <p class="cs-strategy-label">Business insight</p>
+        <p>Over the years, each of these needs was patched in separately. The dashboard had become a cost multiplier, not a cost reducer.</p>
+      </div>
+
+      <div class="cs-body">
+        <h3>System Maturity</h3>
+        <p>There was no unified component library driving the dashboard, which meant inconsistency down to the atomic level. Decisions had been made reactively: a new business need would come in, a new section would get patched on, and nobody stepped back to ask whether it fit the whole. It's a common pattern in enterprise tools that have been around for a while — the architecture erodes gradually, one reasonable decision at a time.</p>
+        <p>So part of my job wasn't just designing screens. It was to <mark class="cs-hl">shift the team from reactive patching to systematic design thinking</mark>: aligning with the component library used across the Rogers ecosystem, contributing back to it, and establishing patterns that would hold up as the product kept growing.</p>
+
+        <h3>UX Problems</h3>
+        <p>Looking at the dashboard itself, three problems stood out. It had no scannability strategy, so agents had to read everything to find anything. Consumer-facing content and components were sitting in prime real estate, pushing what agents actually needed further down. And an outdated UI was compromising time to action, accessibility, and use of space.</p>
+
+        <h3>Goals</h3>
+        <p><strong>Business.</strong> Improve agent productivity and reduce transaction friction, <mark class="cs-hl">cut one minute from CAT</mark>, and reduce training costs.</p>
+        <p><strong>Enterprise UX and maturity.</strong> Stronger consistency across OneView applications through CDK-aligned components, and a better fit for agent workflows than the consumer-first CDK patterns.</p>
+        <p><strong>Future proofing.</strong> Built-in accessibility improvements, reduced compliance risk, and easier maintenance and scalability.</p>
+
+        <h3>What Was Deprioritized</h3>
+        <p>Just as important was what we said no to. There was no budget for new APIs or endpoints, so simplifying the underlying data was out of scope. There was also no budget for new components or a custom fork of the design system. <mark class="cs-hl">The redesign had to work with what already existed</mark> — which turned out to be a useful constraint: every win had to come from better structure, not new plumbing.</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         03. Mapping the Decision Surface
+         ============================================ -->
+    <section class="cs-section" id="discovery">
+      <p class="cs-section-number">03</p>
+      <h2>Mapping the Decision Surface</h2>
+
+      <!-- Section opener: add a screenshot as
+           <img class="cs-opener-shot" src="/images/case-studies/rogers/..." alt="" loading="lazy" />
+           inside the slide, like the Problem opener. -->
+      <div class="cs-single-slide">
+        <div class="cs-highlights-slide --placeholder --v-center --black --bg-presence">
+          <p class="cs-highlights-slide-text">Over forty entry points.<br>Six interaction categories.<br>One decision surface.</p>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <h3>Dashboard Mapping</h3>
+        <p>Before I designed anything, I mapped the system. OneView wasn't a screen problem; <mark class="cs-hl">it was a decision surface problem</mark>. Agents make hundreds of micro-decisions per call, and the existing tool wasn't prioritizing them by what mattered most.</p>
+        <p>So I mapped every place an agent could enter, exit, or act — modals, dropdowns, serve flows, buy flows, customer info, and support links. <mark class="cs-hl">Over forty distinct entry points across six interaction categories.</mark> I wanted the full picture from day one: finding a hidden flow in month four would have meant surprises and rework.</p>
+      </div>
+
+      <figure class="cs-video">
+        <div class="cs-desktop-wrap">
+          <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+          <video data-src="/images/case-studies/rogers/videos/dashboard-mapping.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </figure>
+      <p class="cs-caption">The full dashboard map: every place an agent can enter, exit, or act, with the decision cards at the centre.</p>
+
+      <div class="cs-body">
+        <p>That inventory became my prioritization model. Instead of sequencing work by visual scope or by whoever was loudest in the room, I sequenced it by value delivered per agent interaction. That let me defend scope decisions to leadership with evidence instead of opinion.</p>
+
+        <h3>Card Sorting with Agents</h3>
+        <p>The map also exposed a broken information architecture hiding under the UI. So I stripped away the visual noise, reduced the dashboard to its decision cards, and took those cards to agents. I wanted to validate the business assumptions too: could we reduce CAT just by prioritizing actions differently?</p>
+        <p>I wanted real users, not proxies. I worked with frontline managers and the training team to <mark class="cs-hl">recruit agents from coast to coast</mark>, and ran the sorts as design thinking exercises rather than tests.</p>
+      </div>
+
+      <div class="cs-carousel" data-carousel>
+        <div class="cs-carousel-track">
+          <img src="/images/case-studies/rogers/decision-cards.jpg" alt="The current dashboard's content inventory, grouped into decision cards" loading="lazy" />
+          <img src="/images/case-studies/rogers/card-sorting-results.jpg" alt="Card sorting boards from agent sessions in FigJam" loading="lazy" />
+        </div>
+      </div>
+      <p class="cs-caption">The dashboard reduced to its decision cards, and the boards agents sorted them into during our sessions.</p>
+
+      <div class="cs-body">
+        <p>The card sort gave me three tiers of signal — what agents agreed on, what split them, and what they couldn't place at all. Each tier said something different about the IA.</p>
+
+        <div class="cs-finding">
+          <h4>Strong agreement</h4>
+          <p>Customer info, plan info, device info, and support links grouped the same way across nearly every sort. That validated the top-level structure — no point redesigning what already works in agents' heads.</p>
+        </div>
+
+        <div class="cs-finding">
+          <h4>Partial agreement</h4>
+          <p>Data usage and billing split the room: some agents grouped them under plan, others treated them as their own section. Managing add-ons, caller ID, and SIM changes followed the same pattern — half saw features, half saw support. The issue wasn't the content. It was <mark class="cs-hl">the absence of a clear home for account actions</mark> that sit between plan configuration and support escalation.</p>
+        </div>
+
+        <div class="cs-finding">
+          <h4>Low agreement</h4>
+          <p>Cancelling a line, temporary suspension, transfer of responsibility, device financing details — these scattered across sorts with no pattern. That's not user confusion. It's a signal that the tool gave agents no mental home for administrative edge cases, so they were inventing one on the fly every time.</p>
+        </div>
+      </div>
+
+      <figure class="cs-video">
+        <div class="cs-desktop-wrap">
+          <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+          <video data-src="/images/case-studies/rogers/videos/card-sorting.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </figure>
+      <p class="cs-caption">Card sorting insights in FigJam: how agents grouped the decision cards, and the patterns that emerged across sessions.</p>
+
+      <div class="cs-body">
+        <h3>Two Mental Models</h3>
+        <p>Agents think in <strong>ownership order</strong> — customer, then plan, then device, then actions. And they draw a hard line between <strong>daily actions and administrative edge cases</strong>. Edge cases want to be tucked away, not hidden.</p>
+        <p>My recommendation had six tiers: customer overview, plan summary, usage, device, account actions, and a collapsed support layer. <mark class="cs-hl">Usage as its own section was the biggest shift</mark> — agents repeatedly wanted talk, text, and data consolidated, and the old tool fragmented them. Account actions was the second: it gave administrative edge cases a home, so agents could stop hunting for them.</p>
+      </div>
+
+      <div class="cs-strategy --bg-presence">
+        <p class="cs-strategy-label">Key insight</p>
+        <p>The IA should match the agent's ownership model, not the org chart that built the product.</p>
+      </div>
+
+      <div class="cs-body">
+        <h3>Validating with Data</h3>
+        <p>Qualitative insights helped me define the major themes; analytics told me how big each one really was. Backing design decisions with volume data gave me a much stronger case in prioritization conversations — especially for showing billing information on the dashboard.</p>
+        <p>Every two weeks, our team also sat down to listen to recorded calls — recordings that capture the agent's screen too. That's where we noticed <mark class="cs-hl">agents pulling up the calculator app mid-call</mark> to do the math, adding length and friction to every transaction. It became one of the clearest problems to solve.</p>
+
+        <h3>Aligning Dashboards</h3>
+        <p>OneView isn't just one dashboard. I reviewed the other dashboards across the ecosystem with a team of 15+ designers, and their insights helped me define the design vision I wanted. Aligning the wireless experience with the rest could <mark class="cs-hl">drastically drop the invisible cost of fragmented design</mark> — the relearning agents do every time they switch verticals.</p>
+      </div>
+
+      <figure class="cs-video">
+        <div class="cs-desktop-wrap">
+          <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+          <video data-src="/images/case-studies/rogers/videos/aligning-dashboards.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </figure>
+      <p class="cs-caption">Reviewing other OneView dashboards — offers, Rogers Bank, services — to align patterns across the ecosystem.</p>
+    </section>
+
+    <!-- ============================================
+         04. Iterating with Agents in the Room
+         ============================================ -->
+    <section class="cs-section" id="iteration">
+      <p class="cs-section-number">04</p>
+      <h2>Iterating with Agents in the Room</h2>
+
+      <!-- Section opener: add a screenshot as
+           <img class="cs-opener-shot" src="/images/case-studies/rogers/..." alt="" loading="lazy" />
+           inside the slide, like the Problem opener. -->
+      <div class="cs-single-slide">
+        <div class="cs-highlights-slide --placeholder --v-center --black --bg-rogers">
+          <p class="cs-highlights-slide-text">Daily with the pod.<br>Weekly with agents.<br>Monthly with leadership.</p>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <p>These are the parts of the iteration that came with constraints, pushback, challenges, or disagreements — and how I navigated them.</p>
+
+        <h3>Cadence & Feedback</h3>
+        <p>I shared work on a set cadence and scaled the fidelity of each artifact to its audience: rough when the pod needed to move fast, polished when leadership needed to commit. Varying fidelity helped the team validate assumptions faster without over-investing in any single round.</p>
+        <p><strong>Daily</strong> — design pod: iteration and unblocking.</p>
+        <p><strong>Weekly</strong> — PM, lead engineers, and agents: scope and feasibility.</p>
+        <p><strong>Bi-weekly</strong> — design critique with OneView designers: craft and consistency.</p>
+        <p><strong>Monthly</strong> — cross-functional with managers and directors: alignment and buy-in.</p>
+
+        <h3>Content Mapping</h3>
+        <p>Before wireframing, I numbered and categorized every label and piece of content on the page. Three things came out of it:</p>
+        <p><strong>Scope management.</strong> Every piece of content had its number and category, so nothing slipped in or out unnoticed.</p>
+        <p><strong>Parallel work.</strong> The content team had a stable inventory to write against from day one instead of waiting for final designs — important on a project with no budget for new APIs or content changes.</p>
+        <p><strong>Translations.</strong> Rogers ships in English and French. A numbered content map meant <mark class="cs-hl">the translation team worked from a source of truth</mark> instead of chasing mockups that kept changing.</p>
+      </div>
+
+      <figure class="cs-video">
+        <div class="cs-desktop-wrap">
+          <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+          <video data-src="/images/case-studies/rogers/videos/content-mapping.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </figure>
+      <p class="cs-caption">Every label and link numbered and categorized before wireframing — the source of truth for content and French translations.</p>
+
+      <div class="cs-body">
+        <h3>Architecture Design</h3>
+        <p>The focus was on IA: restructuring existing content into new design paradigms. I wireframed at high fidelity using real design system components, which made rapid iteration possible — stakeholders and agents reacted to something that looked real, and validation rounds got faster.</p>
+      </div>
+
+      <div class="cs-feature-panel --desktop --bg-presence">
+        <div class="cs-feature-panel-text">
+          <h2>Architecture in action</h2>
+          <ul>
+            <li>Device info, financing, and protection side by side in one card.</li>
+            <li>High-fidelity wireframes built from design system components.</li>
+            <li>Faster validation rounds with stakeholders and agents.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-desktop-wrap">
+            <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+            <video data-src="/images/case-studies/rogers/videos/architecture-design.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <h3>Future Proofing</h3>
+        <p>Midway through, I teamed up with another designer to future-proof some of my initial designs while I focused on validating more use cases with agents. Designing for responsiveness kept the project ready for different screens, and set up the longer-term vision of a grid-less, fluid layout.</p>
+      </div>
+
+      <div class="cs-feature-panel --desktop --bg-rogers">
+        <div class="cs-feature-panel-text">
+          <h2>Responsive layout in action</h2>
+          <ul>
+            <li>Sections reflow across screen sizes instead of relying on a fixed grid.</li>
+            <li>A partner designer stress-tested layouts while I validated use cases.</li>
+            <li>The foundation for a grid-less design vision.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-desktop-wrap">
+            <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+            <video data-src="/images/case-studies/rogers/videos/future-proofing.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <h3>Creating Common Patterns</h3>
+        <p>I explored several styles for organizing actions and where they live on the page — price blocks in headings, links grouped in a last column, primary versus secondary actions. The goal was scannability: <mark class="cs-hl">reducing time to action for agents</mark> who don't have time to read.</p>
+      </div>
+
+      <div class="cs-feature-panel --desktop --bg-presence">
+        <div class="cs-feature-panel-text">
+          <h2>Action patterns in action</h2>
+          <ul>
+            <li>Side-by-side explorations of where prices and actions live.</li>
+            <li>Primary actions as buttons, secondary actions as links.</li>
+            <li>Optimized for scanning, so agents reach the action faster.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-desktop-wrap">
+            <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+            <video data-src="/images/case-studies/rogers/videos/common-patterns.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <h3>Course Correction</h3>
+        <p>Some design rounds were intentionally run with agents, because I wanted to find edge cases. Course correction came from agents often — <mark class="cs-hl">they brought context that PMs would sometimes miss</mark>, from how customers actually call in to which details they need at a glance. Design reviews with agents became a living process that got my designs to a final stage faster.</p>
+      </div>
+
+      <figure class="cs-video">
+        <div class="cs-desktop-wrap">
+          <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+          <video data-src="/images/case-studies/rogers/videos/course-correction.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </figure>
+      <p class="cs-caption">Agent feedback from design reviews, captured right next to the designs they were reacting to.</p>
+
+      <div class="cs-body">
+        <h3>Patterns Across Dashboards</h3>
+        <p>It wasn't perfect — reusing patterns on data-heavy screens is always a challenge. But identifying shared themes like billing, discounts, card structure, and primary versus secondary actions took us a long way toward a cohesive, familiar system. Reusing patterns agents already knew from other dashboards <mark class="cs-hl">cut time-to-learn by inheriting familiarity</mark>.</p>
+      </div>
+
+      <div class="cs-feature-panel --desktop --bg-rogers">
+        <div class="cs-feature-panel-text">
+          <h2>Shared patterns in action</h2>
+          <ul>
+            <li>The same total-price block and plan cards as the Internet dashboard.</li>
+            <li>Shared themes: billing, discounts, card structure, and action hierarchy.</li>
+            <li>Agents switching verticals find things where they expect them.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-desktop-wrap">
+            <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+            <video data-src="/images/case-studies/rogers/videos/patterns-across-dashboards.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <h3>The "Add a Line" CTA</h3>
+        <p>Agents were worried about how clear and visible the "Add a line" CTA was. It's a fair instinct — it's a sales action. But the volume data told a different story, and it settled where the CTA should live. A great example of how looking at real usage can end a debate that opinions alone can't.</p>
+      </div>
+
+      <div class="cs-feature-panel --desktop --bg-presence">
+        <div class="cs-feature-panel-text">
+          <h2>"Add a line" in action</h2>
+          <ul>
+            <li>Agents worried the CTA wasn't visible enough.</li>
+            <li>Placement options compared side by side in the header.</li>
+            <li>Volume data, not opinion, settled where it lives.</li>
+          </ul>
+        </div>
+        <div class="cs-feature-panel-media">
+          <div class="cs-desktop-wrap">
+            <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+            <video data-src="/images/case-studies/rogers/videos/add-a-line.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <h3>Showing Billing Info</h3>
+        <p>Surfacing billing information was one of the biggest wins of the project — <mark class="cs-hl">achieved without creating any new endpoints or APIs</mark>. It tackled the calculator problem from the call recordings: agents no longer needed to leave the dashboard to do the math.</p>
+        <p>Reviews kept us honest here too. One agent focused hard on whether the math added up, and didn't realize at first that the total combined plan and device costs — a reminder that showing the numbers isn't enough; the breakdown has to be obvious.</p>
+      </div>
+
+      <figure class="cs-video">
+        <div class="cs-desktop-wrap">
+          <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+          <img src="/images/case-studies/rogers/billing-info.jpg" alt="The redesigned wireless dashboard header with a Total Monthly billing summary, numbered with content map annotations" loading="lazy" />
+        </div>
+      </figure>
+      <p class="cs-caption">Billing at a glance: the total monthly amount, savings, and taxes right in the header. Numbers map to the content inventory.</p>
+
+      <div class="cs-strategy --bg-rogers">
+        <p class="cs-strategy-label">Decision rationale</p>
+        <p>When agents and stakeholders disagreed, data settled it. Volume data decided the "Add a line" CTA, and analytics plus call evidence got billing info prioritized — <mark class="cs-hl">without a single new API</mark>.</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         05. Results from the Pilot
+         ============================================ -->
+    <section class="cs-section" id="results">
+      <p class="cs-section-number">05</p>
+      <h2>Results from the Pilot</h2>
+
+      <div class="cs-body">
+        <p>Because the redesign touched so much, it launched as a pilot with a select group of agents — which is where it stood when I left Rogers. All Rogers calls are recorded, agent screens included, so we could categorize pilot calls and see exactly where agents went while talking to customers. These are early numbers, but they pointed in the right direction.</p>
+      </div>
+
+      <div class="cs-metrics --row">
+        <div class="cs-metric">
+          <span class="cs-metric-value">−3%</span>
+          <span class="cs-metric-label">Escalation Calls</span>
+          <p>Billing info on the dashboard helped reduce transferred calls.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">+11%</span>
+          <span class="cs-metric-label">Page Satisfaction</span>
+          <p>The feedback form showed an <mark class="cs-hl">11% increase in page satisfaction</mark> during the pilot.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">Hours</span>
+          <span class="cs-metric-label">Training Material Removed</span>
+          <p>Embedded Figma files replaced manual screenshots, cutting training costs.</p>
+        </div>
+        <div class="cs-metric">
+          <span class="cs-metric-value">20–40s</span>
+          <span class="cs-metric-label">Saved per Call</span>
+          <p>The #1 issue tackled: agents no longer needed to pull up a calculator app mid-call.</p>
+        </div>
+      </div>
+
+      <figure class="cs-video">
+        <div class="cs-desktop-wrap">
+          <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+          <img src="/images/case-studies/rogers/final-agent-quote.jpg" alt="The redesigned plan section with an agent's quote: everything is more at a glance now" loading="lazy" />
+        </div>
+      </figure>
+      <p class="cs-caption">"All the information you need is right there." — an agent reacting to the redesigned plan section.</p>
+    </section>
+
+    <!-- ============================================
+         06. What I'd Do Differently
+         ============================================ -->
+    <section class="cs-section" id="learnings">
+      <p class="cs-section-number">06</p>
+      <h2>What I'd Do Differently</h2>
+
+      <div class="cs-body">
+        <p><strong>More experiments with Figma Make.</strong> I'd push further on a fluid grid design that maximizes use of real estate — and I'd use coded prototypes to win executive buy-in and budget. A working prototype makes a much stronger case than a static mockup when you're asking for engineering investment.</p>
+      </div>
+
+      <figure class="cs-video --narrow">
+        <div class="cs-desktop-wrap">
+          <div class="cs-desktop-bar"><span></span><span></span><span></span></div>
+          <img src="/images/case-studies/rogers/figma-make-exploration.jpg" alt="A Figma Make exploration of the wireless dashboard with a fluid, card-based layout" loading="lazy" />
+        </div>
+      </figure>
+      <p class="cs-caption">A Figma Make exploration of the dashboard — the direction I'd push further.</p>
+
+      <div class="cs-body">
+        <p><strong>Broader testing.</strong> I'd extend testing to physical store agents. Rogers was merging its retail system with the call centre's, so testing in stores would have helped future-proof the solution for both.</p>
+      </div>
+
+      <div class="cs-strategy --bg-rogers">
+        <p class="cs-strategy-label">Why I do this</p>
+        <p>Frontline agents have one of the most difficult, least rewarded jobs out there — angry customers on one side (rarely the agent's fault), and a fast-paced, revenue-driven business on the other. <mark class="cs-hl">Making their day-to-day easier was our core mission.</mark></p>
+        <p>At the end of the day, we all work in corporations that need to be profitable. But what makes me love design is helping people work in a better mood because a technology was delightful to use — especially in high-stakes, demanding jobs.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div class="cs-lightbox" id="lightbox">
+    <button class="cs-lightbox-close" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <button class="cs-lightbox-prev" aria-label="Previous">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 4L7 12L15 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="cs-lightbox-next" aria-label="Next">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 4L17 12L9 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="cs-lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <p class="cs-lightbox-counter" id="lightbox-counter"></p>
+  </div>
+
+  <footer class="cs-footer">
+    <a href="/">← Back to portfolio</a>
+  </footer>
+
+  <script type="module" src="/script-case-study.js"></script>
+</body>
+
+</html>

@@ -177,28 +177,31 @@ export const PROJECTS = [
   },
   // 20–22: Rogers
   {
-    name: "Retail Sales Platform",
+    name: "Wireless Dashboard",
     company: "Rogers",
     year: 2024,
     img: "/images/projects/img20.jpg",
     color: "#a66363",
-    description: "Redesigning Canada's largest wireless retail sales system from the ground up — streamlining 150+ screens for 10,000+ agents.",
+    description: "Redesigning the wireless dashboard Rogers agents rely on every call — grounded in research with agents coast to coast.",
+    link: "/rogers.html",
   },
   {
-    name: "Retail Sales Platform",
+    name: "Wireless Dashboard",
     company: "Rogers",
     year: 2024,
     img: "/images/projects/img21.jpg",
     color: "#e67339",
-    description: "Redesigning Canada's largest wireless retail sales system from the ground up — streamlining 150+ screens for 10,000+ agents.",
+    description: "Redesigning the wireless dashboard Rogers agents rely on every call — grounded in research with agents coast to coast.",
+    link: "/rogers.html",
   },
   {
-    name: "Retail Sales Platform",
+    name: "Wireless Dashboard",
     company: "Rogers",
     year: 2024,
     img: "/images/projects/img23.jpg",
     color: "#5f7c98",
-    description: "Redesigning Canada's largest wireless retail sales system from the ground up — streamlining 150+ screens for 10,000+ agents.",
+    description: "Redesigning the wireless dashboard Rogers agents rely on every call — grounded in research with agents coast to coast.",
+    link: "/rogers.html",
   },
   // 23–25: Valence
   {

@@ -14,6 +14,7 @@ export default defineConfig({
         valence: resolve(__dirname, "valence.html"),
         portals: resolve(__dirname, "portals.html"),
         fifa: resolve(__dirname, "fifa.html"),
+        rogers: resolve(__dirname, "rogers.html"),
       },
       output: {
         assetFileNames: "assets/[name]-[hash].[ext]",

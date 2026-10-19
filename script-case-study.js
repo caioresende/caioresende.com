@@ -354,6 +354,25 @@ const textObserver = new IntersectionObserver(
 document.querySelectorAll(".cs-feature-panel-text").forEach((el) => textObserver.observe(el));
 
 // ========================================
+// Lazy videos (data-src → src when near the viewport)
+// ========================================
+
+const lazyVideoObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const video = entry.target;
+      video.src = video.dataset.src;
+      video.removeAttribute("data-src");
+      lazyVideoObserver.unobserve(video);
+    });
+  },
+  { rootMargin: "600px 0px" }
+);
+
+document.querySelectorAll("video[data-src]").forEach((el) => lazyVideoObserver.observe(el));
+
+// ========================================
 // Device tilt (3D rotate + zoom on hover)
 // ========================================
 
