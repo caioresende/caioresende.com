@@ -56,6 +56,7 @@ export default defineConfig({
         portals: resolve(__dirname, "portals.html"),
         fifa: resolve(__dirname, "fifa.html"),
         rogers: resolve(__dirname, "rogers.html"),
+        clio: resolve(__dirname, "clio.html"),
       },
       output: {
         assetFileNames: "assets/[name]-[hash].[ext]",
