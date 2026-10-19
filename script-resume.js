@@ -16,6 +16,21 @@ const hlObserver = new IntersectionObserver(
 
 document.querySelectorAll(".cs-hl").forEach((el) => hlObserver.observe(el));
 
+// Career highlights: staggered reveal on scroll (delay comes from each card's --i)
+const highlightObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        highlightObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+document.querySelectorAll(".resume-highlight").forEach((el) => highlightObserver.observe(el));
+
 // ========================================
 // Typewriter Animation (hover-triggered)
 // ========================================
