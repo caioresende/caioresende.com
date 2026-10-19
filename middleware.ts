@@ -140,11 +140,13 @@ export default async function middleware(request: Request): Promise<Response | u
     const form = await request.formData();
     const password = String(form.get("password") || "");
     if (!(await isValid(password))) return gatePage(true);
+    // Secure only over HTTPS, so the cookie also sticks on http://localhost in dev.
+    const secure = url.protocol === "https:" ? "; Secure" : "";
     return new Response(null, {
       status: 303,
       headers: {
         location: url.pathname,
-        "set-cookie": `${COOKIE}=${encodeURIComponent(password)}; Path=/; Max-Age=${MAX_AGE}; HttpOnly; Secure; SameSite=Lax`,
+        "set-cookie": `${COOKIE}=${encodeURIComponent(password)}; Path=/; Max-Age=${MAX_AGE}; HttpOnly${secure}; SameSite=Lax`,
       },
     });
   }
