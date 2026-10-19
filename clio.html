@@ -85,20 +85,41 @@
 
       <div class="cs-body">
         <h3>The Problem</h3>
-        <p>A contract doesn't end when it's signed. It moves through drafting, review, negotiation, approval, signature, and then a long life of obligations, deadlines, and renewals. Every stage has its own people, its own documents, and its own risks.</p>
-        <p>For lawyers, the hard part isn't any single step — it's <mark class="cs-hl">knowing where every contract stands and what needs to happen next</mark>, without losing the details that matter. When that information is scattered across emails, documents, and memory, things slip.</p>
+        <p>A contract goes through a lot before it's done: drafting, internal review, negotiation with the other side, approval, signature, and closing. Each phase has different people, different versions of the document, and different things that can go wrong.</p>
+        <p>The project started with understanding <mark class="cs-hl">how different law practices actually work with contracts</mark> — from the first draft to a signed, closed agreement. No two practices run that workflow quite the same way.</p>
 
-        <h3>Many Practice Areas, One Product</h3>
-        <p>Lawyers don't all work the same way. Each practice area brings its own types of contracts, its own vocabulary, and its own definition of "done." The design challenge is building flows that are specific enough to feel right for each lawyer, but consistent enough to stay one product.</p>
-        <p>That's why I tested with lawyers <strong>across multiple practice areas</strong>, not just one. A flow that works beautifully for one group can quietly break for another — and you only find out by putting it in front of both.</p>
+        <h3>Inside the Firm: Drafts and Approvals</h3>
+        <p>Before a contract ever leaves the firm, it goes through an internal loop. A paralegal might prepare the first draft, then work back and forth with a senior lawyer who reviews and requests changes. Each round creates a new version, and the file moves from rough draft to something the firm is ready to stand behind.</p>
+        <p>Only once it's approved internally does it go out to the other side. Making that internal path clear — what's still a draft, what's waiting for approval, and what's ready to send — was the first piece of the puzzle.</p>
+
+        <h3>Who Holds the Pen</h3>
+        <p>Once the contract goes external, negotiation begins. Internal and external parties trade versions back and forth, each side redlining the other's changes. At any moment, one party is responsible for the next edit — <mark class="cs-hl">they hold the pen</mark>.</p>
+        <p>When people lose track of who holds the pen, they edit the wrong version, wait on each other without knowing it, or send out a file that's already out of date. So the experience needed to make the state of the negotiation obvious:</p>
+        <ul>
+          <li><strong>Clear statuses</strong> that say where the contract is in its lifecycle.</li>
+          <li><strong>Versions</strong> users can see, trust, and compare side by side.</li>
+          <li><strong>Redlining</strong> that shows exactly what changed between rounds, and by whom.</li>
+          <li><strong>Ownership</strong> that makes it clear whose turn it is to act.</li>
+        </ul>
+
+        <h3>From Final Draft to Signed Contract</h3>
+        <p>When both sides agree, the work isn't over. The final version has to be cleaned up, compiled, and exported as a final PDF. That PDF goes out for signature to anywhere from one to many parties.</p>
+        <p>Then the signed copy comes back. This is a quiet but critical moment: the firm needs to <mark class="cs-hl">validate that the document that was signed is the same document that was sent</mark>. A single changed clause between sending and signing can matter enormously, so the product helps confirm the signed file matches the original.</p>
       </div>
 
       <div class="cs-strategy --bg-rogers">
         <p class="cs-strategy-label">Design principle</p>
-        <p>In legal work, clarity beats cleverness. Every status, date, and next step should be obvious at a glance — <mark class="cs-hl">because a misread contract has real consequences</mark>.</p>
+        <p>At every step, a lawyer should be able to answer three questions at a glance: <mark class="cs-hl">Where is this contract? Is this the latest version? What can I do next?</mark></p>
       </div>
 
       <div class="cs-body">
+        <h3>What's My Next Step?</h3>
+        <p>Across so many phases, people, and versions, the thread through every feature was the same: making sure the document is always in its latest version, and that users understand their next actions. In a workflow this long, "what can I do now?" is the question that matters most — and the product should answer it before the user has to ask.</p>
+
+        <h3>Many Practice Areas, One Product</h3>
+        <p>Each practice area brings its own types of contracts, its own vocabulary, and its own definition of "done." The design challenge is building flows that are specific enough to feel right for each lawyer, but consistent enough to stay one product.</p>
+        <p>That's why I tested with lawyers <strong>across multiple practice areas</strong>, not just one. A flow that works beautifully for one group can quietly break for another — and you only find out by putting it in front of both.</p>
+
         <h3>Validating with Lawyers</h3>
         <p>I ran dozens of rapid validation sessions with lawyers using high-fidelity coded prototypes. Some sessions zoomed in on individual features; others walked through larger end-to-end flows, following a contract from one stage to the next.</p>
         <p>Working in code changed the quality of the feedback. Lawyers could click, type, and move through a flow the way they would in their day — so instead of reacting to how a screen looks, they reacted to <mark class="cs-hl">how the work actually felt</mark>. That made it much faster to separate what was confusing from what was simply unfamiliar.</p>
