@@ -20,7 +20,7 @@ const COOKIE = "case_study_access";
 const MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 // Protected pages and the copy shown on their password screen.
 const ROGERS = { eyebrow: "UX Case Study · Rogers", title: "The Wireless Dashboard Redesign" };
-const CLIO = { eyebrow: "Case Studies · Clio", title: "Designing for Legal Work at Clio" };
+const CLIO = { eyebrow: "Case Studies · Clio", title: "Making Legal Work Clear at Clio" };
 const PAGES: Record<string, { eyebrow: string; title: string }> = {
   "/rogers": ROGERS,
   "/rogers.html": ROGERS,
